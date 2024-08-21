@@ -39,6 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const certificationCourses = [
     {
+      title: "Cucumber for REST API test",
+      image: "images/cucumberEN.png",
+    },
+    {
       title: "Web Developer: Advanced Java Script, React.js",
       image: "images/devstock2.png",
     },
