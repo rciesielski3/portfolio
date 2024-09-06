@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const certificationCourses = [
     {
-      title: "Kbernetes: wdraanie aplikacji i usług oraz monitoring",
+      title: "Kubernetes: wdraźanie aplikacji i usług oraz monitoring",
       image: "images/kubernetesAppMon.jpg",
     },
     {
