@@ -39,6 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const certificationCourses = [
     {
+      title: "Kbernetes: wdraanie aplikacji i usług oraz monitoring",
+      image: "images/kubernetesAppMon.jpg",
+    },
+    {
       title: "Cucumber for REST API test",
       image: "images/cucumberEN.jpeg",
     },
