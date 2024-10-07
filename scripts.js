@@ -39,6 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const certificationCourses = [
     {
+      title: "Java for testers",
+      image: "images/javaForTestersEN.jpg",
+    },
+    {
       title: "Kubernetes: wdraźanie aplikacji i usług oraz monitoring",
       image: "images/kubernetesAppMon.jpg",
     },
