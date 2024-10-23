@@ -22,7 +22,7 @@ const CertificationCard = ({ course }) => {
           onClose={() => setShowModal(false)}
           title={course.title}
         >
-          <img ssrc={imageUrl} alt={course.title} style={{ width: "80%" }} />
+          <img src={imageUrl} alt={course.title} style={{ width: "80%" }} />
         </Modal>
       )}
     </div>
