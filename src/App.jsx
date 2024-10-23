@@ -46,7 +46,7 @@ const App = () => {
             <Route path="/mysmarthome" element={<MySmartHome />} />
             <Route path="/experience" element={<LinkedInProfile />} />
             <Route path="/contact" element={<ContactForm />} />
-            <Route path="/" exact element={<MainPage />} />
+            <Route path="/portfolio" exact element={<MainPage />} />
           </Routes>
         </div>
         <Footer />
