@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Java for testers",
+    "image": "images/javaForTestersEN.jpg"
+  },
+  {
+    "title": "Kubernetes: wdraźanie aplikacji i usług oraz monitoring",
+    "image": "images/kubernetesAppMon.jpg"
+  },
+  {
+    "title": "Cucumber for REST API test",
+    "image": "images/cucumberEN.jpeg"
+  },
+  {
+    "title": "Web Developer: Advanced Java Script, React.js",
+    "image": "images/devstock2.png"
+  },
+  {
+    "title": "Test Debugging Academy",
+    "image": "images/tdaEN.jpeg"
+  },
+  {
+    "title": "Web Developer: HTML, CSS, Java Script",
+    "image": "images/devstock1.png"
+  },
+  {
+    "title": "Backend Testing Academy",
+    "image": "images/stb2EN.jpeg"
+  },
+  {
+    "title": "Podstawy sztucznej inteligencji",
+    "image": "images/podstawyAI.jpeg"
+  },
+  {
+    "title": "ISTQB Certified Tester",
+    "image": "images/istqb.jpeg"
+  },
+  {
+    "title": "QA: Bezpieczeństwo w testach",
+    "image": "images/bezpieczenstwo_w_testach.jpg"
+  },
+  {
+    "title": "HDI analityk centrum wsparcia",
+    "image": "images/analityk.jpg"
+  },
+  {
+    "title": "Budowa katalogu usług",
+    "image": "images/katalog_uslug.jpg"
+  },
+  {
+    "title": "Administration of Linux OS",
+    "image": "images/administration_Linux.jpg"
+  },
+  {
+    "title": "CCNA: Introduction to Networks",
+    "image": "images/Cisco_certificate_1.jpg"
+  },
+  {
+    "title": "CCNA: Routing and Switching Essentials",
+    "image": "images/Cisco_certificate_2.jpg"
+  },
+  {
+    "title": "CCNA: Scaling Networks",
+    "image": "images/Cisco_certificate_3.jpg"
+  },
+  {
+    "title": "CCNA: Connecting Networks",
+    "image": "images/Cisco_certificate_4.jpg"
+  }
+]

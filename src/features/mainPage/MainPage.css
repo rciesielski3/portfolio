@@ -1,0 +1,56 @@
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2;
+}
+
+.typing-container {
+  margin-top: 25vh;
+  margin-left: 50px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+.icon {
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.linkedin {
+  color: #0a66c2;
+}
+
+.github {
+  color: #171515;
+}
+
+.right-section {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.4;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
