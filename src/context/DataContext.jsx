@@ -6,10 +6,11 @@ const DataProvider = ({ children }) => {
   const [aboutMeContent, setAboutMeContent] = useState([]);
   const [certificationCourses, setCertificationCourses] = useState([]);
   const [responsibilities, setResponsibilities] = useState({});
-  console.log("aboutMeContent" + aboutMeContent);
+
+  const baseUrl = process.env.PUBLIC_URL;
 
   useEffect(() => {
-    fetch("/data/aboutMeContent.json")
+    fetch(`${baseUrl}/data/aboutMeContent.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -19,7 +20,7 @@ const DataProvider = ({ children }) => {
       .then((data) => setAboutMeContent(data))
       .catch((error) => console.error("Error fetching aboutMeContent:", error));
 
-    fetch("/data/responsibilities.json")
+    fetch(`${baseUrl}/data/responsibilities.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -31,7 +32,7 @@ const DataProvider = ({ children }) => {
         console.error("Error fetching responsibilities:", error)
       );
 
-    fetch("/data/certifications.json")
+    fetch(`${baseUrl}/data/certifications.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
