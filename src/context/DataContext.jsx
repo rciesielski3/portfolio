@@ -4,6 +4,7 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [aboutMeContent, setAboutMeContent] = useState([]);
+  const [traits, setTraits] = useState([]);
   const [certificationCourses, setCertificationCourses] = useState([]);
   const [responsibilities, setResponsibilities] = useState({});
 
@@ -19,6 +20,16 @@ const DataProvider = ({ children }) => {
       })
       .then((data) => setAboutMeContent(data))
       .catch((error) => console.error("Error fetching aboutMeContent:", error));
+
+    fetch(`${baseUrl}/data/traits.json`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => setTraits(data.traits))
+      .catch((error) => console.error("Error fetching traits:", error));
 
     fetch(`${baseUrl}/data/responsibilities.json`)
       .then((response) => {
@@ -45,7 +56,7 @@ const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ aboutMeContent, certificationCourses, responsibilities }}
+      value={{ aboutMeContent, traits, certificationCourses, responsibilities }}
     >
       {children}
     </DataContext.Provider>
