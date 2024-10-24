@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Modal from "../../components/modal/Modal";
+import React, { useState, useEffect, useContext } from "react";
+import Modal from "../../components/Modal";
 import Quotes from "../../shared/Quotes";
 import { DataContext } from "../../context/DataContext";
 

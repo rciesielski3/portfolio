@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const BlogPreview = ({ url, title }) => {
+  const [loading, setLoading] = useState(true);
+
+  const handleIframeLoad = () => {
+    setLoading(false);
+  };
   return (
     <div className="iframe-container">
       <h2 className="text-3xl font-bold text-blue-500 mb-4 text-shadow">
         {title}
       </h2>
+      {loading && <LoadingSpinner message="Loading blog preview..." />}
       <iframe
         src={url}
         title={title}

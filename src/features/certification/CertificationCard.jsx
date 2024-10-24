@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../../components/modal/Modal";
+import Modal from "../../components/Modal";
 
 const CertificationCard = ({ course }) => {
   const [showModal, setShowModal] = useState(false);
