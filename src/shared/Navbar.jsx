@@ -18,7 +18,7 @@ const NavBar = () => {
     location.pathname === "/blogs/quality-assurance";
 
   return (
-    <nav className="bg-gray-800 p-4 text-xl">
+    <nav className="bg-gray-800 p-4 text-xl z-10 relative">
       <ul className="list-none flex justify-around">
         <li>
           <NavLink
