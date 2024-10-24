@@ -8,6 +8,7 @@ const BlogPreview = ({ url, title }) => {
   const handleIframeLoad = () => {
     setLoading(false);
   };
+
   return (
     <div className="iframe-container">
       <h2 className="text-3xl font-bold text-blue-500 mb-4 text-shadow">
@@ -20,7 +21,8 @@ const BlogPreview = ({ url, title }) => {
         allowFullScreen
         width="100%"
         height="85%"
-        className="border-2 border-gray-300"
+        className="border-2 border-gray-400"
+        onLoad={handleIframeLoad}
       />
     </div>
   );

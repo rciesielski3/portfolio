@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
+import { DataContext } from "../../context/DataContext";
 import Modal from "../../components/Modal";
 import Quotes from "../../shared/Quotes";
-import { DataContext } from "../../context/DataContext";
 
 import generateGridPositions from "./generateGridPositions";
 
