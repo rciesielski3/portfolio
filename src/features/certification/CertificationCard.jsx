@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import Modal from "../../components/modal/Modal";
+import React from "react";
+
+import Modal from "../../components/Modal";
 
 const CertificationCard = ({ course }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = React.useState(false);
+
+  const imageUrl = `${process.env.PUBLIC_URL}/${course.image}`;
 
   return (
     <div className="certification-course-card">
       <div className="course-image-container">
         <img
-          src={course.image}
+          src={imageUrl}
           alt={course.title}
           onClick={() => setShowModal(true)}
           style={{ cursor: "pointer" }}
@@ -21,7 +24,7 @@ const CertificationCard = ({ course }) => {
           onClose={() => setShowModal(false)}
           title={course.title}
         >
-          <img src={course.image} alt={course.title} style={{ width: "80%" }} />
+          <img src={imageUrl} alt={course.title} style={{ width: "80%" }} />
         </Modal>
       )}
     </div>

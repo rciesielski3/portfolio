@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
-import Modal from "../../components/modal/Modal";
+import React, { useState, useEffect, useContext } from "react";
+import { DataContext } from "../../context/DataContext";
+import Modal from "../../components/Modal";
 import Quotes from "../../shared/Quotes";
 
 import generateGridPositions from "./generateGridPositions";
 
 const AboutMe = () => {
   const gridSize = 9;
-  const [traits, setTraits] = useState([]);
   const [visibleTraits, setVisibleTraits] = useState([]);
   const [positions, setPositions] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showButton, setShowButton] = useState(false);
+
+  const { traits } = useContext(DataContext);
 
   const handleButtonClick = () => {
     setShowModal(true);
@@ -21,27 +23,20 @@ const AboutMe = () => {
   };
 
   useEffect(() => {
-    fetch("/data/traits.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setTraits(data.traits);
+    if (traits.length > 0) {
+      const initialPositions = generateGridPositions(gridSize, traits.length);
+      setPositions(initialPositions);
 
-        const initialPositions = generateGridPositions(
-          gridSize,
-          data.traits.length
-        );
-        setPositions(initialPositions);
-
-        data.traits.forEach((trait, index) => {
-          setTimeout(() => {
-            setVisibleTraits((prev) => [...prev, trait]);
-            if (index === data.traits.length - 1) {
-              setShowButton(true);
-            }
-          }, index * 500);
-        });
+      traits.forEach((trait, index) => {
+        setTimeout(() => {
+          setVisibleTraits((prev) => [...prev, trait]);
+          if (index === traits.length - 1) {
+            setShowButton(true);
+          }
+        }, index * 500);
       });
-  }, []);
+    }
+  }, [traits, gridSize]);
 
   return (
     <div className="relative h-fit p-28 pb-48">

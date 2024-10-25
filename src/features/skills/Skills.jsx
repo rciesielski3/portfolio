@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
+
 import { DataContext } from "../../context/DataContext";
+
 import SkillSection from "./SkillSection";
 
 const Skills = () => {
