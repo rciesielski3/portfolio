@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Modal from "../../components/Modal";
 
 const CertificationCard = ({ course }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = React.useState(false);
+
   const imageUrl = `${process.env.PUBLIC_URL}/${course.image}`;
 
   return (
