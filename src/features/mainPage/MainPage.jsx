@@ -1,11 +1,46 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { db, analytics } from "../../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { logEvent } from "firebase/analytics";
 
 import TypingEffect from "../../components/typing/TypingEffect";
 
 import "./MainPage.css";
 
 const MainPage = () => {
+  const [visitCount, setVisitCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const incrementVisitCount = async () => {
+      const visitRef = doc(db, "counters", "visits");
+
+      try {
+        const docSnap = await getDoc(visitRef);
+        if (docSnap.exists()) {
+          const currentCount = docSnap.data().count;
+          console.log("Current count from Firestore:", currentCount);
+
+          await updateDoc(visitRef, {
+            count: currentCount + 1,
+          });
+
+          setVisitCount(currentCount + 1);
+
+          logEvent(analytics, "page_view", {
+            page_location: window.location.href,
+            page_title: document.title,
+            region: "auto",
+          });
+        }
+      } catch (error) {
+        console.error("Error updating visitor count:", error);
+      }
+    };
+
+    incrementVisitCount();
+  }, []);
+
   return (
     <div className="main-page">
       <div className="left-section">
@@ -29,6 +64,11 @@ const MainPage = () => {
           >
             <FaGithub size={30} />
           </a>
+        </div>
+        <div className="visit-counter-container">
+          <p className="visit-counter">
+            Visitors: <span>{visitCount}</span>
+          </p>
         </div>
       </div>
       <div className="right-section">

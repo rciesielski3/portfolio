@@ -46,7 +46,7 @@ const LinkedInProfile = () => {
         <div>
           <p>{error}</p>
           <button
-            className="btnLinkedIn"
+            className="btnLinkedIn text-blue-500"
             onClick={() =>
               window.open(
                 "https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100",

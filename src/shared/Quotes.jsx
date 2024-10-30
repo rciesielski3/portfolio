@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import LoadingSpinner from "../components/LoadingSpinner";
+
 const Quotes = () => {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
@@ -35,12 +37,7 @@ const Quotes = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center">
-        <div className="spinner border-t-4 border-blue-500 rounded-full w-8 h-8 animate-spin"></div>
-        <span className="ml-2 text-gray-500">Loading quote...</span>
-      </div>
-    );
+    return <LoadingSpinner message="Loading quote..." />;
   }
 
   if (error) {

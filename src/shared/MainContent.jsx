@@ -22,7 +22,7 @@ const MainContent = () => {
     contact: <ContactForm />,
   };
 
-  const [currentSection, setCurrentSection] = React.useState("about");
+  const [currentSection, setCurrentSection] = React.useState("home");
 
   return (
     <DataContext.Consumer>

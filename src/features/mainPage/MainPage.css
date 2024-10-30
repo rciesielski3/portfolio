@@ -54,3 +54,20 @@
   height: auto;
   object-fit: cover;
 }
+
+.visit-counter-container {
+  background-color: rgb(59, 59, 59);
+  padding: 10px;
+  margin: 20px 0;
+  width: 10%;
+  border-radius: 20%;
+  align-self: center;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.visit-counter {
+  font-size: 12px;
+  color: #ff5733;
+  font-weight: bold;
+}

@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
-import CertificationCard from "./CertificationCard";
+
 import { DataContext } from "../../context/DataContext";
 
+import CertificationCard from "./CertificationCard";
+
 const Certifications = () => {
-  const { certificationCourses } = useContext(DataContext);
   const [visibleCertifications, setVisibleCertifications] = useState([]);
+  const { certificationCourses } = useContext(DataContext);
 
   useEffect(() => {
     certificationCourses.forEach((_, index) => {
