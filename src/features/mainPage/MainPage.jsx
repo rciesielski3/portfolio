@@ -33,7 +33,7 @@ const MainPage = () => {
       </div>
       <div className="right-section">
         <img
-          src={`${process.env.PUBLIC_URL}/images/myImage.png`}
+          src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
           alt="Profile"
           className="profile-image"
         />
