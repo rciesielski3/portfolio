@@ -80,7 +80,7 @@ const NavBar = () => {
           </span>
           {showSubmenu && (
             <ul
-              className="absolute mt-3 bg-gray-700 shadow-lg rounded-lg p-2"
+              className="absolute mt-4 bg-gray-700 shadow-lg rounded-b-lg p-2"
               onMouseLeave={handleMouseLeave}
             >
               <li>
