@@ -26,7 +26,7 @@ const App = () => {
         <NavBar />
         <div style={{ padding: "20px" }}>
           <Routes>
-            <Route path="/" element={<Navigate to="/portfolio" />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/courses" element={<Certifications />} />
