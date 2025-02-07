@@ -10,7 +10,6 @@ import BlogPreview from "./features/blog/BlogPreview";
 import LinkedInProfile from "./features/experience/LinkedInProfile";
 import MySmartHome from "./features/smarthome/MySmartHome";
 import MainPage from "./features/mainPage/MainPage";
-import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
 import DataProvider from "./context/DataContext";
 import NavBar from "./shared/Navbar";
 import Footer from "./shared/Footer";
@@ -49,7 +48,6 @@ const App = () => {
             <Route path="/experience" element={<LinkedInProfile />} />
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/portfolio" exact element={<MainPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </div>
         <Footer />
