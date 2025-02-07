@@ -1,5 +1,10 @@
 import React from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 import AboutMe from "./features/about/AboutMe";
 import Skills from "./features/skills/Skills";
@@ -21,6 +26,7 @@ const App = () => {
         <NavBar />
         <div style={{ padding: "20px" }}>
           <Routes>
+            <Route path="/" element={<Navigate to="/portfolio" />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/courses" element={<Certifications />} />
