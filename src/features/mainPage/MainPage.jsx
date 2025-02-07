@@ -18,21 +18,23 @@ const MainPage = () => {
       try {
         const docSnap = await getDoc(visitRef);
         if (docSnap.exists()) {
-          const currentCount = docSnap.data().count;
+          const currentCount = docSnap.data().count || 0;
           console.log("Current count from Firestore:", currentCount);
 
-          await updateDoc(visitRef, {
-            count: currentCount + 1,
-          });
+          await updateDoc(visitRef, { count: currentCount + 1 });
 
           setVisitCount(currentCount + 1);
-
-          logEvent(analytics, "page_view", {
-            page_location: window.location.href,
-            page_title: document.title,
-            region: "auto",
-          });
+        } else {
+          console.warn("Firestore document does not exist. Creating it...");
+          await updateDoc(visitRef, { count: 1 });
+          setVisitCount(1);
         }
+
+        logEvent(analytics, "page_view", {
+          page_location: window.location.href,
+          page_title: document.title,
+          region: "auto",
+        });
       } catch (error) {
         console.error("Error updating visitor count:", error);
       }
