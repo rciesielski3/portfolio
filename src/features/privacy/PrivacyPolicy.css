@@ -1,55 +1,58 @@
-.container {
+.privacy-container {
   max-width: 850px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
+  margin: 60px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  text-align: left;
 }
 
-h1,
-h2 {
-  color: #0056b3;
+.privacy-container h1,
+.privacy-container h2 {
+  color: #2c3e50;
 }
 
-h1 {
+.privacy-container h1 {
   text-align: center;
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 20px;
 }
 
-h2 {
-  font-size: 22px;
-  margin-top: 25px;
-  border-bottom: 2px solid #0056b3;
+.privacy-container h2 {
+  font-size: 24px;
+  margin-top: 30px;
+  border-bottom: 2px solid #2c3e50;
   padding-bottom: 5px;
 }
 
-p {
-  font-size: 16px;
+.privacy-container p {
+  font-size: 18px;
   margin-bottom: 15px;
+  color: #ddd;
 }
 
-ul {
+.privacy-container ul {
   margin-left: 20px;
   padding-left: 15px;
 }
 
-li {
-  margin-bottom: 8px;
+.privacy-container li {
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
-a {
+.privacy-container a {
   color: #007bff;
   text-decoration: none;
   font-weight: bold;
 }
 
-a:hover {
+.privacy-container a:hover {
   text-decoration: underline;
 }
 
-.contact-link {
+.privacy-contact-link {
   display: block;
   text-align: center;
   margin-top: 20px;
@@ -60,8 +63,9 @@ a:hover {
   font-weight: bold;
   text-decoration: none;
   border-radius: 8px;
+  transition: background 0.3s ease-in-out;
 }
 
-.contact-link:hover {
+.privacy-contact-link:hover {
   background: #0056b3;
 }

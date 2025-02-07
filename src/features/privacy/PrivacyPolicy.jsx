@@ -1,10 +1,9 @@
 import React from "react";
-
 import "./PrivacyPolicy.css";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="container">
+    <div className="privacy-container">
       <h1>Privacy Policy</h1>
       <p>
         <strong>Last Updated:</strong> 07.02.2025
@@ -48,7 +47,7 @@ const PrivacyPolicy = () => {
       <h2>4. Contact</h2>
       <p>
         If you have any questions, please{" "}
-        <a href="/portfolio/#/contact" className="contact-link">
+        <a href="/portfolio/#/contact" className="privacy-contact-link">
           contact us using the form
         </a>
         .
