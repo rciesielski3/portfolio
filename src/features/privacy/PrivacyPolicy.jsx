@@ -46,11 +46,10 @@ const PrivacyPolicy = () => {
 
       <h2>4. Contact</h2>
       <p>
-        If you have any questions, please{" "}
+        If you have any questions, use below button
         <a href="/portfolio/#/contact" className="privacy-contact-link">
           contact us using the form
         </a>
-        .
       </p>
     </div>
   );
