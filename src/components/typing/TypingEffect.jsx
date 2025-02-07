@@ -19,7 +19,7 @@ const TypingEffect = () => {
         console.error("Failed to fetch words from JSON", error);
         setWords([
           "Father",
-          "QA tester",
+          "QA engineer",
           "FullStack Learner",
           "Sports enthusiast",
         ]);

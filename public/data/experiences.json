@@ -1,0 +1,29 @@
+{
+  "experiences": [
+    {
+      "title": "Software Tester",
+      "time": "Goelett 2023 - Current",
+      "description": "Working on automated testing frameworks and ensuring quality assurance for enterprise solutions."
+    },
+    {
+      "title": "QA Engineer",
+      "time": "Fibar Group - 2018 - 2023",
+      "description": "Led quality assurance processes and improved testing strategies for smart home devices."
+    },
+    {
+      "title": "Technical Engineer",
+      "time": "Fibar Group - 2015 - 2018",
+      "description": "Provided technical support and contributed to product development for IoT solutions."
+    }
+  ],
+  "education": [
+    {
+      "title": "Master of Science in Electrical Engineering",
+      "time": "Poznan University of Technology - 2007 - 2009"
+    },
+    {
+      "title": "Bachelor of Electrical Engineering",
+      "time": "Poznan University of Technology - 2002 - 2006"
+    }
+  ]
+}
