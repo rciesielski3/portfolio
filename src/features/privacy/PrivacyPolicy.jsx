@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
   return (
     <div style={{ maxWidth: "800px", margin: "40px auto", padding: "20px" }}>
       <h1>Privacy Policy</h1>
       <p>
-        <strong>Last Updated:</strong> [Insert Date]
+        <strong>Last Updated:</strong> 07.02.2025
       </p>
       <p>
         This Privacy Policy applies to all applications and services provided by
@@ -52,7 +53,16 @@ const PrivacyPolicy = () => {
       </p>
 
       <h2>7. Contact</h2>
-      <p>If you have any questions, contact us at using contact form</p>
+      <p>
+        If you have any questions, feel free to{" "}
+        <Link
+          to="/contact"
+          style={{ color: "blue", textDecoration: "underline" }}
+        >
+          contact us using the form
+        </Link>
+        .
+      </p>
     </div>
   );
 };
