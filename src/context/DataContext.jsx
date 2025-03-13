@@ -10,7 +10,7 @@ const DataProvider = ({ children }) => {
   const [experiences, setExperiences] = React.useState([]);
   const [education, setEducation] = React.useState([]);
 
-  const baseUrl = `${process.env.PUBLIC_URL || ""}`.replace(/\/$/, "");
+  const baseUrl = "https://rciesielski3.github.io/portfolio";
 
   React.useEffect(() => {
     const fetchData = async () => {
