@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  HashRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 import AboutMe from "./features/about/AboutMe";
 import Skills from "./features/skills/Skills";
@@ -15,9 +10,12 @@ import BlogPreview from "./features/blog/BlogPreview";
 import LinkedInProfile from "./features/experience/LinkedInProfile";
 import MySmartHome from "./features/smarthome/MySmartHome";
 import MainPage from "./features/mainPage/MainPage";
+import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
+
 import DataProvider from "./context/DataContext";
-import NavBar from "./shared/Navbar";
+import NavBar from "./shared/navbar/Navbar";
 import Footer from "./shared/Footer";
+import ExperiencePage from "./features/experience/ExperiencePage";
 
 const App = () => {
   return (
@@ -50,10 +48,11 @@ const App = () => {
               }
             />
             <Route path="/mysmarthome" element={<MySmartHome />} />
-            {/* <Route path="/experience" element={<ExperiencePage />} /> */}
-            <Route path="/experience" element={<LinkedInProfile />} />
+            <Route path="/experience" element={<ExperiencePage />} />
+            {/* <Route path="/experience" element={<LinkedInProfile />} /> */}
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/portfolio" exact element={<MainPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </div>
         <Footer />

@@ -1,22 +1,37 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
 .left-section {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 20px;
   z-index: 2;
+  width: 100%;
 }
 
 .typing-container {
-  margin-top: 25vh;
-  margin-left: 50px;
+  margin-top: 15vh;
+  text-align: center;
 }
 
 .social-icons {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-left: 50px;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
 }
 
 .icon {
@@ -36,38 +51,86 @@
   color: #171515;
 }
 
-.right-section {
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  width: 50%;
+.visit-counter-container {
+  background-color: rgb(59, 59, 59);
+  padding: 10px 30px;
+  margin-top: auto;
+  margin-bottom: 30px;
+  width: fit-content;
+  border-radius: 20px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.4;
-}
-
-.profile-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.visit-counter-container {
-  background-color: rgb(59, 59, 59);
-  padding: 10px;
-  margin: 20px 0;
-  width: 10%;
-  border-radius: 20%;
-  align-self: center;
-  margin-left: 50px;
-  margin-top: 100px;
 }
 
 .visit-counter {
   font-size: 12px;
   color: #ff5733;
   font-weight: bold;
+}
+
+.right-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.4;
+  margin-top: 30px;
+}
+
+.profile-image {
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .main-page {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .left-section {
+    align-items: flex-start;
+    text-align: left;
+    width: 50%;
+  }
+
+  .typing-container {
+    margin-top: 10vh;
+    margin-left: 50px;
+  }
+
+  .social-icons {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: auto;
+  }
+
+  .visit-counter-container {
+    position: absolute;
+    left: 43%;
+    top: 60%;
+    padding: 10px 50px;
+    width: auto;
+  }
+
+  .right-section {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-image {
+    max-width: 100%;
+  }
 }
