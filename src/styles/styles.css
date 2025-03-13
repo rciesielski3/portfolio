@@ -149,7 +149,7 @@ h3 {
 footer {
   width: 100%;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #222;
   color: #fff;
   position: fixed;
@@ -158,7 +158,7 @@ footer {
 
 footer p {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .modal-overlay {
