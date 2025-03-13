@@ -1,16 +1,16 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext } from "react";
 
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [aboutMeContent, setAboutMeContent] = useState([]);
-  const [traits, setTraits] = useState([]);
-  const [certificationCourses, setCertificationCourses] = useState([]);
-  const [responsibilities, setResponsibilities] = useState({});
+  const [aboutMeContent, setAboutMeContent] = React.useState([]);
+  const [traits, setTraits] = React.useState([]);
+  const [certificationCourses, setCertificationCourses] = React.useState([]);
+  const [responsibilities, setResponsibilities] = React.useState({});
 
   const baseUrl = process.env.PUBLIC_URL;
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetch(`${baseUrl}/data/aboutMeContent.json`)
       .then((response) => {
         if (!response.ok) {

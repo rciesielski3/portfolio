@@ -15,7 +15,6 @@ import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
 import DataProvider from "./context/DataContext";
 import NavBar from "./shared/navbar/Navbar";
 import Footer from "./shared/Footer";
-import ExperiencePage from "./features/experience/ExperiencePage";
 
 const App = () => {
   return (
@@ -48,11 +47,10 @@ const App = () => {
               }
             />
             <Route path="/mysmarthome" element={<MySmartHome />} />
-            <Route path="/experience" element={<ExperiencePage />} />
-            {/* <Route path="/experience" element={<LinkedInProfile />} /> */}
+            <Route path="/experience" element={<LinkedInProfile />} />
             <Route path="/contact" element={<ContactForm />} />
-            <Route path="/portfolio" exact element={<MainPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/portfolio" exact element={<MainPage />} />
           </Routes>
         </div>
         <Footer />
