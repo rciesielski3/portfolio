@@ -15,6 +15,7 @@ import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
 import DataProvider from "./context/DataContext";
 import NavBar from "./shared/navbar/Navbar";
 import Footer from "./shared/Footer";
+import PagePreview from "./features/page/PagePreview";
 
 const App = () => {
   return (
@@ -43,6 +44,24 @@ const App = () => {
                 <BlogPreview
                   url="https://qa-blog.onrender.com/"
                   title="Quality Assurance"
+                />
+              }
+            />
+            <Route
+              path="/pages/mysmarthome"
+              element={
+                <PagePreview
+                  url="https://mysmarthome.cba.pl/"
+                  title="My Smart Home"
+                />
+              }
+            />
+            <Route
+              path="/pages/learn-js-react-basics"
+              element={
+                <PagePreview
+                  url="https://learn-js-react-basics.vercel.app/"
+                  title="JS & React Fundamentals"
                 />
               }
             />
