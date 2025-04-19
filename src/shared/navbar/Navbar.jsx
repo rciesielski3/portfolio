@@ -1,31 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+
 import "./NavBar.css";
 
 const NavBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showSubmenu, setShowSubmenu] = useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [openSubmenu, setOpenSubmenu] = React.useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const toggleSubmenu = () => {
-    setShowSubmenu(!showSubmenu);
+  const handleMouseEnter = (type) => {
+    setOpenSubmenu(type);
+  };
+
+  const handleMouseLeave = () => {
+    setOpenSubmenu(null);
   };
 
   return (
     <nav className="navbar">
-      {/* Mobile Menu Button */}
       <div className="navbar-toggle">
         <span className="navbar-title">My Portfolio</span>
         <button onClick={toggleMenu} className="navbar-menu-btn">
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
-
-      {/* Navigation Menu */}
       <ul className={`navbar-menu ${menuOpen ? "active" : ""}`}>
         <li className="navbar-menu-item">
           <NavLink to="/about" onClick={() => setMenuOpen(false)}>
@@ -47,13 +49,17 @@ const NavBar = () => {
             Github Repositories
           </NavLink>
         </li>
-
-        {/* Blogs with Dropdown */}
-        <li className="navbar-dropdown">
-          <button className="navbar-dropdown-btn" onClick={toggleSubmenu}>
-            Blogs
-          </button>
-          <ul className={`navbar-dropdown-menu ${showSubmenu ? "active" : ""}`}>
+        <li
+          className="navbar-dropdown"
+          onMouseEnter={() => handleMouseEnter("blogs")}
+          onMouseLeave={handleMouseLeave}
+        >
+          <button className="navbar-dropdown-btn">Blogs</button>
+          <ul
+            className={`navbar-dropdown-menu ${
+              openSubmenu === "blogs" ? "active" : ""
+            }`}
+          >
             <li>
               <Link to="/blogs/qa-journey" onClick={() => setMenuOpen(false)}>
                 QA Journey
@@ -65,6 +71,32 @@ const NavBar = () => {
                 onClick={() => setMenuOpen(false)}
               >
                 Quality Assurance
+              </Link>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="navbar-dropdown"
+          onMouseEnter={() => handleMouseEnter("pages")}
+          onMouseLeave={handleMouseLeave}
+        >
+          <button className="navbar-dropdown-btn">Pages</button>
+          <ul
+            className={`navbar-dropdown-menu ${
+              openSubmenu === "pages" ? "active" : ""
+            }`}
+          >
+            <li>
+              <Link
+                to="/pages/learn-js-react-basics"
+                onClick={() => setMenuOpen(false)}
+              >
+                JS & React Fundamentals
+              </Link>
+            </li>
+            <li>
+              <Link to="/pages/mysmarthome" onClick={() => setMenuOpen(false)}>
+                My Smart Home
               </Link>
             </li>
           </ul>

@@ -15,7 +15,7 @@ const generateGridPositions = (gridSize, numberOfTraits) => {
 
     positions.push({
       top: `${30 + row * 15}vh`,
-      left: `${20 + col * 20}vw`,
+      left: `${15 + col * 25}vw`,
     });
   }
 
