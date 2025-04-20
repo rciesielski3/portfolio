@@ -95,6 +95,14 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
+              <Link
+                to="/pages/mini-game-collection"
+                onClick={() => setMenuOpen(false)}
+              >
+                Mini Game Collection
+              </Link>
+            </li>
+            <li>
               <Link to="/pages/mysmarthome" onClick={() => setMenuOpen(false)}>
                 My Smart Home
               </Link>
