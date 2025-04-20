@@ -65,6 +65,15 @@ const App = () => {
                 />
               }
             />
+            <Route
+              path="/pages/mini-game-collection"
+              element={
+                <PagePreview
+                  url="https://mini-game-collection.vercel.app/"
+                  title="Mini Game Collection"
+                />
+              }
+            />
             <Route path="/mysmarthome" element={<MySmartHome />} />
             <Route path="/experience" element={<LinkedInProfile />} />
             <Route path="/contact" element={<ContactForm />} />
