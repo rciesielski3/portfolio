@@ -7,7 +7,6 @@ import Certifications from "./features/certification/Certifications";
 import ContactForm from "./features/contact/ContactForm";
 import GithubRepositories from "./features/github/GithubRepositories";
 import BlogPreview from "./features/blog/BlogPreview";
-import LinkedInProfile from "./features/experience/LinkedInProfile";
 import MySmartHome from "./features/smarthome/MySmartHome";
 import MainPage from "./features/mainPage/MainPage";
 import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
@@ -16,6 +15,7 @@ import DataProvider from "./context/DataContext";
 import NavBar from "./shared/navbar/Navbar";
 import Footer from "./shared/Footer";
 import PagePreview from "./features/page/PagePreview";
+import ExperiencePage from "./features/experience/ExperiencePage";
 
 const App = () => {
   return (
@@ -75,7 +75,8 @@ const App = () => {
               }
             />
             <Route path="/mysmarthome" element={<MySmartHome />} />
-            <Route path="/experience" element={<LinkedInProfile />} />
+            {/* <Route path="/experience" element={<LinkedInProfile />} /> */}
+            <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/portfolio" exact element={<MainPage />} />

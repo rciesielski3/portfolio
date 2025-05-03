@@ -5,9 +5,9 @@ import Skills from "../features/skills/Skills";
 import Certifications from "../features/certification/Certifications";
 import GithubRepositories from "./GithubRepositories";
 import BlogPreview from "../features/blog/BlogPreview";
-import LinkedInProfile from "../features/LinkedInProfile";
 import ContactForm from "../features/contact/ContactForm";
 import UnderConstruction from "../features/UnderConstruction";
+import ExperiencePage from "../features/experience/ExperiencePage";
 import { DataContext } from "../context/DataContext";
 
 const MainContent = () => {
@@ -18,7 +18,7 @@ const MainContent = () => {
     courses: <Certifications />,
     github: <GithubRepositories />,
     blog: <BlogPreview />,
-    experience: <LinkedInProfile />,
+    experience: <ExperiencePage />,
     contact: <ContactForm />,
   };
 

@@ -1,8 +1,9 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { db, analytics } from "../../firebase";
+
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
+import { db, analytics } from "../../firebase";
 
 import TypingEffect from "../../components/typing/TypingEffect";
 

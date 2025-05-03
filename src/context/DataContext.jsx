@@ -3,23 +3,26 @@ import React, { createContext } from "react";
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [aboutMeContent, setAboutMeContent] = React.useState([]);
   const [traits, setTraits] = React.useState([]);
   const [certificationCourses, setCertificationCourses] = React.useState([]);
   const [responsibilities, setResponsibilities] = React.useState({});
+  const [experiences, setExperiences] = React.useState([]);
+  const [education, setEducation] = React.useState([]);
 
   const baseUrl = process.env.PUBLIC_URL;
 
   React.useEffect(() => {
-    fetch(`${baseUrl}/data/aboutMeContent.json`)
+    fetch(`${baseUrl}/data/experiences.json`)
       .then((response) => {
-        if (!response.ok) {
+        if (!response.ok)
           throw new Error(`HTTP error! status: ${response.status}`);
-        }
         return response.json();
       })
-      .then((data) => setAboutMeContent(data))
-      .catch((error) => console.error("Error fetching aboutMeContent:", error));
+      .then((data) => {
+        setExperiences(data.experiences || []);
+        setEducation(data.education || []);
+      })
+      .catch((error) => console.error("Error fetching experiences:", error));
 
     fetch(`${baseUrl}/data/traits.json`)
       .then((response) => {
@@ -56,7 +59,13 @@ const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ aboutMeContent, traits, certificationCourses, responsibilities }}
+      value={{
+        traits,
+        certificationCourses,
+        responsibilities,
+        education,
+        experiences,
+      }}
     >
       {children}
     </DataContext.Provider>
