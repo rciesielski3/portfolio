@@ -2,28 +2,51 @@
   "experiences": [
     {
       "title": "Software Tester",
-      "time": "Goelett 2023 - Current",
-      "description": "Working on automated testing frameworks and ensuring quality assurance for enterprise solutions."
+      "company": "Goelett Sp. z o.o.",
+      "time": "Dec 2023 – Mar 2025",
+      "description": "Designed and executed integration, functional, regression and data validation tests across iOS and Android. Developed automated tests and user documentation to improve quality and support."
+    },
+    {
+      "title": "Full-stack Developer — Practice",
+      "company": "Devstock Academy",
+      "time": "Oct 2023 – Present",
+      "description": "Coursant and practicant to built and tested an e-learning platform using React, Next.js, Node.js, and NestJS. Collaborated with the team to improve reliability and code quality."
+    },
+    {
+      "title": "QA Coordinator",
+      "company": "Fibar Group S.A.",
+      "time": "Dec 2020 – Dec 2023",
+      "description": "Led mobile QA team, managed test cases in TestRail, and tracked tasks in Jira. Estimated timelines and optimized test processes for on-time delivery."
     },
     {
       "title": "QA Engineer",
-      "time": "Fibar Group - 2018 - 2023",
-      "description": "Led quality assurance processes and improved testing strategies for smart home devices."
+      "company": "Fibar Group S.A.",
+      "time": "May 2018 – Dec 2020",
+      "description": "Tested mobile and web apps using (mainly) manual and automated tools like Detox and Cypress. Ensured coverage through TestRail and continuous improvement."
     },
     {
-      "title": "Technical Engineer",
-      "time": "Fibar Group - 2015 - 2018",
-      "description": "Provided technical support and contributed to product development for IoT solutions."
+      "title": "Technical Support Engineer",
+      "company": "Fibar Group S.A.",
+      "time": "Sep 2015 – May 2018",
+      "description": "Provided support for home automation users. Reported bugs in Jira, maintained documentation in Confluence, and managed tickets via Desk.com."
+    },
+    {
+      "title": "Junior IT System Engineer",
+      "company": "Samsung R&D Institute Poland",
+      "time": "Sep 2013 – Sep 2015",
+      "description": "Delivered IT support, configured hardware/software, and managed tickets using ITSM tools. Supported internal teams and infrastructure."
     }
   ],
   "education": [
     {
       "title": "Master of Science in Electrical Engineering",
-      "time": "Poznan University of Technology - 2007 - 2009"
+      "studies": "Poznan University of Technology",
+      "time": "2007 - 2009"
     },
     {
       "title": "Bachelor of Electrical Engineering",
-      "time": "Poznan University of Technology - 2002 - 2006"
+      "studies": "Poznan University of Technology",
+      "time": "2002 - 2006"
     }
   ]
 }
