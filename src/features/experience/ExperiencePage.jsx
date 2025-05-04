@@ -1,7 +1,7 @@
 import React from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import { FaSuitcase, FaGraduationCap } from "react-icons/fa";
+import "aos/dist/aos.css";
 
 import { DataContext } from "../../context/DataContext";
 
@@ -35,17 +35,13 @@ const ExperiencePage = () => {
   }, []);
 
   if (!experiences || experiences.length === 0) {
-    return (
-      <div className="text-center text-white">
-        <p>Loading experiences...</p>
-      </div>
-    );
+    return <div className="spinner">Loading...</div>;
   }
 
   return (
     <div>
       <h1
-        className="text-center text-3xl font-bold mb-8 text-blue-500"
+        className="text-center text-3xl font-bold text-blue-500"
         data-aos="fade-down"
       >
         My Resume
@@ -60,8 +56,8 @@ const ExperiencePage = () => {
       />
       <section ref={expRef}>
         <h2
-          className="text-center text-2xl font-bold mt-16 mb-8"
-          data-aos="fade-up"
+          className="text-center text-2xl font-bold my-8 p-0.5 border-4 border-orange-650 rounded-lg bg-gray-800"
+          data-aos="fade-down"
         >
           Experience
         </h2>
@@ -81,7 +77,7 @@ const ExperiencePage = () => {
               <h2 className="text-2xl font-bold">{exp.title}</h2>
               <span className="text-orange-650">{exp.company}</span>
               <p className="text-orange-650 text-xs">{exp.time}</p>
-              <p className="mt-4">{exp.description}</p>
+              <p className="mt-4 font-light">{exp.description}</p>
             </div>
             <div className="w-0 md:w-1/12 relative flex justify-center">
               <div className="absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gray-800 border-2 border-orange-650 text-orange-650 flex items-center justify-center z-10">
@@ -94,8 +90,8 @@ const ExperiencePage = () => {
       </section>
       <section ref={eduRef}>
         <h2
-          className="text-center text-2xl font-bold mt-16 mb-8"
-          data-aos="fade-up"
+          className="text-center text-2xl font-bold mt-16 mb-8 p-0.5 border-4 border-orange-650 rounded-lg bg-gray-800"
+          data-aos="fade-down"
         >
           Education
         </h2>
@@ -124,6 +120,30 @@ const ExperiencePage = () => {
             <div className="md:w-1/2" />
           </div>
         ))}
+      </section>
+      <section className="text-center mt-16">
+        <h2
+          className="text-2xl font-bold mb-4 p-0.5 border-4 border-orange-650 rounded-lg bg-gray-800"
+          data-aos="fade-down"
+        >
+          Connect with Me
+        </h2>
+        <p className="mb-4" data-aos="fade-up">
+          If you want to know more about me, feel free to check out my LinkedIn
+          profile.
+        </p>
+        <button
+          className="btnLinkedIn bg-blue-500 p-3 rounded-lg hover:bg-blue-700 hover:scale-110"
+          data-aos="fade-up"
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100",
+              "_blank"
+            )
+          }
+        >
+          Show Profile
+        </button>
       </section>
     </div>
   );

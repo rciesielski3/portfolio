@@ -1,4 +1,6 @@
 import React from "react";
+
+import { DataContext } from "../context/DataContext";
 import MainPage from "../features/mainPage/MainPage";
 import AboutMe from "../features/about/AboutMe";
 import Skills from "../features/skills/Skills";
@@ -8,7 +10,6 @@ import BlogPreview from "../features/blog/BlogPreview";
 import ContactForm from "../features/contact/ContactForm";
 import UnderConstruction from "../features/UnderConstruction";
 import ExperiencePage from "../features/experience/ExperiencePage";
-import { DataContext } from "../context/DataContext";
 
 const MainContent = () => {
   const sections = {

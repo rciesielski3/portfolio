@@ -10,12 +10,12 @@ import BlogPreview from "./features/blog/BlogPreview";
 import MySmartHome from "./features/smarthome/MySmartHome";
 import MainPage from "./features/mainPage/MainPage";
 import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
+import PagePreview from "./features/page/PagePreview";
+import ExperiencePage from "./features/experience/ExperiencePage";
 
 import DataProvider from "./context/DataContext";
 import NavBar from "./shared/navbar/Navbar";
 import Footer from "./shared/Footer";
-import PagePreview from "./features/page/PagePreview";
-import ExperiencePage from "./features/experience/ExperiencePage";
 
 const App = () => {
   return (
