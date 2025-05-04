@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
+
 import { DataContext } from "../../context/DataContext";
 import Modal from "../../components/Modal";
 import Quotes from "../../shared/Quotes";
@@ -7,12 +8,12 @@ import generateGridPositions from "./generateGridPositions";
 
 const AboutMe = () => {
   const gridSize = 9;
-  const [visibleTraits, setVisibleTraits] = useState([]);
-  const [positions, setPositions] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [showButton, setShowButton] = useState(false);
+  const [visibleTraits, setVisibleTraits] = React.useState([]);
+  const [positions, setPositions] = React.useState([]);
+  const [showModal, setShowModal] = React.useState(false);
+  const [showButton, setShowButton] = React.useState(false);
 
-  const { traits } = useContext(DataContext);
+  const { traits } = React.useContext(DataContext);
 
   const handleButtonClick = () => {
     setShowModal(true);
@@ -22,7 +23,7 @@ const AboutMe = () => {
     setShowModal(false);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (traits.length > 0) {
       const initialPositions = generateGridPositions(gridSize, traits.length);
       setPositions(initialPositions);

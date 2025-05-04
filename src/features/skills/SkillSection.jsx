@@ -20,7 +20,7 @@ const SkillSection = ({ sectionTitle, skills }) => {
   return (
     <div className="skills-section">
       <h2
-        className={` text-blue-500 my-4 text-3xl text-shadow font-bold  transition-opacity duration-1000 ${
+        className={`text-blue-500 my-4 text-3xl text-shadow font-bold  transition-opacity duration-1000 ${
           visibleTitle ? "opacity-100" : "opacity-0"
         }`}
       >

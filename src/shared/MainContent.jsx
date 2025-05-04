@@ -1,14 +1,15 @@
 import React from "react";
+
+import { DataContext } from "../context/DataContext";
 import MainPage from "../features/mainPage/MainPage";
 import AboutMe from "../features/about/AboutMe";
 import Skills from "../features/skills/Skills";
 import Certifications from "../features/certification/Certifications";
 import GithubRepositories from "./GithubRepositories";
 import BlogPreview from "../features/blog/BlogPreview";
-import LinkedInProfile from "../features/LinkedInProfile";
 import ContactForm from "../features/contact/ContactForm";
 import UnderConstruction from "../features/UnderConstruction";
-import { DataContext } from "../context/DataContext";
+import ExperiencePage from "../features/experience/ExperiencePage";
 
 const MainContent = () => {
   const sections = {
@@ -18,7 +19,7 @@ const MainContent = () => {
     courses: <Certifications />,
     github: <GithubRepositories />,
     blog: <BlogPreview />,
-    experience: <LinkedInProfile />,
+    experience: <ExperiencePage />,
     contact: <ContactForm />,
   };
 
