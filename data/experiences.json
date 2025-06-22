@@ -1,6 +1,12 @@
 {
   "experiences": [
     {
+      "title": "Test Engineer",
+      "company": "Santander Bank Polska S.A.",
+      "time": "June 2025 – Present",
+      "description": "Planned and executed functional, regression, validation, and WCAG tests for mobile and desktop apps. Created test scenarios from user stories and reported defects in Jira/Xray."
+    },
+    {
       "title": "Software Tester",
       "company": "Goelett Sp. z o.o.",
       "time": "Dec 2023 – Mar 2025",
@@ -9,7 +15,7 @@
     {
       "title": "Full-stack Developer — Practice",
       "company": "Devstock Academy",
-      "time": "Oct 2023 – Present",
+      "time": "Oct 2023 – May 2025",
       "description": "Coursant and practicant to built and tested an e-learning platform using React, Next.js, Node.js, and NestJS. Collaborated with the team to improve reliability and code quality."
     },
     {
