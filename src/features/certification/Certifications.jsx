@@ -17,7 +17,7 @@ const Certifications = () => {
   }, [certificationCourses]);
 
   return (
-    <>
+    <div className="content">
       <h2 className="text-3xl font-bold text-blue-500 my-4 text-shadow">
         Certifications
       </h2>
@@ -35,7 +35,7 @@ const Certifications = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -39,7 +39,7 @@ const ExperiencePage = () => {
   }
 
   return (
-    <div>
+    <div className="content">
       <h1
         className="text-center text-3xl font-bold text-blue-500"
         data-aos="fade-down"

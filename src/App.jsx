@@ -21,68 +21,70 @@ const App = () => {
   return (
     <DataProvider>
       <Router>
-        <NavBar />
-        <div style={{ padding: "20px" }}>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/about" element={<AboutMe />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/courses" element={<Certifications />} />
-            <Route path="/github" element={<GithubRepositories />} />
-            <Route
-              path="/blogs/qa-journey"
-              element={
-                <BlogPreview
-                  url="https://qa-journey.blogspot.com/"
-                  title="QA Journey"
-                />
-              }
-            />
-            <Route
-              path="/blogs/quality-assurance"
-              element={
-                <BlogPreview
-                  url="https://qa-blog.onrender.com/"
-                  title="Quality Assurance"
-                />
-              }
-            />
-            <Route
-              path="/pages/mysmarthome"
-              element={
-                <PagePreview
-                  url="https://mysmarthome.cba.pl/"
-                  title="My Smart Home"
-                />
-              }
-            />
-            <Route
-              path="/pages/learn-js-react-basics"
-              element={
-                <PagePreview
-                  url="https://learn-js-react-basics.vercel.app/"
-                  title="JS & React Fundamentals"
-                />
-              }
-            />
-            <Route
-              path="/pages/mini-game-collection"
-              element={
-                <PagePreview
-                  url="https://mini-game-collection.vercel.app/"
-                  title="Mini Game Collection"
-                />
-              }
-            />
-            <Route path="/mysmarthome" element={<MySmartHome />} />
-            {/* <Route path="/experience" element={<LinkedInProfile />} /> */}
-            <Route path="/experience" element={<ExperiencePage />} />
-            <Route path="/contact" element={<ContactForm />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/portfolio" exact element={<MainPage />} />
-          </Routes>
+        <div className="app-layout">
+          <NavBar />
+          <div className="app-main">
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/about" element={<AboutMe />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/courses" element={<Certifications />} />
+              <Route path="/github" element={<GithubRepositories />} />
+              <Route
+                path="/blogs/qa-journey"
+                element={
+                  <BlogPreview
+                    url="https://qa-journey.blogspot.com/"
+                    title="QA Journey"
+                  />
+                }
+              />
+              <Route
+                path="/blogs/quality-assurance"
+                element={
+                  <BlogPreview
+                    url="https://qa-blog.onrender.com/"
+                    title="Quality Assurance"
+                  />
+                }
+              />
+              <Route
+                path="/pages/mysmarthome"
+                element={
+                  <PagePreview
+                    url="https://mysmarthome.cba.pl/"
+                    title="My Smart Home"
+                  />
+                }
+              />
+              <Route
+                path="/pages/learn-js-react-basics"
+                element={
+                  <PagePreview
+                    url="https://learn-js-react-basics.vercel.app/"
+                    title="JS & React Fundamentals"
+                  />
+                }
+              />
+              <Route
+                path="/pages/mini-game-collection"
+                element={
+                  <PagePreview
+                    url="https://mini-game-collection.vercel.app/"
+                    title="Mini Game Collection"
+                  />
+                }
+              />
+              <Route path="/mysmarthome" element={<MySmartHome />} />
+              {/* <Route path="/experience" element={<LinkedInProfile />} /> */}
+              <Route path="/experience" element={<ExperiencePage />} />
+              <Route path="/contact" element={<ContactForm />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/portfolio" exact element={<MainPage />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </Router>
     </DataProvider>
   );
