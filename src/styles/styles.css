@@ -137,6 +137,13 @@ h3 {
   width: 100%;
 }
 
+.repo-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
 /* Footer */
 footer {
   width: 100%;
@@ -214,4 +221,23 @@ footer p {
   justify-content: center;
   align-items: center;
   padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .certification-courses {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 10px;
+  }
+
+  .certification-course-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .course-image-container img {
+    max-width: 120px;
+    max-height: 120px;
+  }
 }
