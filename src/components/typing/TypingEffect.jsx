@@ -9,63 +9,60 @@ const TypingEffect = () => {
   const [words, setWords] = useState([]);
   const staticText = "I'm";
 
+  // Fetch words from public/data/iAm.json
   useEffect(() => {
     const fetchWords = async () => {
       try {
         const response = await fetch("/data/iAm.json");
+        if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
         setWords(data);
       } catch (error) {
-        console.error("Failed to fetch words from JSON", error);
-        setWords([
-          "Father",
-          "QA engineer",
-          "FullStack Learner",
-          "Sports enthusiast",
-        ]);
+        console.error("Failed to fetch words from iAm.json:", error);
+        setWords(["Quality Assurance Expert"]);
       }
     };
+
     fetchWords();
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (words.length === 0) return;
 
-    const handleTyping = () => {
-      const currentIndex = loopIndex % words.length;
-      const fullWord = words[currentIndex];
+    const fullWord = words[loopIndex % words.length];
 
-      setCurrentWord((prev) =>
-        isDeleting
-          ? fullWord.substring(0, prev.length - 1)
-          : fullWord.substring(0, prev.length + 1)
-      );
+    const updateWord = () => {
+      setCurrentWord((prev) => {
+        if (isDeleting) {
+          return fullWord.substring(0, prev.length - 1);
+        } else {
+          return fullWord.substring(0, prev.length + 1);
+        }
+      });
 
       if (!isDeleting && currentWord === fullWord) {
         setTimeout(() => setIsDeleting(true), 1000);
         setTypingSpeed(50);
       } else if (isDeleting && currentWord === "") {
         setIsDeleting(false);
-        setLoopIndex(loopIndex + 1);
+        setLoopIndex((prev) => prev + 1);
         setTypingSpeed(150);
       }
     };
 
-    const typingTimeout = setTimeout(handleTyping, typingSpeed);
-
-    return () => clearTimeout(typingTimeout);
+    const timeout = setTimeout(updateWord, typingSpeed);
+    return () => clearTimeout(timeout);
   }, [currentWord, isDeleting, loopIndex, typingSpeed, words]);
 
   return (
-    // <div className="container">
-    <h1 className="heading">
-      <span className="static-text">Rafal Ciesielski</span>
-      <br />
-      <span>{staticText}</span>{" "}
-      <span className="dynamic-text">{currentWord}</span>
-      <span className="cursor">|</span>
-    </h1>
-    // </div>
+    <>
+      <h1 className="heading">Rafal Ciesielski</h1>
+      <div className="typing-text">
+        <span>{staticText}</span>{" "}
+        <span className="dynamic-text">{currentWord}</span>
+        <span className="cursor">|</span>
+      </div>
+    </>
   );
 };
 

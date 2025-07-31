@@ -30,12 +30,11 @@ const GithubRepositories = () => {
   }, []);
 
   useEffect(() => {
-    // Staggered slide-in effect for the repository cards
     if (repos.length > 0) {
       repos.forEach((_, index) => {
         setTimeout(() => {
           setVisibleRepos((prev) => [...prev, index]);
-        }, index * 200); // 200ms delay between each repo card
+        }, index * 200);
       });
     }
   }, [repos]);
@@ -50,9 +49,12 @@ const GithubRepositories = () => {
 
   return (
     <div className="content">
-      <h2 className="text-3xl font-bold text-blue-500 my-4 text-shadow pb-4">
+      <h2 className="text-3xl font-bold text-blue-500 mb-6 text-shadow">
         My repositories
       </h2>
+      <p className="text-orange-600 mb-6 text-lg">
+        Feel free to explore my repositories on GitHub.
+      </p>
       {repos.length === 0 ? (
         <div>Coming soon. Under construction.</div>
       ) : (

@@ -42,9 +42,9 @@ const AboutMe = () => {
   return (
     <div className="relative h-fit p-28 pb-48">
       <h2 className="text-3xl font-bold text-blue-500 my-4 text-shadow">
-        I am
+        Why I am a good fit for your team
       </h2>
-
+      <p className="text-orange-600 mb-6 text-lg">Some of my traits</p>
       {visibleTraits.map((trait, index) => (
         <div
           key={index}

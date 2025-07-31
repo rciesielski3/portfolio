@@ -78,6 +78,10 @@ const ContactForm = () => {
       <h2 className="text-2xl font-bold  text-blue-500 text-shadow text-center mb-6">
         Contact Me
       </h2>
+      <p className="text-orange-600 mb-6">
+        If you have any questions or would like to get in touch, please fill out
+        the form below.
+      </p>
       <form className="space-y-4 text-left" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="first_name" className="block text-gray-300">
@@ -157,7 +161,7 @@ const ContactForm = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-900 hover:bg-orange-650 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending..." : "Send Message"}
