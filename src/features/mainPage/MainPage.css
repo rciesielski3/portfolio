@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   flex-shrink: 0;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .visit-counter-container {
-  background-color: rgb(59, 59, 59);
+  background-color: #1f2937;
   padding: 10px 30px;
   border-radius: 20px;
   display: flex;
