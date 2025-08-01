@@ -19,7 +19,7 @@ const DataProvider = ({ children }) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         return response.json();
       })
-      .then((data) => setIAm(data.iAm || []))
+      .then((data) => setIAm(data || []))
       .catch((error) => console.error("Error fetching iAm:", error));
 
     fetch(`${baseUrl}/data/experiences.json`)
