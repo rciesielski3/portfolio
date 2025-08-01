@@ -46,16 +46,29 @@ const MainPage = () => {
 
   return (
     <div className="main-page">
-      <div className="left-section">
-        <div className="typing-container">
-          <TypingEffect />
+      <div className="content-wrapper">
+        <div className="left-section">
+          <div className="typing-container">
+            <TypingEffect />
+          </div>
         </div>
+
+        <div className="right-section">
+          <img
+            src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
+            alt="Profile"
+            className="profile-image"
+          />
+        </div>
+      </div>
+
+      <div className="bottom-section">
         <div className="social-icons">
           <a
             href="https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100/"
             target="_blank"
             rel="noopener noreferrer"
-            className="icon linkedin z-10"
+            className="icon linkedin"
           >
             <FaLinkedin size={30} />
           </a>
@@ -63,23 +76,17 @@ const MainPage = () => {
             href="https://github.com/rciesielski3"
             target="_blank"
             rel="noopener noreferrer"
-            className="icon github z-10"
+            className="icon github"
           >
             <FaGithub size={30} />
           </a>
         </div>
+
         <div className="visit-counter-container">
           <p className="visit-counter">
             Visitors: <span>{visitCount}</span>
           </p>
         </div>
-      </div>
-      <div className="right-section">
-        <img
-          src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
-          alt="Profile"
-          className="profile-image"
-        />
       </div>
     </div>
   );

@@ -17,10 +17,13 @@ const Certifications = () => {
   }, [certificationCourses]);
 
   return (
-    <>
-      <h2 className="text-3xl font-bold text-blue-500 my-4 text-shadow">
+    <div className="content">
+      <h2 className="text-3xl font-bold text-blue-500 mb-6 text-shadow">
         Certifications
       </h2>
+      <p className="text-orange-600 mb-6 text-lg">
+        Here are some of the certifications I have completed
+      </p>
       <div className="certification-courses">
         {certificationCourses.map((course, index) => (
           <div
@@ -35,7 +38,7 @@ const Certifications = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

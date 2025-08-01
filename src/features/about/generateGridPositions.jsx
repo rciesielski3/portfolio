@@ -1,25 +1,25 @@
 const generateGridPositions = (gridSize, numberOfTraits) => {
-  const grid = Array(gridSize).fill(false);
-  const positions = [];
+  const gridRows = Math.ceil(Math.sqrt(gridSize));
+  const gridCols = gridRows;
+  const taken = new Set();
+  const result = [];
 
-  for (let i = 0; i < numberOfTraits; i++) {
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * gridSize);
-    } while (grid[randomIndex]);
+  while (result.length < numberOfTraits) {
+    const row = Math.floor(Math.random() * gridRows);
+    const col = Math.floor(Math.random() * gridCols);
+    const key = `${row}-${col}`;
 
-    grid[randomIndex] = true;
+    if (!taken.has(key)) {
+      taken.add(key);
 
-    const row = Math.floor(randomIndex / Math.sqrt(gridSize));
-    const col = randomIndex % Math.sqrt(gridSize);
-
-    positions.push({
-      top: `${30 + row * 15}vh`,
-      left: `${15 + col * 25}vw`,
-    });
+      result.push({
+        row,
+        col,
+      });
+    }
   }
 
-  return positions;
+  return result;
 };
 
 export default generateGridPositions;

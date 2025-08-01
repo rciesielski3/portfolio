@@ -39,13 +39,16 @@ const ExperiencePage = () => {
   }
 
   return (
-    <div>
-      <h1
-        className="text-center text-3xl font-bold text-blue-500"
+    <div className="content">
+      <h2
+        className="text-center text-3xl font-bold text-blue-500 mb-6 text-shadow"
         data-aos="fade-down"
       >
         My Resume
-      </h1>
+      </h2>
+      <p className="text-orange-600 mb-6 text-lg" data-aos="fade-down">
+        Below is a summary of my professional experience and education history.
+      </p>
       <div
         className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-orange-650"
         style={expLineStyle}

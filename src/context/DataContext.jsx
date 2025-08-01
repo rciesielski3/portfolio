@@ -3,6 +3,7 @@ import React, { createContext } from "react";
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
+  const [iAm, setIAm] = React.useState([]);
   const [traits, setTraits] = React.useState([]);
   const [certificationCourses, setCertificationCourses] = React.useState([]);
   const [responsibilities, setResponsibilities] = React.useState({});
@@ -12,6 +13,15 @@ const DataProvider = ({ children }) => {
   const baseUrl = process.env.PUBLIC_URL;
 
   React.useEffect(() => {
+    fetch(`${baseUrl}/data/iAm.json`)
+      .then((response) => {
+        if (!response.ok)
+          throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+      })
+      .then((data) => setIAm(data || []))
+      .catch((error) => console.error("Error fetching iAm:", error));
+
     fetch(`${baseUrl}/data/experiences.json`)
       .then((response) => {
         if (!response.ok)
@@ -60,6 +70,7 @@ const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
+        iAm,
         traits,
         certificationCourses,
         responsibilities,
