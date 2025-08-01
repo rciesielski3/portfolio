@@ -1,10 +1,10 @@
 import React from "react";
 
+import generateGridPositions from "./generateGridPositions";
+
 import { DataContext } from "../../context/DataContext";
 import Modal from "../../components/Modal";
 import Quotes from "../../shared/Quotes";
-
-import generateGridPositions from "./generateGridPositions";
 
 const AboutMe = () => {
   const gridSize = 9;
@@ -15,13 +15,8 @@ const AboutMe = () => {
 
   const { traits } = React.useContext(DataContext);
 
-  const handleButtonClick = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+  const handleButtonClick = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
   React.useEffect(() => {
     if (traits.length > 0) {
@@ -34,35 +29,55 @@ const AboutMe = () => {
           if (index === traits.length - 1) {
             setShowButton(true);
           }
-        }, index * 500);
+        }, index * 400);
       });
     }
   }, [traits, gridSize]);
 
   return (
-    <div className="relative h-fit p-28 pb-48">
-      <h2 className="text-3xl font-bold text-blue-500 my-4 text-shadow">
-        Why I am a good fit for your team
+    <div className="relative px-4 sm:px-10 md:px-20 pb-12">
+      <h2 className="text-3xl font-bold text-blue-500 my-4 text-shadow text-center">
+        I am
       </h2>
-      <p className="text-orange-600 mb-6 text-lg">Some of my traits</p>
-      {visibleTraits.map((trait, index) => (
-        <div
-          key={index}
-          className="absolute text-white text-lg font-bold p-4 bg-gray-800 rounded-lg shadow-lg transition-opacity duration-500 break-words text-center w-64"
-          style={{
-            ...positions[index],
-            opacity: visibleTraits.includes(trait) ? 1 : 0,
-          }}
-        >
-          {trait}
-        </div>
-      ))}
+      <p className="text-orange-600 text-lg">Traits that describe me</p>
+
+      <div className="block md:hidden my-6 space-y-4">
+        {visibleTraits.map((trait, index) => (
+          <div
+            key={index}
+            className="bg-gray-800 text-white text-center text-sm font-semibold p-3 rounded-lg shadow-md"
+          >
+            {trait}
+          </div>
+        ))}
+      </div>
+
+      <div className="hidden md:grid grid grid-cols-3 grid-rows-3 gap-0.5 place-items-center min-h-[400px]">
+        {visibleTraits.map((trait, index) => {
+          const pos = positions[index];
+          if (!pos) return null;
+
+          return (
+            <div
+              key={index}
+              className="bg-gray-700 text-white text-base font-semibold p-4 rounded-lg shadow-lg text-center w-52 transition-opacity duration-500"
+              style={{
+                gridRow: pos.row + 1,
+                gridColumn: pos.col + 1,
+                opacity: 1,
+              }}
+            >
+              {trait}
+            </div>
+          );
+        })}
+      </div>
 
       {showButton && (
-        <div className="fixed top-20 left-0 right-0 flex justify-center z-10">
+        <div className="flex justify-center w-full">
           <button
             onClick={handleButtonClick}
-            className="bg-blue-900 hover:bg-gray-700 text-white font-bold py-4 px-6 text-lg rounded-lg"
+            className="bg-blue-700 hover:bg-blue-800 hover:scale-105 text-white font-bold py-4 px-6 text-lg rounded-lg"
           >
             Generate Quote for Today
           </button>
