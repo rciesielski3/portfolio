@@ -1,9 +1,15 @@
 {
   "experiences": [
     {
+      "title": "Senior QA / Test Automation Engineer",
+      "company": "InPost S.A.",
+      "time": "September 2025 – Present",
+      "description": "Developed and maintained automation frameworks and test for web, mobile and backend systems. Created Gatling performance tests, executed manual and automated tests for e-commerce flows including chatbots."
+    },
+    {
       "title": "Test Engineer Expert",
       "company": "Santander Bank Polska S.A.",
-      "time": "May 2025 – Present",
+      "time": "May 2025 – September 2025",
       "description": "Planned and executed functional, regression, validation, and WCAG tests for mobile and desktop apps. Created test scenarios from user stories and reported defects in Jira/Xray."
     },
     {
