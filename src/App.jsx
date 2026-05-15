@@ -16,6 +16,7 @@ import ExperiencePage from "./features/experience/ExperiencePage";
 import DataProvider from "./context/DataContext";
 import NavBar from "./shared/navbar/Navbar";
 import Footer from "./shared/Footer";
+import "./App.css";
 
 const App = () => {
   return (
@@ -76,11 +77,10 @@ const App = () => {
                 }
               />
               <Route path="/mysmarthome" element={<MySmartHome />} />
-              {/* <Route path="/experience" element={<LinkedInProfile />} /> */}
               <Route path="/experience" element={<ExperiencePage />} />
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/portfolio" exact element={<MainPage />} />
+              <Route path="/portfolio" element={<MainPage />} />
             </Routes>
           </div>
           <Footer />

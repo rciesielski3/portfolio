@@ -1,59 +1,291 @@
-.skills-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
+.skills-page {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 44px 24px 78px;
   width: 100%;
 }
 
-.section-title {
-  color: #3b82f6;
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+.skills-summary {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 26px auto 8px;
+  max-width: 980px;
 }
 
-.section-title.visible {
-  opacity: 1;
+.skills-summary article {
+  background:
+    linear-gradient(90deg, rgba(45, 212, 191, 0.1), transparent 54%),
+    rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-left: 3px solid rgba(45, 212, 191, 0.65);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+  padding: 13px 14px;
+  text-align: left;
+  animation: summary-emerge 0.58s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: center;
 }
 
-.skills-list {
+.skills-summary article:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.skills-summary article:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.skills-summary span {
+  color: #5eead4;
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.skills-summary strong {
+  color: #f8fafc;
+  display: block;
+  font-size: 0.96rem;
+  line-height: 1.2;
+}
+
+.skills-summary p {
+  color: #b6c3d1;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 7px 0 0;
+}
+
+.capability-showcase {
+  margin: 28px auto 0;
+  max-width: 980px;
+}
+
+.capability-card {
+  align-items: start;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 56px minmax(280px, 0.95fr) minmax(360px, 1.2fr);
+  min-height: 0;
+  padding: 26px 0;
+  position: relative;
+  text-align: left;
+  animation: row-reveal 0.58s ease both;
+}
+
+.capability-card:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.capability-card:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.capability-card:last-child {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.capability-index {
+  color: rgba(94, 234, 212, 0.7);
+  font-size: 0.82rem;
+  font-weight: 900;
+  margin-bottom: 28px;
+}
+
+.capability-card span {
+  color: #5eead4;
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.capability-card h2 {
+  color: #f8fafc;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.capability-card p {
+  color: #aebbd0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+
+.capability-card ul {
+  align-content: start;
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.capability-card li {
+  align-items: flex-start;
+  color: #e5edf6;
+  display: flex;
+  font-size: 0.92rem;
+  gap: 9px;
+  line-height: 1.45;
+}
+
+.capability-card li::before {
+  background: #5eead4;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
+  content: "";
+  flex: 0 0 auto;
+  height: 7px;
+  margin-top: 0.55em;
+  width: 7px;
+}
+
+.stack-radar {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(45, 212, 191, 0.08), transparent 28rem),
+    rgba(2, 6, 23, 0.32);
+  border-radius: 8px;
+  margin-top: 34px;
+  padding: 28px 26px 30px;
+  animation: row-reveal 0.65s ease both;
+  animation-delay: 0.2s;
+}
+
+.stack-heading {
+  margin: 0 0 26px;
+  max-width: 760px;
+  text-align: left;
+}
+
+.stack-heading h2 {
+  color: #f8fafc;
+  font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.stack-heading p:not(.section-kicker) {
+  color: #b6c3d1;
+  line-height: 1.65;
+  margin: 12px 0 0;
+}
+
+.radar-cloud {
+  display: grid;
+  gap: 30px 44px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.radar-group {
+  text-align: left;
+  animation: chip-area-in 0.5s ease both;
+}
+
+.radar-group:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.radar-group:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.radar-group:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.radar-group h3 {
+  color: #7f8da3;
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.radar-group div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  max-width: 800px;
+  gap: 10px;
 }
 
-.skill-item {
-  transition: transform 1s ease-in-out;
-  width: 100%;
-  max-width: 200px;
-  opacity: 0;
+.radar-group span {
+  background: rgba(30, 41, 59, 0.76);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 7px;
+  color: #aab6c7;
+  font-size: 0.86rem;
+  font-weight: 800;
+  padding: 8px 11px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.skill-item.visible {
-  opacity: 1;
-  transform: translateX(0);
+.radar-group span:hover {
+  border-color: rgba(45, 212, 191, 0.34);
+  color: #e5edf6;
+  transform: translateY(-2px);
 }
 
-.skill-item.hidden {
-  transform: translateX(-100%);
+@keyframes summary-emerge {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-@media (max-width: 768px) {
-  .skills-list {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 10px;
+@keyframes row-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chip-area-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .skills-summary,
+  .capability-showcase,
+  .radar-cloud {
+    grid-template-columns: 1fr;
   }
 
-  .skill-item {
+  .capability-card {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-index {
+    display: none;
+  }
+
+  .radar-group {
     max-width: 100%;
-    width: 100%;
   }
 }

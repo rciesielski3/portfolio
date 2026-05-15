@@ -4,6 +4,7 @@ import { FaSuitcase, FaGraduationCap } from "react-icons/fa";
 import "aos/dist/aos.css";
 
 import { DataContext } from "../../context/DataContext";
+import "./ExperiencePage.css";
 
 const ExperiencePage = () => {
   const { experiences, education } = React.useContext(DataContext);
@@ -39,104 +40,92 @@ const ExperiencePage = () => {
   }
 
   return (
-    <div className="content">
-      <h2
-        className="text-center text-3xl font-bold text-blue-500 mb-6 text-shadow"
-        data-aos="fade-down"
-      >
-        My Resume
-      </h2>
-      <p className="text-orange-600 mb-6 text-lg" data-aos="fade-down">
-        Below is a summary of my professional experience and education history.
-      </p>
+    <div className="experience-page">
+      <header className="section-hero">
+        <p className="section-kicker">Resume</p>
+        <h1>Experience</h1>
+        <p>
+          A timeline of QA, automation, coordination and product delivery work
+          across banking, mobile, web and smart home domains.
+        </p>
+      </header>
+      <section className="experience-summary" aria-label="Experience summary">
+        <article>
+          <span>Current scope</span>
+          <strong>Banking QA</strong>
+          <p>Functional, regression, validation and WCAG testing.</p>
+        </article>
+        <article>
+          <span>Leadership</span>
+          <strong>QA coordination</strong>
+          <p>Team support, estimates, test process and delivery ownership.</p>
+        </article>
+        <article>
+          <span>Technical path</span>
+          <strong>Automation practice</strong>
+          <p>Mobile, web, API and CI-ready quality feedback.</p>
+        </article>
+      </section>
       <div
-        className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-orange-650"
+        className="timeline-line"
         style={expLineStyle}
       />
       <div
-        className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-orange-650"
+        className="timeline-line"
         style={eduLineStyle}
       />
-      <section ref={expRef}>
-        <h2
-          className="text-center text-2xl font-bold my-8 p-0.5 border-4 border-orange-650 rounded-lg bg-gray-800"
-          data-aos="fade-down"
-        >
+      <section ref={expRef} className="timeline-section">
+        <h2 className="timeline-section-title" data-aos="zoom-in">
           Experience
         </h2>
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className={`relative flex flex-col md:flex-row items-center mb-16 ${
-              index % 2 === 0 ? "md:flex-row-reverse" : ""
-            }`}
+            className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}
             data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
           >
-            <div
-              className={`md:w-1/2 bg-gray-700 p-4 rounded-lg ${
-                index % 2 === 0 ? "md:text-right" : "md:text-left"
-              } text-center md:text-inherit`}
-            >
-              <h2 className="text-2xl font-bold">{exp.title}</h2>
-              <span className="text-orange-650">{exp.company}</span>
-              <p className="text-orange-650 text-xs">{exp.time}</p>
-              <p className="mt-4 font-light">{exp.description}</p>
+            <div className="timeline-card">
+              <h3>{exp.title}</h3>
+              <span>{exp.company}</span>
+              <p className="timeline-time">{exp.time}</p>
+              <p>{exp.description}</p>
             </div>
-            <div className="w-0 md:w-1/12 relative flex justify-center">
-              <div className="absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gray-800 border-2 border-orange-650 text-orange-650 flex items-center justify-center z-10">
-                <FaSuitcase />
-              </div>
+            <div className="timeline-icon">
+              <FaSuitcase />
             </div>
-            <div className="md:w-1/2" />
           </div>
         ))}
       </section>
-      <section ref={eduRef}>
-        <h2
-          className="text-center text-2xl font-bold mt-16 mb-8 p-0.5 border-4 border-orange-650 rounded-lg bg-gray-800"
-          data-aos="fade-down"
-        >
+      <section ref={eduRef} className="timeline-section">
+        <h2 className="timeline-section-title" data-aos="zoom-in">
           Education
         </h2>
         {education.map((edu, index) => (
           <div
             key={index}
-            className={`relative flex flex-col md:flex-row items-center mb-16 ${
-              index % 2 === 0 ? "md:flex-row-reverse" : ""
-            }`}
+            className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}
             data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
           >
-            <div
-              className={`md:w-1/2 bg-gray-700 p-4 rounded-lg ${
-                index % 2 === 0 ? "md:text-right" : "md:text-left"
-              } text-center md:text-inherit`}
-            >
-              <h2 className="text-2xl font-bold">{edu.title}</h2>
-              <span className="text-orange-650">{edu.studies}</span>
-              <p className="text-orange-650 text-xs">{edu.time}</p>
+            <div className="timeline-card">
+              <h3>{edu.title}</h3>
+              <span>{edu.studies}</span>
+              <p className="timeline-time">{edu.time}</p>
             </div>
-            <div className="w-0 md:w-1/12 relative flex justify-center">
-              <div className="absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gray-800 border-2 border-orange-650 text-orange-650 flex items-center justify-center z-10">
-                <FaGraduationCap />
-              </div>
+            <div className="timeline-icon">
+              <FaGraduationCap />
             </div>
-            <div className="md:w-1/2" />
           </div>
         ))}
       </section>
-      <section className="text-center mt-16">
-        <h2
-          className="text-2xl font-bold mb-4 p-0.5 border-4 border-orange-650 rounded-lg bg-gray-800"
-          data-aos="fade-down"
-        >
+      <section className="experience-cta">
+        <h2 data-aos="fade-down">
           Connect with Me
         </h2>
-        <p className="mb-4" data-aos="fade-up">
+        <p data-aos="fade-up">
           If you want to know more about me, feel free to check out my LinkedIn
           profile.
         </p>
         <button
-          className="btnLinkedIn bg-blue-500 p-3 rounded-lg hover:bg-blue-700 hover:scale-110"
           data-aos="fade-up"
           onClick={() =>
             window.open(
@@ -145,7 +134,7 @@ const ExperiencePage = () => {
             )
           }
         >
-          Show Profile
+          Open LinkedIn
         </button>
       </section>
     </div>

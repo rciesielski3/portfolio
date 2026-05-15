@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import SkillCard from "./SkillCard";
+import { useEffect, useState } from "react";
 
-const SkillSection = ({ sectionTitle, skills }) => {
+const SkillSection = ({ sectionTitle, sectionIntro, skills }) => {
   const [visibleTitle, setVisibleTitle] = useState(false);
   const [visibleSkills, setVisibleSkills] = useState([]);
 
@@ -19,31 +18,28 @@ const SkillSection = ({ sectionTitle, skills }) => {
 
   return (
     <div className="skills-section">
-      <h2
-        className={`text-blue-500 my-4 text-3xl text-shadow font-bold  transition-opacity duration-1000 ${
-          visibleTitle ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {sectionTitle}
-      </h2>
-      <div className="skills-list">
+      <div className="skills-section-heading">
+        <h2
+          className={`skills-section-title ${
+            visibleTitle ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {sectionTitle}
+        </h2>
+        <p>{sectionIntro}</p>
+      </div>
+      <ul className="skills-list">
         {skills.map((skill, index) => (
-          <div
+          <li
             key={index}
-            className={`transition-transform duration-1000 ${
-              visibleSkills.includes(index)
-                ? index % 2 === 0
-                  ? "transform translate-x-0"
-                  : "transform translate-x-0"
-                : index % 2 === 0
-                ? "transform -translate-x-full"
-                : "transform translate-x-full"
+            className={`skill-shell ${
+              visibleSkills.includes(index) ? "is-visible" : ""
             }`}
           >
-            <SkillCard skill={skill} />
-          </div>
+            {skill}
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

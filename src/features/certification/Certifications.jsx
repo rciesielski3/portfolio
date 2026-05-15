@@ -17,13 +17,15 @@ const Certifications = () => {
   }, [certificationCourses]);
 
   return (
-    <div className="content">
-      <h2 className="text-3xl font-bold text-blue-500 mb-6 text-shadow">
-        Certifications
-      </h2>
-      <p className="text-orange-600 mb-6 text-lg">
-        Here are some of the certifications I have completed
-      </p>
+    <div className="content certifications-page">
+      <header className="section-hero">
+        <p className="section-kicker">Continuous learning</p>
+        <h1>Certifications</h1>
+        <p>
+          A curated training record across test automation, AI, accessibility,
+          performance, web development and networking foundations.
+        </p>
+      </header>
       <div className="certification-courses">
         {certificationCourses.map((course, index) => (
           <div
