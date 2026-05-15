@@ -4,9 +4,7 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [iAm, setIAm] = React.useState([]);
-  const [traits, setTraits] = React.useState([]);
   const [certificationCourses, setCertificationCourses] = React.useState([]);
-  const [responsibilities, setResponsibilities] = React.useState({});
   const [experiences, setExperiences] = React.useState([]);
   const [education, setEducation] = React.useState([]);
 
@@ -32,22 +30,16 @@ const DataProvider = ({ children }) => {
       const [
         iAmData,
         experienceData,
-        traitsData,
-        responsibilitiesData,
         certificationData,
       ] = await Promise.all([
         fetchJson("iAm.json", []),
         fetchJson("experiences.json", { experiences: [], education: [] }),
-        fetchJson("traits.json", { traits: [] }),
-        fetchJson("responsibilities.json", {}),
         fetchJson("certifications.json", []),
       ]);
 
       setIAm(iAmData || []);
       setExperiences(experienceData.experiences || []);
       setEducation(experienceData.education || []);
-      setTraits(traitsData.traits || []);
-      setResponsibilities(responsibilitiesData || {});
       setCertificationCourses(certificationData || []);
     };
 
@@ -58,9 +50,7 @@ const DataProvider = ({ children }) => {
     <DataContext.Provider
       value={{
         iAm,
-        traits,
         certificationCourses,
-        responsibilities,
         education,
         experiences,
       }}

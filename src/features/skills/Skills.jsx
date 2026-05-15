@@ -1,4 +1,4 @@
-import "./SkillSection.css";
+import "./Skills.css";
 
 const capabilities = [
   {
@@ -84,6 +84,8 @@ const stackGroups = [
       "Git",
       "Firebase",
       "GitHub Copilot",
+      "AI agents",
+      "MCP basics",
       "AI testing",
     ],
   },

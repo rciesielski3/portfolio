@@ -4,43 +4,43 @@
       "title": "Test Engineer Expert",
       "company": "Santander Bank Polska S.A.",
       "time": "May 2025 – Present",
-      "description": "Planned and executed functional, regression, validation, and WCAG tests for mobile and desktop apps. Created test scenarios from user stories and reported defects in Jira/Xray."
+      "description": "Own functional, regression, validation and WCAG coverage for banking applications across mobile and desktop. Translate user stories into test scenarios, report defects in Jira/Xray and support release confidence."
     },
     {
       "title": "Software Tester",
       "company": "Goelett Sp. z o.o.",
       "time": "Dec 2023 – Mar 2025",
-      "description": "Designed and executed integration, functional, regression and data validation tests across iOS and Android. Developed automated tests and user documentation to improve quality and support."
+      "description": "Delivered integration, functional, regression and data validation testing for iOS and Android workflows. Built automated checks and user-facing documentation to reduce support friction and improve product reliability."
     },
     {
       "title": "Full-stack Developer — Practice",
       "company": "Devstock Academy",
       "time": "Oct 2023 – May 2025",
-      "description": "Coursant and practicant to built and tested an e-learning platform using React, Next.js, Node.js, and NestJS. Collaborated with the team to improve reliability and code quality."
+      "description": "Built and tested an e-learning platform using React, Next.js, Node.js and NestJS. Practiced code review, reliability improvements and end-to-end product thinking from a developer and QA perspective."
     },
     {
       "title": "QA Coordinator",
       "company": "Fibar Group S.A.",
       "time": "Dec 2020 – Dec 2023",
-      "description": "Led mobile QA team, managed test cases in TestRail, and tracked tasks in Jira. Estimated timelines and optimized test processes for on-time delivery."
+      "description": "Coordinated mobile QA work, owned test case lifecycle in TestRail and tracked delivery in Jira. Supported estimates, planning and process improvements to keep quality visible during releases."
     },
     {
       "title": "QA Engineer",
       "company": "Fibar Group S.A.",
       "time": "May 2018 – Dec 2020",
-      "description": "Tested mobile and web apps using (mainly) manual and automated tools like Detox and Cypress. Ensured coverage through TestRail and continuous improvement."
+      "description": "Validated mobile and web applications through exploratory, regression and automated testing with Detox and Cypress. Maintained coverage in TestRail and helped improve repeatable release checks."
     },
     {
       "title": "Technical Support Engineer",
       "company": "Fibar Group S.A.",
       "time": "Sep 2015 – May 2018",
-      "description": "Provided support for home automation users. Reported bugs in Jira, maintained documentation in Confluence, and managed tickets via Desk.com."
+      "description": "Supported smart home users and converted recurring issues into clear defect reports. Maintained Confluence documentation, handled Desk.com tickets and bridged customer feedback with product teams."
     },
     {
       "title": "Junior IT System Engineer",
       "company": "Samsung R&D Institute Poland",
       "time": "Sep 2013 – Sep 2015",
-      "description": "Delivered IT support, configured hardware/software, and managed tickets using ITSM tools. Supported internal teams and infrastructure."
+      "description": "Provided IT support for internal engineering teams, including hardware/software configuration and ticket handling in ITSM tools. Built a foundation in infrastructure, support operations and service quality."
     }
   ],
   "education": [
