@@ -14,13 +14,19 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-toggle">
-        <NavLink to="/" className="navbar-title" onClick={() => setMenuOpen(false)}>
-          RC<span>QA Automation</span>
+        <NavLink
+          to="/"
+          className="navbar-title"
+          onClick={() => setMenuOpen(false)}
+        >
+          RC<span>Quality Engineering</span>
         </NavLink>
         <button
           onClick={toggleMenu}
           className="navbar-menu-btn"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
@@ -31,7 +37,7 @@ const NavBar = () => {
         className="navbar-title navbar-title-desktop"
         onClick={() => setMenuOpen(false)}
       >
-        RC<span>QA Automation</span>
+        RC<span>Quality Engineering</span>
       </NavLink>
       <ul className={`navbar-menu ${menuOpen ? "active" : ""}`}>
         <li className="navbar-menu-item">

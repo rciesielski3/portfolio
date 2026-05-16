@@ -39,12 +39,12 @@ const MainPage = () => {
     <div className="main-page">
       <div className="content-wrapper">
         <div className="left-section">
-          <div className="hero-kicker">QA Automation Engineer</div>
+          <div className="hero-kicker">Quality Engineering Specialist</div>
           <h1 className="hero-name">Rafal Ciesielski</h1>
           <TypingEffect />
           <p className="hero-copy">
-            I help product teams reduce release risk through practical test
-            strategy, reliable automation and clear quality feedback.
+            I help teams ship safer products with practical quality strategy,
+            reliable automation and product-minded engineering.
           </p>
           <dl className="career-snapshot" aria-label="Career snapshot">
             <div>
@@ -53,11 +53,11 @@ const MainPage = () => {
             </div>
             <div>
               <dt>Automation focus</dt>
-              <dd>Web, mobile and API testing</dd>
+              <dd>Web, mobile, API and contract testing</dd>
             </div>
             <div>
-              <dt>Banking & IoT</dt>
-              <dd>Regulated and product domains</dd>
+              <dt>Product builder</dt>
+              <dd>E-commerce, logistics and IoT domains</dd>
             </div>
           </dl>
           <div className="hero-actions">
@@ -79,7 +79,7 @@ const MainPage = () => {
             />
             <div className="profile-panel">
               <span>Current focus</span>
-              <p>Test architecture, automation and AI-assisted QA.</p>
+              <p>Quality engineering, automation and product delivery.</p>
             </div>
           </div>
         </div>

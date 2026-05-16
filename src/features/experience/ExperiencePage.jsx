@@ -45,25 +45,26 @@ const ExperiencePage = () => {
         <p className="section-kicker">Resume</p>
         <h1>Experience</h1>
         <p>
-          A timeline of QA, automation, coordination and product delivery work
-          across banking, mobile, web and smart home domains.
+          A timeline of quality engineering, automation, product delivery and
+          hands-on product building across logistics, banking, web, mobile and
+          smart home domains.
         </p>
       </header>
       <section className="experience-summary" aria-label="Experience summary">
         <article>
           <span>Current scope</span>
-          <strong>Banking QA</strong>
-          <p>Functional, regression, validation and WCAG testing.</p>
+          <strong>Quality engineering</strong>
+          <p>Automation, contracts, APIs, mobile and release feedback.</p>
         </article>
         <article>
-          <span>Leadership</span>
-          <strong>QA coordination</strong>
-          <p>Team support, estimates, test process and delivery ownership.</p>
+          <span>Product ownership</span>
+          <strong>ZabawkowyBox.pl</strong>
+          <p>E-commerce subscriptions, payments, CMS and operations.</p>
         </article>
         <article>
           <span>Technical path</span>
           <strong>Automation practice</strong>
-          <p>Mobile, web, API and CI-ready quality feedback.</p>
+          <p>Playwright, WebdriverIO, API, CI/CD and AI-assisted workflows.</p>
         </article>
       </section>
       <div

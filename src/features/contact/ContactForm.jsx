@@ -116,8 +116,9 @@ const ContactForm = () => {
             rel="noopener noreferrer"
             aria-label="Open LinkedIn"
             title="Open LinkedIn"
+            className="icon linkedin"
           >
-            <FaLinkedin />
+            <FaLinkedin size={30} />
           </a>
           <a
             href="https://github.com/rciesielski3"
@@ -125,8 +126,9 @@ const ContactForm = () => {
             rel="noopener noreferrer"
             aria-label="Open GitHub"
             title="Open GitHub"
+            className="icon github"
           >
-            <FaGithub />
+            <FaGithub size={30} />
           </a>
         </div>
       </section>

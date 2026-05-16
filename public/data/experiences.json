@@ -1,9 +1,21 @@
 {
   "experiences": [
     {
+      "title": "Founder & Product Engineer",
+      "company": "ZabawkowyBox.pl",
+      "time": "Product project – Present",
+      "description": "Created and maintain a subscription e-commerce platform for toy rentals using Remix, React, TypeScript, Tailwind CSS, Prisma and PostgreSQL. Own user accounts, recurring Stripe payments, customer and admin panels, blog/CMS, Cloudinary media, Resend/Nodemailer emails, InPost pickup point integration and Google Sheets operational automations."
+    },
+    {
+      "title": "Senior QA Engineer",
+      "company": "InPost",
+      "time": "Sep 2025 – Present",
+      "description": "Develop and maintain automated test coverage across web, mobile, backend, and performance layers. Support Playwright UI tests in TypeScript, WebdriverIO automation for native mobile apps, and Kotlin-based backend, contract, and end-to-end testing frameworks. Contribute to Gatling performance testing, test reporting, documentation, and actionable defect analysis."
+    },
+    {
       "title": "Test Engineer Expert",
       "company": "Santander Bank Polska S.A.",
-      "time": "May 2025 – Present",
+      "time": "May 2025 – Sep 2025",
       "description": "Own functional, regression, validation and WCAG coverage for banking applications across mobile and desktop. Translate user stories into test scenarios, report defects in Jira/Xray and support release confidence."
     },
     {

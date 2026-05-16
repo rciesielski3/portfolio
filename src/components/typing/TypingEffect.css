@@ -7,7 +7,7 @@
 }
 
 .dynamic-text {
-  color: #5eead4;
+  color: #7cf7dc;
   font-weight: 900;
 }
 
@@ -15,7 +15,7 @@
   display: inline-block;
   width: 2px;
   animation: blink 0.7s infinite;
-  color: #5eead4;
+  color: #7cf7dc;
 }
 
 @keyframes blink {

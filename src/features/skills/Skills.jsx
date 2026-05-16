@@ -41,11 +41,15 @@ const stackGroups = [
     title: "Automation & testing",
     tools: [
       "Playwright",
+      "WebdriverIO",
       "Appium",
       "Postman",
+      "SoapUI",
       "Gatling",
       "Cucumber",
       "REST API testing",
+      "SOAP API testing",
+      "Contract testing",
       "WCAG",
       "Cypress",
       "Detox",
@@ -61,28 +65,39 @@ const stackGroups = [
       "Confluence",
       "CI/CD quality gates",
       "GitHub Actions",
+      "Quality reports",
     ],
   },
   {
     title: "Development",
     tools: [
+      "TypeScript",
       "JavaScript",
+      "Kotlin basics",
+      "Remix",
       "HTML",
       "CSS",
       "React",
       "Next.js",
       "Node.js",
       "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
       "Java",
     ],
   },
   {
-    title: "Platforms & AI",
+    title: "Platforms, integrations & AI",
     tools: [
       "Android testing",
       "iOS testing",
       "Git",
       "Firebase",
+      "Stripe",
+      "InPost API",
+      "Cloudinary",
+      "Resend",
+      "Google Sheets API",
       "GitHub Copilot",
       "AI agents",
       "MCP basics",
@@ -119,6 +134,15 @@ const Skills = () => {
           <strong>Quality signals</strong>
           <p>Clear feedback for teams, stakeholders and releases.</p>
         </article>
+      </section>
+      <section className="skills-bridge" aria-label="Capability context">
+        <p className="section-kicker">How it shows up</p>
+        <h2>From release risk to practical execution</h2>
+        <p>
+          The summary above is the operating model. The sections below translate
+          it into day-to-day QA ownership: planning, automation, defects,
+          environments, reporting and collaboration.
+        </p>
       </section>
       <section className="capability-showcase" aria-label="Core capabilities">
         {capabilities.map((capability, index) => (

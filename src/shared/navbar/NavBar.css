@@ -1,8 +1,10 @@
 .navbar {
-  background: rgba(2, 6, 23, 0.78);
+  background:
+    linear-gradient(90deg, rgba(2, 6, 23, 0.94), rgba(8, 13, 28, 0.82)),
+    rgba(2, 6, 23, 0.78);
   border-bottom: 1px solid rgba(148, 163, 184, 0.14);
   backdrop-filter: blur(18px);
-  padding: 0.85rem clamp(1rem, 4vw, 3rem);
+  padding: 0.72rem clamp(1rem, 4vw, 3rem);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -27,9 +29,10 @@
 
 .navbar-title span {
   border-left: 1px solid rgba(148, 163, 184, 0.35);
-  color: #2dd4bf;
-  font-size: 0.78rem;
-  font-weight: 700;
+  color: #7cf7dc;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   padding-left: 10px;
   text-transform: uppercase;
 }
@@ -69,30 +72,67 @@
 }
 
 .navbar-menu-item a {
-  border-radius: 8px;
+  --nav-corner-cut: 7px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 12px;
+  isolation: isolate;
+  padding: 10px 13px;
+  position: relative;
   text-decoration: none;
-  font-weight: 700;
+  font-size: 0.92rem;
+  font-weight: 800;
   color: #cbd5e1;
   transition:
+    border-color 0.2s ease,
     background 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-menu-item a::before {
+  background: rgba(2, 6, 23, 0.94);
+  clip-path: inherit;
+  content: "";
+  inset: 1px;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.2s ease;
+  z-index: -1;
 }
 
 .navbar-menu-item a:hover,
 .navbar-menu-item a.active {
-  background: rgba(45, 212, 191, 0.1);
-  color: #5eead4;
+  background: rgba(54, 241, 205, 0.22);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--nav-corner-cut)) 0,
+    100% var(--nav-corner-cut),
+    100% 100%,
+    var(--nav-corner-cut) 100%,
+    0 calc(100% - var(--nav-corner-cut))
+  );
+  color: #7cf7dc;
+}
+
+.navbar-menu-item a:hover::before,
+.navbar-menu-item a.active::before {
+  opacity: 1;
+}
+
+.navbar-menu-item a:hover {
+  transform: translateY(-1px) scale(1.02);
 }
 
 @media (min-width: 768px) {
   .navbar {
     align-items: center;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(230px, 1fr) auto;
+    min-height: 64px;
   }
 
   .navbar-toggle {
@@ -105,8 +145,8 @@
 
   .navbar-menu {
     display: flex;
-    justify-content: center;
-    gap: 2px;
+    justify-content: flex-end;
+    gap: 4px;
     position: static;
     background: transparent;
     width: auto;
