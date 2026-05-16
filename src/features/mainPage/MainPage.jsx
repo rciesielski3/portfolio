@@ -1,7 +1,8 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaArrowRight, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, increment, setDoc } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
 import { db, analytics } from "../../firebase";
 
@@ -17,19 +18,9 @@ const MainPage = () => {
       const visitRef = doc(db, "counters", "visits");
 
       try {
+        await setDoc(visitRef, { count: increment(1) }, { merge: true });
         const docSnap = await getDoc(visitRef);
-        if (docSnap.exists()) {
-          const currentCount = docSnap.data().count || 0;
-          console.log("Current count from Firestore:", currentCount);
-
-          await updateDoc(visitRef, { count: currentCount + 1 });
-
-          setVisitCount(currentCount + 1);
-        } else {
-          console.warn("Firestore document does not exist. Creating it...");
-          await updateDoc(visitRef, { count: 1 });
-          setVisitCount(1);
-        }
+        setVisitCount(docSnap.data()?.count || 0);
 
         logEvent(analytics, "page_view", {
           page_location: window.location.href,
@@ -48,17 +39,49 @@ const MainPage = () => {
     <div className="main-page">
       <div className="content-wrapper">
         <div className="left-section">
-          <div className="typing-container">
-            <TypingEffect />
+          <div className="hero-kicker">Quality Engineering Specialist</div>
+          <h1 className="hero-name">Rafal Ciesielski</h1>
+          <TypingEffect />
+          <p className="hero-copy">
+            I help teams ship safer products with practical quality strategy,
+            reliable automation and product-minded engineering.
+          </p>
+          <dl className="career-snapshot" aria-label="Career snapshot">
+            <div>
+              <dt>10+ years</dt>
+              <dd>IT, QA and product quality</dd>
+            </div>
+            <div>
+              <dt>Automation focus</dt>
+              <dd>Web, mobile, API and contract testing</dd>
+            </div>
+            <div>
+              <dt>Product builder</dt>
+              <dd>E-commerce, logistics and IoT domains</dd>
+            </div>
+          </dl>
+          <div className="hero-actions">
+            <Link to="/experience" className="primary-action">
+              View Experience <FaArrowRight aria-hidden="true" />
+            </Link>
+            <Link to="/contact" className="secondary-action">
+              <FaEnvelope aria-hidden="true" /> Contact
+            </Link>
           </div>
         </div>
 
         <div className="right-section">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
-            alt="Profile"
-            className="profile-image"
-          />
+          <div className="profile-card">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
+              alt="Rafal Ciesielski"
+              className="profile-image"
+            />
+            <div className="profile-panel">
+              <span>Current focus</span>
+              <p>Quality engineering, automation and product delivery.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -68,6 +91,7 @@ const MainPage = () => {
             href="https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open LinkedIn profile"
             className="icon linkedin"
           >
             <FaLinkedin size={30} />
@@ -76,6 +100,7 @@ const MainPage = () => {
             href="https://github.com/rciesielski3"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open GitHub profile"
             className="icon github"
           >
             <FaGithub size={30} />

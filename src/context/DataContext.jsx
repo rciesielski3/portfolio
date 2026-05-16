@@ -4,76 +4,53 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [iAm, setIAm] = React.useState([]);
-  const [traits, setTraits] = React.useState([]);
   const [certificationCourses, setCertificationCourses] = React.useState([]);
-  const [responsibilities, setResponsibilities] = React.useState({});
   const [experiences, setExperiences] = React.useState([]);
   const [education, setEducation] = React.useState([]);
 
-  const baseUrl = process.env.PUBLIC_URL;
-
   React.useEffect(() => {
-    fetch(`${baseUrl}/data/iAm.json`)
-      .then((response) => {
-        if (!response.ok)
-          throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
-      })
-      .then((data) => setIAm(data || []))
-      .catch((error) => console.error("Error fetching iAm:", error));
+    const baseUrl = process.env.PUBLIC_URL;
 
-    fetch(`${baseUrl}/data/experiences.json`)
-      .then((response) => {
-        if (!response.ok)
-          throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
-      })
-      .then((data) => {
-        setExperiences(data.experiences || []);
-        setEducation(data.education || []);
-      })
-      .catch((error) => console.error("Error fetching experiences:", error));
+    const fetchJson = async (fileName, fallback) => {
+      try {
+        const response = await fetch(`${baseUrl}/data/${fileName}`);
 
-    fetch(`${baseUrl}/data/traits.json`)
-      .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json();
-      })
-      .then((data) => setTraits(data.traits))
-      .catch((error) => console.error("Error fetching traits:", error));
 
-    fetch(`${baseUrl}/data/responsibilities.json`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
         return response.json();
-      })
-      .then((data) => setResponsibilities(data))
-      .catch((error) =>
-        console.error("Error fetching responsibilities:", error)
-      );
+      } catch (error) {
+        console.error(`Error fetching ${fileName}:`, error);
+        return fallback;
+      }
+    };
 
-    fetch(`${baseUrl}/data/certifications.json`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => setCertificationCourses(data))
-      .catch((error) => console.error("Error fetching certifications:", error));
+    const loadData = async () => {
+      const [
+        iAmData,
+        experienceData,
+        certificationData,
+      ] = await Promise.all([
+        fetchJson("iAm.json", []),
+        fetchJson("experiences.json", { experiences: [], education: [] }),
+        fetchJson("certifications.json", []),
+      ]);
+
+      setIAm(iAmData || []);
+      setExperiences(experienceData.experiences || []);
+      setEducation(experienceData.education || []);
+      setCertificationCourses(certificationData || []);
+    };
+
+    loadData();
   }, []);
 
   return (
     <DataContext.Provider
       value={{
         iAm,
-        traits,
         certificationCourses,
-        responsibilities,
         education,
         experiences,
       }}

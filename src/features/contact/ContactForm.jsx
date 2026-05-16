@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import "./ContactForm.css";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,14 +14,15 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [feedbackType, setFeedbackType] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setFeedbackMessage("");
+    setFeedbackType("");
   };
 
-  // Validate form inputs
   const validate = () => {
     const errors = {};
     if (!formData.first_name.trim())
@@ -35,141 +38,167 @@ const ContactForm = () => {
     return errors;
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(validate(formData));
+    const validationErrors = validate(formData);
+    setErrors(validationErrors);
+    setFeedbackMessage("");
+    setFeedbackType("");
 
-    if (Object.keys(validate(formData)).length === 0) {
+    if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
       sendEmail();
     }
   };
 
-  const sendEmail = () => {
+  const sendEmail = async () => {
     const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const userID = process.env.REACT_APP_EMAILJS_USER_ID;
+    const publicKey =
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY ||
+      process.env.REACT_APP_EMAILJS_USER_ID;
 
-    emailjs.send(serviceID, templateID, formData, userID).then(
-      (response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        setIsSubmitting(false);
-        setFeedbackMessage("Your message has been sent successfully!");
-        setFormData({
-          first_name: "",
-          title: "",
-          senderEmail: "",
-          message: "",
-        });
-      },
-      (error) => {
-        console.error("FAILED...", error);
-        setIsSubmitting(false);
-        setFeedbackMessage(
-          "Failed to send the message. Please try again later."
-        );
-      }
-    );
+    if (!serviceID || !templateID || !publicKey) {
+      setIsSubmitting(false);
+      setFeedbackType("error");
+      setFeedbackMessage("Email service is not configured.");
+      return;
+    }
+
+    const templateParams = {
+      ...formData,
+      from_name: formData.first_name,
+      name: formData.first_name,
+      subject: formData.title,
+      email: formData.senderEmail,
+      from_email: formData.senderEmail,
+      reply_to: formData.senderEmail,
+    };
+
+    try {
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      setFeedbackType("success");
+      setFeedbackMessage("Your message has been sent successfully.");
+      setFormData({
+        first_name: "",
+        title: "",
+        senderEmail: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
+      const errorText = String(error?.text || error?.message || "");
+      setFeedbackType("error");
+      setFeedbackMessage(
+        errorText.includes("Public Key")
+          ? "Email service has an invalid public key. Please update the EmailJS configuration."
+          : "The message could not be sent. Please check the form configuration or try again later."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-gray-700 rounded-lg shadow-md mt-8">
-      <h2 className="text-2xl font-bold  text-blue-500 text-shadow text-center mb-6">
-        Contact Me
-      </h2>
-      <p className="text-orange-600 mb-6">
-        If you have any questions or would like to get in touch, please fill out
-        the form below.
-      </p>
-      <form className="space-y-4 text-left" onSubmit={handleSubmit}>
+    <div className="contact-page">
+      <section className="contact-intro">
+        <p className="section-kicker">Contact</p>
+        <h1>Let’s talk quality, automation or product delivery.</h1>
+        <p>
+          Send a concise note and I will get back with context. For a faster
+          signal, include the product area, stack and what kind of QA support
+          you are looking for.
+        </p>
+        <div className="contact-links">
+          <a
+            href="https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open LinkedIn"
+            title="Open LinkedIn"
+            className="icon linkedin"
+          >
+            <FaLinkedin size={30} />
+          </a>
+          <a
+            href="https://github.com/rciesielski3"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open GitHub"
+            title="Open GitHub"
+            className="icon github"
+          >
+            <FaGithub size={30} />
+          </a>
+        </div>
+      </section>
+
+      <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="first_name" className="block text-gray-300">
-            First Name:
-          </label>
+          <label htmlFor="first_name">Name</label>
           <input
             type="text"
             id="first_name"
             name="first_name"
             value={formData.first_name}
             onChange={handleChange}
-            className={`w-full p-3 border ${
-              errors.first_name ? "border-red-500" : "border-gray-500"
-            } bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            className={errors.first_name ? "input-error" : ""}
           />
           {errors.first_name && (
-            <span className="text-red-500 text-sm">{errors.first_name}</span>
+            <span className="form-error">{errors.first_name}</span>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="title" className="block text-gray-300">
-            Title:
-          </label>
+          <label htmlFor="title">Subject</label>
           <input
             type="text"
             id="title"
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className={`w-full p-3 border ${
-              errors.title ? "border-red-500" : "border-gray-500"
-            } bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            className={errors.title ? "input-error" : ""}
           />
-          {errors.title && (
-            <span className="text-red-500 text-sm">{errors.title}</span>
-          )}
+          {errors.title && <span className="form-error">{errors.title}</span>}
         </div>
 
         <div className="form-group">
-          <label htmlFor="senderEmail" className="block text-gray-300">
-            Email:
-          </label>
+          <label htmlFor="senderEmail">Email</label>
           <input
             type="email"
             id="senderEmail"
             name="senderEmail"
             value={formData.senderEmail}
             onChange={handleChange}
-            className={`w-full p-3 border ${
-              errors.senderEmail ? "border-red-500" : "border-gray-500"
-            } bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            className={errors.senderEmail ? "input-error" : ""}
           />
           {errors.senderEmail && (
-            <span className="text-red-500 text-sm">{errors.senderEmail}</span>
+            <span className="form-error">{errors.senderEmail}</span>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="message" className="block text-gray-300">
-            Message:
-          </label>
+          <label htmlFor="message">Message</label>
           <textarea
             id="message"
             name="message"
-            rows="6"
+            rows="5"
             value={formData.message}
             onChange={handleChange}
-            className={`w-full p-3 border ${
-              errors.message ? "border-red-500" : "border-gray-500"
-            } bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            className={errors.message ? "input-error" : ""}
           ></textarea>
           {errors.message && (
-            <span className="text-red-500 text-sm">{errors.message}</span>
+            <span className="form-error">{errors.message}</span>
           )}
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
-          disabled={isSubmitting}
-        >
+        <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>
+        {feedbackMessage && (
+          <p className={`form-feedback ${feedbackType}`}>{feedbackMessage}</p>
+        )}
       </form>
-      {feedbackMessage && (
-        <p className="text-green-500 text-center mt-4">{feedbackMessage}</p>
-      )}
     </div>
   );
 };

@@ -2,6 +2,34 @@ import React, { useState, useEffect } from "react";
 
 import GithubCard from "./GithubRepositoriesCard";
 
+const externalWork = [
+  {
+    title: "QA Journey",
+    description: "Writing and notes around quality assurance practice.",
+    url: "https://qa-journey.blogspot.com/",
+  },
+  {
+    title: "Quality Assurance Blog",
+    description: "Additional QA articles and experiments.",
+    url: "https://qa-blog.onrender.com/",
+  },
+  {
+    title: "JS & React Fundamentals",
+    description: "Learning lab for JavaScript, React and Next.js fundamentals.",
+    url: "https://learn-js-react-basics.vercel.app/",
+  },
+  {
+    title: "Mini Game Collection",
+    description: "Small frontend projects focused on interaction and polish.",
+    url: "https://mini-game-collection.vercel.app/",
+  },
+  {
+    title: "My Smart Home",
+    description: "Smart home related page and domain project.",
+    url: "https://mysmarthome.cba.pl/",
+  },
+];
+
 const GithubRepositories = () => {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,13 +76,15 @@ const GithubRepositories = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="content">
-      <h2 className="text-3xl font-bold text-blue-500 mb-6 text-shadow">
-        My repositories
-      </h2>
-      <p className="text-orange-600 mb-6 text-lg">
-        Feel free to explore my repositories on GitHub.
-      </p>
+    <div className="content github-page">
+      <header className="section-hero">
+        <p className="section-kicker">Build log</p>
+        <h1>GitHub repositories</h1>
+        <p>
+          Projects, experiments and learning repos that show how I approach
+          automation, frontend foundations and practical engineering.
+        </p>
+      </header>
       {repos.length === 0 ? (
         <div>Coming soon. Under construction.</div>
       ) : (
@@ -73,6 +103,30 @@ const GithubRepositories = () => {
           ))}
         </div>
       )}
+      <section className="external-work-section">
+        <div className="stack-heading">
+          <p className="section-kicker">Supporting work</p>
+          <h2>Articles and side projects</h2>
+          <p>
+            These are useful as secondary proof points, so they live here rather
+            than competing with the primary portfolio navigation.
+          </p>
+        </div>
+        <div className="external-work-grid">
+          {externalWork.map((item) => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="external-work-card"
+              key={item.title}
+            >
+              <span>{item.title}</span>
+              <p>{item.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

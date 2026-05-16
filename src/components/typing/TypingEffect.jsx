@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./TypingEffect.css";
 
 import { DataContext } from "../../context/DataContext";
@@ -38,14 +38,11 @@ const TypingEffect = () => {
   }, [currentWord, isDeleting, loopIndex, typingSpeed, iAm]);
 
   return (
-    <>
-      <h1 className="heading">Rafal Ciesielski</h1>
-      <div className="typing-text">
-        <span>{staticText}</span>{" "}
-        <span className="dynamic-text">{currentWord}</span>
-        <span className="cursor">|</span>
-      </div>
-    </>
+    <div className="typing-text">
+      <span>{staticText}</span>{" "}
+      <span className="dynamic-text">{currentWord}</span>
+      <span className="cursor">|</span>
+    </div>
   );
 };
 
