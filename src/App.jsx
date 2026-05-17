@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Skills from "./features/skills/Skills";
 import Certifications from "./features/certification/Certifications";
@@ -8,6 +8,7 @@ import GithubRepositories from "./features/github/GithubRepositories";
 import MainPage from "./features/mainPage/MainPage";
 import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
 import ExperiencePage from "./features/experience/ExperiencePage";
+import NotFound from "./features/notFound/NotFound";
 
 import DataProvider from "./context/DataContext";
 import NavBar from "./shared/navbar/Navbar";
@@ -30,6 +31,7 @@ const App = () => {
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/portfolio" element={<MainPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           <Footer />
