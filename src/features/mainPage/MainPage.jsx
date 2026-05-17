@@ -1,5 +1,5 @@
 import React from "react";
-import { FaArrowRight, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaArrowRight, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import { doc, getDoc, increment, setDoc } from "firebase/firestore";
@@ -7,8 +7,25 @@ import { logEvent } from "firebase/analytics";
 import { db, analytics } from "../../firebase";
 
 import TypingEffect from "../../components/typing/TypingEffect";
+import { profile } from "../../config/profile";
+import SocialLinks from "../../shared/SocialLinks";
 
 import "./MainPage.css";
+
+const careerSnapshot = [
+  {
+    label: "10+ years",
+    value: "IT, QA and product quality",
+  },
+  {
+    label: "Automation focus",
+    value: "Web, mobile, API and contract testing",
+  },
+  {
+    label: "Product builder",
+    value: "E-commerce, logistics and IoT domains",
+  },
+];
 
 const MainPage = () => {
   const [visitCount, setVisitCount] = React.useState(0);
@@ -39,26 +56,20 @@ const MainPage = () => {
     <div className="main-page">
       <div className="content-wrapper">
         <div className="left-section">
-          <div className="hero-kicker">Quality Engineering Specialist</div>
-          <h1 className="hero-name">Rafal Ciesielski</h1>
+          <div className="hero-kicker">{profile.heroRole}</div>
+          <h1 className="hero-name">{profile.name}</h1>
           <TypingEffect />
           <p className="hero-copy">
             I help teams ship safer products with practical quality strategy,
             reliable automation and product-minded engineering.
           </p>
           <dl className="career-snapshot" aria-label="Career snapshot">
-            <div>
-              <dt>10+ years</dt>
-              <dd>IT, QA and product quality</dd>
-            </div>
-            <div>
-              <dt>Automation focus</dt>
-              <dd>Web, mobile, API and contract testing</dd>
-            </div>
-            <div>
-              <dt>Product builder</dt>
-              <dd>E-commerce, logistics and IoT domains</dd>
-            </div>
+            {careerSnapshot.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
           </dl>
           <div className="hero-actions">
             <Link to="/experience" className="primary-action">
@@ -74,38 +85,19 @@ const MainPage = () => {
           <div className="profile-card">
             <img
               src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
-              alt="Rafal Ciesielski"
+              alt={profile.name}
               className="profile-image"
             />
             <div className="profile-panel">
               <span>Current focus</span>
-              <p>Quality engineering, automation and product delivery.</p>
+              <p>{profile.currentFocus}</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="bottom-section">
-        <div className="social-icons">
-          <a
-            href="https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open LinkedIn profile"
-            className="icon linkedin"
-          >
-            <FaLinkedin size={30} />
-          </a>
-          <a
-            href="https://github.com/rciesielski3"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open GitHub profile"
-            className="icon github"
-          >
-            <FaGithub size={30} />
-          </a>
-        </div>
+        <SocialLinks />
 
         <div className="visit-counter-container">
           <p className="visit-counter">

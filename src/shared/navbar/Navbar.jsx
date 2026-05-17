@@ -2,25 +2,25 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
+import { navigationItems, profile } from "../../config/profile";
 import "./NavBar.css";
+
+const BrandLink = ({ className = "", onClick }) => (
+  <NavLink to="/" className={`navbar-title ${className}`} onClick={onClick}>
+    RC<span>{profile.brand}</span>
+  </NavLink>
+);
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen((isOpen) => !isOpen);
 
   return (
     <nav className="navbar">
       <div className="navbar-toggle">
-        <NavLink
-          to="/"
-          className="navbar-title"
-          onClick={() => setMenuOpen(false)}
-        >
-          RC<span>Quality Engineering</span>
-        </NavLink>
+        <BrandLink onClick={closeMenu} />
         <button
           onClick={toggleMenu}
           className="navbar-menu-btn"
@@ -32,44 +32,15 @@ const NavBar = () => {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
-      <NavLink
-        to="/"
-        className="navbar-title navbar-title-desktop"
-        onClick={() => setMenuOpen(false)}
-      >
-        RC<span>Quality Engineering</span>
-      </NavLink>
+      <BrandLink className="navbar-title-desktop" onClick={closeMenu} />
       <ul className={`navbar-menu ${menuOpen ? "active" : ""}`}>
-        <li className="navbar-menu-item">
-          <NavLink to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </NavLink>
-        </li>
-        <li className="navbar-menu-item">
-          <NavLink to="/experience" onClick={() => setMenuOpen(false)}>
-            Experience
-          </NavLink>
-        </li>
-        <li className="navbar-menu-item">
-          <NavLink to="/skills" onClick={() => setMenuOpen(false)}>
-            Skills
-          </NavLink>
-        </li>
-        <li className="navbar-menu-item">
-          <NavLink to="/courses" onClick={() => setMenuOpen(false)}>
-            Certifications
-          </NavLink>
-        </li>
-        <li className="navbar-menu-item">
-          <NavLink to="/github" onClick={() => setMenuOpen(false)}>
-            GitHub
-          </NavLink>
-        </li>
-        <li className="navbar-menu-item">
-          <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </NavLink>
-        </li>
+        {navigationItems.map((item) => (
+          <li className="navbar-menu-item" key={item.path}>
+            <NavLink to={item.path} onClick={closeMenu}>
+              {item.label}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

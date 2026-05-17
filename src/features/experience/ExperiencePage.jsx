@@ -4,6 +4,7 @@ import { FaSuitcase, FaGraduationCap } from "react-icons/fa";
 import "aos/dist/aos.css";
 
 import { DataContext } from "../../context/DataContext";
+import { profile } from "../../config/profile";
 import "./ExperiencePage.css";
 
 const ExperiencePage = () => {
@@ -128,12 +129,7 @@ const ExperiencePage = () => {
         </p>
         <button
           data-aos="fade-up"
-          onClick={() =>
-            window.open(
-              "https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100",
-              "_blank"
-            )
-          }
+          onClick={() => window.open(profile.links.linkedin, "_blank")}
         >
           Open LinkedIn
         </button>
