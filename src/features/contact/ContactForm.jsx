@@ -1,15 +1,51 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import SocialLinks from "../../shared/SocialLinks";
 import "./ContactForm.css";
 
+const initialFormData = {
+  first_name: "",
+  title: "",
+  senderEmail: "",
+  message: "",
+};
+
+const emailPattern = /\S+@\S+\.\S+/;
+
+const formFields = [
+  {
+    id: "first_name",
+    label: "Name",
+    type: "text",
+  },
+  {
+    id: "title",
+    label: "Subject",
+    type: "text",
+  },
+  {
+    id: "senderEmail",
+    label: "Email",
+    type: "email",
+  },
+  {
+    id: "message",
+    label: "Message",
+    rows: 5,
+    type: "textarea",
+  },
+];
+
+const getEmailConfig = () => ({
+  serviceID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+  templateID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+  publicKey:
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY ||
+    process.env.REACT_APP_EMAILJS_USER_ID,
+});
+
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    first_name: "",
-    title: "",
-    senderEmail: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,7 +54,8 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((currentFormData) => ({ ...currentFormData, [name]: value }));
+    setErrors((currentErrors) => ({ ...currentErrors, [name]: "" }));
     setFeedbackMessage("");
     setFeedbackType("");
   };
@@ -30,7 +67,7 @@ const ContactForm = () => {
     if (!formData.title.trim()) errors.title = "Title is required";
     if (!formData.senderEmail.trim()) {
       errors.senderEmail = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.senderEmail)) {
+    } else if (!emailPattern.test(formData.senderEmail)) {
       errors.senderEmail = "Email address is invalid";
     }
     if (!formData.message.trim()) errors.message = "Message is required";
@@ -38,25 +75,19 @@ const ContactForm = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validate(formData);
+    const validationErrors = validate();
     setErrors(validationErrors);
     setFeedbackMessage("");
     setFeedbackType("");
 
-    if (Object.keys(validationErrors).length === 0) {
-      setIsSubmitting(true);
-      sendEmail();
+    if (Object.keys(validationErrors).length > 0) {
+      return;
     }
-  };
 
-  const sendEmail = async () => {
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey =
-      process.env.REACT_APP_EMAILJS_PUBLIC_KEY ||
-      process.env.REACT_APP_EMAILJS_USER_ID;
+    setIsSubmitting(true);
+    const { serviceID, templateID, publicKey } = getEmailConfig();
 
     if (!serviceID || !templateID || !publicKey) {
       setIsSubmitting(false);
@@ -79,12 +110,7 @@ const ContactForm = () => {
       await emailjs.send(serviceID, templateID, templateParams, publicKey);
       setFeedbackType("success");
       setFeedbackMessage("Your message has been sent successfully.");
-      setFormData({
-        first_name: "",
-        title: "",
-        senderEmail: "",
-        message: "",
-      });
+      setFormData(initialFormData);
     } catch (error) {
       console.error("EmailJS send failed:", error);
       const errorText = String(error?.text || error?.message || "");
@@ -109,88 +135,29 @@ const ContactForm = () => {
           signal, include the product area, stack and what kind of QA support
           you are looking for.
         </p>
-        <div className="contact-links">
-          <a
-            href="https://www.linkedin.com/in/rafa%C5%82-ciesielski-820309100/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open LinkedIn"
-            title="Open LinkedIn"
-            className="icon linkedin"
-          >
-            <FaLinkedin size={30} />
-          </a>
-          <a
-            href="https://github.com/rciesielski3"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open GitHub"
-            title="Open GitHub"
-            className="icon github"
-          >
-            <FaGithub size={30} />
-          </a>
-        </div>
+        <SocialLinks className="contact-links" />
       </section>
 
       <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="first_name">Name</label>
-          <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            value={formData.first_name}
-            onChange={handleChange}
-            className={errors.first_name ? "input-error" : ""}
-          />
-          {errors.first_name && (
-            <span className="form-error">{errors.first_name}</span>
-          )}
-        </div>
+        {formFields.map(({ id, label, rows, type }) => {
+          const Field = type === "textarea" ? "textarea" : "input";
 
-        <div className="form-group">
-          <label htmlFor="title">Subject</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            className={errors.title ? "input-error" : ""}
-          />
-          {errors.title && <span className="form-error">{errors.title}</span>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="senderEmail">Email</label>
-          <input
-            type="email"
-            id="senderEmail"
-            name="senderEmail"
-            value={formData.senderEmail}
-            onChange={handleChange}
-            className={errors.senderEmail ? "input-error" : ""}
-          />
-          {errors.senderEmail && (
-            <span className="form-error">{errors.senderEmail}</span>
-          )}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            value={formData.message}
-            onChange={handleChange}
-            className={errors.message ? "input-error" : ""}
-          ></textarea>
-          {errors.message && (
-            <span className="form-error">{errors.message}</span>
-          )}
-        </div>
+          return (
+            <div className="form-group" key={id}>
+              <label htmlFor={id}>{label}</label>
+              <Field
+                type={type === "textarea" ? undefined : type}
+                id={id}
+                name={id}
+                rows={rows}
+                value={formData[id]}
+                onChange={handleChange}
+                className={errors[id] ? "input-error" : ""}
+              />
+              {errors[id] && <span className="form-error">{errors[id]}</span>}
+            </div>
+          );
+        })}
 
         <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
