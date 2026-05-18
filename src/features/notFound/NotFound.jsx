@@ -2,6 +2,7 @@ import React from "react";
 import { FaArrowLeft, FaHome } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
+import { notFoundContent } from "../../content/portfolioContent";
 import "./NotFound.css";
 
 const NotFound = () => {
@@ -10,19 +11,19 @@ const NotFound = () => {
   return (
     <section className="not-found-page">
       <div className="not-found-panel">
-        <p className="not-found-kicker">404 / route not found</p>
-        <h1>Signal lost, page not found.</h1>
+        <p className="not-found-kicker">{notFoundContent.kicker}</p>
+        <h1>{notFoundContent.title}</h1>
         <p>
-          The route <span>{location.pathname}</span> does not exist in this
-          portfolio. Head back to the main page or continue from the experience
-          overview.
+          {notFoundContent.prefix} <span>{location.pathname}</span>{" "}
+          {notFoundContent.suffix}
         </p>
         <div className="not-found-actions">
           <Link to="/" className="not-found-primary">
-            <FaHome aria-hidden="true" /> Home
+            <FaHome aria-hidden="true" /> {notFoundContent.actions.home}
           </Link>
           <Link to="/experience" className="not-found-secondary">
-            <FaArrowLeft aria-hidden="true" /> Experience
+            <FaArrowLeft aria-hidden="true" />{" "}
+            {notFoundContent.actions.experience}
           </Link>
         </div>
       </div>
