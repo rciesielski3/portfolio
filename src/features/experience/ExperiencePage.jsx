@@ -41,7 +41,7 @@ const ExperiencePage = () => {
   }, []);
 
   if (!experiences || experiences.length === 0) {
-    return <div className="spinner">Loading...</div>;
+    return <div className="spinner">{content.common.loading}</div>;
   }
 
   const displayedExperiences =

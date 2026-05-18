@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCodeBranch, FaExternalLinkAlt, FaStar } from "react-icons/fa";
 
-const GithubCard = ({ repo }) => {
+const GithubCard = ({ content, repo }) => {
   return (
     <article className="repo-box">
       <div className="repo-card-header">
@@ -11,13 +11,13 @@ const GithubCard = ({ repo }) => {
           target="_blank"
           rel="noopener noreferrer"
           className="repo-link"
-          aria-label={`Open ${repo.name} on GitHub`}
+          aria-label={`${content.openLabelPrefix} ${repo.name} ${content.openLabelSuffix}`}
         >
           <FaExternalLinkAlt />
         </a>
       </div>
       <p className="repo-description">
-        {repo.description || "No description provided yet."}
+        {repo.description || content.fallbackDescription}
       </p>
       <div className="repo-meta">
         {repo.language && <span>{repo.language}</span>}
@@ -29,7 +29,7 @@ const GithubCard = ({ repo }) => {
         </span>
       </div>
       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-        View repository
+        {content.viewRepository}
       </a>
     </article>
   );

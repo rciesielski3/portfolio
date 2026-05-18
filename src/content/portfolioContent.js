@@ -18,6 +18,8 @@ export const portfolioContent = {
       certifications: "Certifications",
       github: "GitHub",
       contact: "Contact",
+      closeMenu: "Close navigation menu",
+      openMenu: "Open navigation menu",
     },
     home: {
       typing: {
@@ -230,6 +232,65 @@ export const portfolioContent = {
         ],
       },
     },
+    certifications: {
+      hero: {
+        kicker: "Continuous learning",
+        title: "Certifications",
+        description:
+          "A curated training record across test automation, AI, accessibility, performance, web development and networking foundations.",
+      },
+    },
+    github: {
+      hero: {
+        kicker: "Build log",
+        title: "GitHub repositories",
+        description:
+          "Projects, experiments and learning repos that show how I approach automation, frontend foundations and practical engineering.",
+      },
+      emptyState: "Coming soon. Under construction.",
+      errorPrefix: "Error",
+      card: {
+        openLabelPrefix: "Open",
+        openLabelSuffix: "on GitHub",
+        fallbackDescription: "No description provided yet.",
+        viewRepository: "View repository",
+      },
+      externalWork: {
+        kicker: "Supporting work",
+        title: "Articles and side projects",
+        description:
+          "These are useful as secondary proof points, so they live here rather than competing with the primary portfolio navigation.",
+        items: [
+          {
+            title: "QA Journey",
+            description: "Writing and notes around quality assurance practice.",
+            url: "https://qa-journey.blogspot.com/",
+          },
+          {
+            title: "Quality Assurance Blog",
+            description: "Additional QA articles and experiments.",
+            url: "https://qa-blog.onrender.com/",
+          },
+          {
+            title: "JS & React Fundamentals",
+            description:
+              "Learning lab for JavaScript, React and Next.js fundamentals.",
+            url: "https://learn-js-react-basics.vercel.app/",
+          },
+          {
+            title: "Mini Game Collection",
+            description:
+              "Small frontend projects focused on interaction and polish.",
+            url: "https://mini-game-collection.vercel.app/",
+          },
+          {
+            title: "My Smart Home",
+            description: "Smart home related page and domain project.",
+            url: "https://mysmarthome.cba.pl/",
+          },
+        ],
+      },
+    },
     contact: {
       kicker: "Contact",
       title: "Let's talk quality, automation or product delivery.",
@@ -270,6 +331,16 @@ export const portfolioContent = {
         experience: "Experience",
       },
     },
+    social: {
+      githubAria: "Open GitHub profile",
+      githubTitle: "Open GitHub",
+      linkedinAria: "Open LinkedIn profile",
+      linkedinTitle: "Open LinkedIn",
+    },
+    common: {
+      loading: "Loading...",
+      close: "Close",
+    },
   },
   pl: {
     languageName: "Polski",
@@ -286,6 +357,8 @@ export const portfolioContent = {
       certifications: "Certyfikaty",
       github: "GitHub",
       contact: "Kontakt",
+      closeMenu: "Zamknij menu nawigacji",
+      openMenu: "Otwórz menu nawigacji",
     },
     home: {
       typing: {
@@ -366,41 +439,49 @@ export const portfolioContent = {
           },
           {
             title: "Starszy inżynier QA",
+            time: "wrz 2025 – obecnie",
             description:
               "Buduję i utrzymuję automatyczne pokrycie jakościowe dla warstw web, mobile, backend, kontraktów i wydajności. Pracuję z Playwrightem w TypeScript, WebdriverIO dla aplikacji natywnych, kotlinowymi frameworkami testów backendowych oraz testami wydajnościowymi Gatling. Dostarczam raporty jakości, dokumentację i czytelną analizę defektów wspierającą decyzje o wydaniu.",
           },
           {
             title: "Ekspert ds. testów",
+            time: "maj 2025 – wrz 2025",
             description:
               "Odpowiadałem za pokrycie testami funkcjonalnymi, regresyjnymi, walidacyjnymi i WCAG dla aplikacji bankowych na mobile i desktop. Przekładałem user stories na scenariusze testowe, raportowałem defekty w Jira/Xray i wspierałem pewność wydań.",
           },
           {
             title: "Tester oprogramowania",
+            time: "gru 2023 – mar 2025",
             description:
               "Realizowałem testy integracyjne, funkcjonalne, regresyjne i walidację danych dla przepływów iOS oraz Android. Budowałem automatyczne sprawdzenia i dokumentację użytkownika, żeby ograniczać tarcie we wsparciu i poprawiać niezawodność produktu.",
           },
           {
-            title: "Full-stack developer — praktyka",
+            title: "Programista full-stack — praktyka",
+            time: "paź 2023 – maj 2025",
             description:
-              "Budowałem i testowałem platformę e-learningową z użyciem React, Next.js, Node.js i NestJS. Ćwiczyłem code review, poprawę niezawodności i produktowe myślenie end-to-end z perspektywy developera oraz QA.",
+              "Budowałem i testowałem platformę e-learningową z użyciem React, Next.js, Node.js i NestJS. Ćwiczyłem przegląd kodu, poprawę niezawodności i produktowe myślenie end-to-end z perspektywy programisty oraz QA.",
           },
           {
             title: "Koordynator QA",
+            time: "gru 2020 – gru 2023",
             description:
-              "Koordynowałem prace mobile QA, odpowiadałem za cykl życia przypadków testowych w TestRail i śledziłem delivery w Jira. Wspierałem estymacje, planowanie i usprawnienia procesu, żeby jakość była widoczna w trakcie wydań.",
+              "Koordynowałem prace mobile QA, odpowiadałem za cykl życia przypadków testowych w TestRail i śledziłem dostarczanie zadań w Jira. Wspierałem estymacje, planowanie i usprawnienia procesu, żeby jakość była widoczna w trakcie wydań.",
           },
           {
             title: "Inżynier QA",
+            time: "maj 2018 – gru 2020",
             description:
               "Walidowałem aplikacje mobile i web przez testy eksploracyjne, regresyjne i automatyczne z użyciem Detox oraz Cypress. Utrzymywałem pokrycie w TestRail i pomagałem usprawniać powtarzalne sprawdzenia przed wydaniem.",
           },
           {
             title: "Inżynier wsparcia technicznego",
+            time: "wrz 2015 – maj 2018",
             description:
               "Wspierałem użytkowników systemów inteligentnego domu i przekładałem powtarzalne problemy na czytelne zgłoszenia defektów. Utrzymywałem dokumentację w Confluence, obsługiwałem zgłoszenia w Desk.com i łączyłem informacje zwrotne od klientów z zespołami produktowymi.",
           },
           {
             title: "Młodszy inżynier systemów IT",
+            time: "wrz 2013 – wrz 2015",
             description:
               "Zapewniałem wsparcie IT dla wewnętrznych zespołów inżynieryjnych, w tym konfigurację sprzętu i oprogramowania oraz obsługę zgłoszeń w narzędziach ITSM. Zbudowałem fundament w obszarze infrastruktury, operacji wsparcia i jakości usług.",
           },
@@ -422,7 +503,7 @@ export const portfolioContent = {
         kicker: "Mapa kompetencji",
         title: "Kompetencje wokół stabilnych wydań",
         description:
-          "Praktyczny zestaw kompetencji QA obejmujący automatyzację, analizę ryzyka i współpracę z zespołami delivery. Mniej buzzwordów, więcej sygnałów pomagających dowozić z pewnością.",
+          "Praktyczny zestaw kompetencji QA obejmujący automatyzację, analizę ryzyka i współpracę z zespołami odpowiedzialnymi za dostarczanie produktu. Mniej buzzwordów, więcej sygnałów pomagających dowozić z pewnością.",
       },
       summary: [
         {
@@ -478,7 +559,7 @@ export const portfolioContent = {
           points: [
             "Współpraca z developerami, interesariuszami i zespołami wsparcia",
             "Code review z perspektywy jakości",
-            "Wsparcie pracy agile, dokumentacji i rozwiązywania problemów",
+            "Wsparcie zwinnej pracy zespołu, dokumentacji i rozwiązywania problemów",
           ],
         },
       ],
@@ -558,9 +639,68 @@ export const portfolioContent = {
         ],
       },
     },
+    certifications: {
+      hero: {
+        kicker: "Ciągły rozwój",
+        title: "Certyfikaty",
+        description:
+          "Wybrane szkolenia z obszaru automatyzacji testów, AI, dostępności, wydajności, web developmentu i podstaw sieci.",
+      },
+    },
+    github: {
+      hero: {
+        kicker: "Dziennik pracy",
+        title: "Repozytoria GitHub",
+        description:
+          "Projekty, eksperymenty i repozytoria edukacyjne pokazujące moje podejście do automatyzacji, podstaw frontendu i praktycznej inżynierii.",
+      },
+      emptyState: "Wkrótce. Sekcja w przygotowaniu.",
+      errorPrefix: "Błąd",
+      card: {
+        openLabelPrefix: "Otwórz",
+        openLabelSuffix: "na GitHubie",
+        fallbackDescription: "Brak opisu repozytorium.",
+        viewRepository: "Zobacz repozytorium",
+      },
+      externalWork: {
+        kicker: "Dodatkowe materiały",
+        title: "Artykuły i projekty poboczne",
+        description:
+          "To dodatkowe punkty potwierdzające praktykę, dlatego są tutaj, a nie w głównej nawigacji portfolio.",
+        items: [
+          {
+            title: "QA Journey",
+            description: "Notatki i teksty o praktyce zapewniania jakości.",
+            url: "https://qa-journey.blogspot.com/",
+          },
+          {
+            title: "Quality Assurance Blog",
+            description: "Dodatkowe artykuły i eksperymenty QA.",
+            url: "https://qa-blog.onrender.com/",
+          },
+          {
+            title: "JS & React Fundamentals",
+            description:
+              "Laboratorium nauki podstaw JavaScript, React i Next.js.",
+            url: "https://learn-js-react-basics.vercel.app/",
+          },
+          {
+            title: "Mini Game Collection",
+            description:
+              "Małe projekty frontendowe skupione na interakcji i dopracowaniu UI.",
+            url: "https://mini-game-collection.vercel.app/",
+          },
+          {
+            title: "My Smart Home",
+            description: "Strona i projekt domenowy związany ze smart home.",
+            url: "https://mysmarthome.cba.pl/",
+          },
+        ],
+      },
+    },
     contact: {
       kicker: "Kontakt",
-      title: "Porozmawiajmy o jakości, automatyzacji albo delivery produktu.",
+      title: "Porozmawiajmy o jakości, automatyzacji albo dostarczaniu produktu.",
       description:
         "Napisz krótko, a wrócę z konkretnym kontekstem. Najszybciej zadziała informacja o obszarze produktu, stacku i rodzaju wsparcia QA, którego szukasz.",
       form: {
@@ -597,6 +737,16 @@ export const portfolioContent = {
         home: "Start",
         experience: "Doświadczenie",
       },
+    },
+    social: {
+      githubAria: "Otwórz profil GitHub",
+      githubTitle: "Otwórz GitHub",
+      linkedinAria: "Otwórz profil LinkedIn",
+      linkedinTitle: "Otwórz LinkedIn",
+    },
+    common: {
+      loading: "Ładowanie...",
+      close: "Zamknij",
     },
   },
 };

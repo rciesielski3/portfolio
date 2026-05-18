@@ -27,7 +27,9 @@ const NavBar = () => {
           onClick={toggleMenu}
           className="navbar-menu-btn"
           aria-label={
-            menuOpen ? "Close navigation menu" : "Open navigation menu"
+            menuOpen
+              ? content.navigation.closeMenu
+              : content.navigation.openMenu
           }
           aria-expanded={menuOpen}
         >
