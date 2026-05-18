@@ -1,10 +1,10 @@
 .contact-page {
-  align-items: center;
+  align-items: start;
   display: grid;
   gap: clamp(24px, 5vw, 70px);
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 480px);
+  grid-template-columns: minmax(0, 0.88fr) minmax(340px, 500px);
   margin: 0 auto;
-  max-width: 1120px;
+  max-width: 1220px;
   min-height: calc(100vh - 112px);
   padding: clamp(28px, 5vw, 56px) 24px;
   width: 100%;
@@ -16,10 +16,13 @@
 
 .contact-intro h1 {
   color: #f8fafc;
-  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-size: clamp(2.15rem, 3.4vw, 3.7rem);
   font-weight: 900;
   line-height: 1.02;
   margin: 0;
+  max-width: 680px;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .contact-intro > p:not(.section-kicker) {

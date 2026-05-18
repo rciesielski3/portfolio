@@ -71,7 +71,8 @@ export const portfolioContent = {
         {
           label: "Product ownership",
           title: "ZabawkowyBox.pl",
-          description: "E-commerce subscriptions, payments, CMS and operations.",
+          description:
+            "E-commerce subscriptions, payments, CMS and operations.",
         },
         {
           label: "Technical path",
@@ -107,7 +108,8 @@ export const portfolioContent = {
         {
           label: "Automation",
           title: "Practical coverage",
-          description: "UI, API and mobile checks designed for maintainability.",
+          description:
+            "UI, API and mobile checks designed for maintainability.",
         },
         {
           label: "Delivery",
@@ -258,8 +260,7 @@ export const portfolioContent = {
       externalWork: {
         kicker: "Supporting work",
         title: "Articles and side projects",
-        description:
-          "These are useful as secondary proof points, so they live here rather than competing with the primary portfolio navigation.",
+        description: "Additional materials showcasing practical experience.",
         items: [
           {
             title: "QA Journey",
@@ -337,6 +338,9 @@ export const portfolioContent = {
       linkedinAria: "Open LinkedIn profile",
       linkedinTitle: "Open LinkedIn",
     },
+    footer: {
+      rights: "All rights reserved.",
+    },
     common: {
       loading: "Loading...",
       close: "Close",
@@ -348,7 +352,8 @@ export const portfolioContent = {
     profile: {
       brand: "Inżynieria Jakości",
       heroRole: "Specjalista ds. inżynierii jakości",
-      currentFocus: "Inżynieria jakości, automatyzacja i dostarczanie produktu.",
+      currentFocus:
+        "Inżynieria jakości, automatyzacja i dostarczanie produktu.",
     },
     navigation: {
       home: "Start",
@@ -509,17 +514,20 @@ export const portfolioContent = {
         {
           label: "Strategia",
           title: "QA oparte na ryzyku",
-          description: "Decyzje o pokryciu testami oparte o ryzyko produktu i wydania.",
+          description:
+            "Decyzje o pokryciu testami oparte o ryzyko produktu i wydania.",
         },
         {
           label: "Automatyzacja",
           title: "Praktyczne pokrycie testami",
-          description: "Testy UI, API i mobile projektowane z myślą o utrzymaniu.",
+          description:
+            "Testy UI, API i mobile projektowane z myślą o utrzymaniu.",
         },
         {
           label: "Dostarczanie",
           title: "Sygnały jakości",
-          description: "Czytelna informacja zwrotna dla zespołów, interesariuszy i wydań.",
+          description:
+            "Czytelna informacja zwrotna dla zespołów, interesariuszy i wydań.",
         },
       ],
       bridge: {
@@ -567,7 +575,7 @@ export const portfolioContent = {
         kicker: "Stack technologiczny",
         title: "Narzędzia, o których mogę rozmawiać z kontekstem",
         description:
-          "Pogrupowane według tego, jak wspierają pracę nad jakością, a nie jako płaska lista technologii.",
+          "Pogrupowane według tego, jak wspierają pracę nad jakością.",
         groups: [
           {
             title: "Automation & testing",
@@ -665,8 +673,7 @@ export const portfolioContent = {
       externalWork: {
         kicker: "Dodatkowe materiały",
         title: "Artykuły i projekty poboczne",
-        description:
-          "To dodatkowe punkty potwierdzające praktykę, dlatego są tutaj, a nie w głównej nawigacji portfolio.",
+        description: "Dodatkowe materiały pokazujące praktyczne doświadczenie.",
         items: [
           {
             title: "QA Journey",
@@ -700,7 +707,8 @@ export const portfolioContent = {
     },
     contact: {
       kicker: "Kontakt",
-      title: "Porozmawiajmy o jakości, automatyzacji albo dostarczaniu produktu.",
+      title:
+        "Porozmawiajmy o jakości, automatyzacji albo dostarczaniu produktu.",
       description:
         "Napisz krótko, a wrócę z konkretnym kontekstem. Najszybciej zadziała informacja o obszarze produktu, stacku i rodzaju wsparcia QA, którego szukasz.",
       form: {
@@ -743,6 +751,9 @@ export const portfolioContent = {
       githubTitle: "Otwórz GitHub",
       linkedinAria: "Otwórz profil LinkedIn",
       linkedinTitle: "Otwórz LinkedIn",
+    },
+    footer: {
+      rights: "Wszelkie prawa zastrzeżone.",
     },
     common: {
       loading: "Ładowanie...",
