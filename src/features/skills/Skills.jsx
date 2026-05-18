@@ -1,7 +1,10 @@
 import "./Skills.css";
-import { skillsContent } from "../../content/portfolioContent";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Skills = () => {
+  const { content } = useLanguage();
+  const skillsContent = content.skills;
+
   return (
     <div className="skills-page">
       <header className="section-hero">

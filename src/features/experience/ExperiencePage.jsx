@@ -5,11 +5,13 @@ import "aos/dist/aos.css";
 
 import { DataContext } from "../../context/DataContext";
 import { profile } from "../../config/profile";
-import { experienceContent } from "../../content/portfolioContent";
+import { useLanguage } from "../../context/LanguageContext";
 import "./ExperiencePage.css";
 
 const ExperiencePage = () => {
   const { experiences, education } = React.useContext(DataContext);
+  const { content } = useLanguage();
+  const experienceContent = content.experience;
   const expRef = React.useRef(null);
   const eduRef = React.useRef(null);
   const [expLineStyle, setExpLineStyle] = React.useState({});
@@ -57,14 +59,8 @@ const ExperiencePage = () => {
           </article>
         ))}
       </section>
-      <div
-        className="timeline-line"
-        style={expLineStyle}
-      />
-      <div
-        className="timeline-line"
-        style={eduLineStyle}
-      />
+      <div className="timeline-line" style={expLineStyle} />
+      <div className="timeline-line" style={eduLineStyle} />
       <section ref={expRef} className="timeline-section">
         <h2 className="timeline-section-title" data-aos="zoom-in">
           {experienceContent.sections.experience}
@@ -100,7 +96,6 @@ const ExperiencePage = () => {
             <div className="timeline-card">
               <h3>{edu.title}</h3>
               <span>{edu.studies}</span>
-              <p className="timeline-time">{edu.time}</p>
             </div>
             <div className="timeline-icon">
               <FaGraduationCap />

@@ -3,18 +3,25 @@ import "./TypingEffect.css";
 
 import { DataContext } from "../../context/DataContext";
 
-const TypingEffect = () => {
+const TypingEffect = ({ staticText = "I'm", words = [] }) => {
   const [currentWord, setCurrentWord] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopIndex, setLoopIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
   const { iAm } = useContext(DataContext);
-  const staticText = "I'm";
+  const typingWords = words.length > 0 ? words : iAm;
 
   React.useEffect(() => {
-    if (iAm.length === 0) return;
+    setCurrentWord("");
+    setIsDeleting(false);
+    setLoopIndex(0);
+    setTypingSpeed(150);
+  }, [words]);
 
-    const fullWord = iAm[loopIndex % iAm.length];
+  React.useEffect(() => {
+    if (typingWords.length === 0) return;
+
+    const fullWord = typingWords[loopIndex % typingWords.length];
 
     const updateWord = () => {
       setCurrentWord((prev) =>
@@ -35,7 +42,7 @@ const TypingEffect = () => {
 
     const timeout = setTimeout(updateWord, typingSpeed);
     return () => clearTimeout(timeout);
-  }, [currentWord, isDeleting, loopIndex, typingSpeed, iAm]);
+  }, [currentWord, isDeleting, loopIndex, typingSpeed, typingWords]);
 
   return (
     <div className="typing-text">
