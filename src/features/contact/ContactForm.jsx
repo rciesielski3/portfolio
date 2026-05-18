@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { contactContent } from "../../content/portfolioContent";
 import SocialLinks from "../../shared/SocialLinks";
 import "./ContactForm.css";
 
@@ -128,13 +129,9 @@ const ContactForm = () => {
   return (
     <div className="contact-page">
       <section className="contact-intro">
-        <p className="section-kicker">Contact</p>
-        <h1>Let’s talk quality, automation or product delivery.</h1>
-        <p>
-          Send a concise note and I will get back with context. For a faster
-          signal, include the product area, stack and what kind of QA support
-          you are looking for.
-        </p>
+        <p className="section-kicker">{contactContent.kicker}</p>
+        <h1>{contactContent.title}</h1>
+        <p>{contactContent.description}</p>
         <SocialLinks className="contact-links" />
       </section>
 

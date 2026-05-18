@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 
 import { DataContext } from "../../context/DataContext";
 import { profile } from "../../config/profile";
+import { experienceContent } from "../../content/portfolioContent";
 import "./ExperiencePage.css";
 
 const ExperiencePage = () => {
@@ -43,30 +44,18 @@ const ExperiencePage = () => {
   return (
     <div className="experience-page">
       <header className="section-hero">
-        <p className="section-kicker">Resume</p>
-        <h1>Experience</h1>
-        <p>
-          A timeline of quality engineering, automation, product delivery and
-          hands-on product building across logistics, banking, web, mobile and
-          smart home domains.
-        </p>
+        <p className="section-kicker">{experienceContent.hero.kicker}</p>
+        <h1>{experienceContent.hero.title}</h1>
+        <p>{experienceContent.hero.description}</p>
       </header>
       <section className="experience-summary" aria-label="Experience summary">
-        <article>
-          <span>Current scope</span>
-          <strong>Quality engineering</strong>
-          <p>Automation, contracts, APIs, mobile and release feedback.</p>
-        </article>
-        <article>
-          <span>Product ownership</span>
-          <strong>ZabawkowyBox.pl</strong>
-          <p>E-commerce subscriptions, payments, CMS and operations.</p>
-        </article>
-        <article>
-          <span>Technical path</span>
-          <strong>Automation practice</strong>
-          <p>Playwright, WebdriverIO, API, CI/CD and AI-assisted workflows.</p>
-        </article>
+        {experienceContent.summary.map((item) => (
+          <article key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
       </section>
       <div
         className="timeline-line"
@@ -78,7 +67,7 @@ const ExperiencePage = () => {
       />
       <section ref={expRef} className="timeline-section">
         <h2 className="timeline-section-title" data-aos="zoom-in">
-          Experience
+          {experienceContent.sections.experience}
         </h2>
         {experiences.map((exp, index) => (
           <div
@@ -100,7 +89,7 @@ const ExperiencePage = () => {
       </section>
       <section ref={eduRef} className="timeline-section">
         <h2 className="timeline-section-title" data-aos="zoom-in">
-          Education
+          {experienceContent.sections.education}
         </h2>
         {education.map((edu, index) => (
           <div
@@ -120,18 +109,13 @@ const ExperiencePage = () => {
         ))}
       </section>
       <section className="experience-cta">
-        <h2 data-aos="fade-down">
-          Connect with Me
-        </h2>
-        <p data-aos="fade-up">
-          If you want to know more about me, feel free to check out my LinkedIn
-          profile.
-        </p>
+        <h2 data-aos="fade-down">{experienceContent.cta.title}</h2>
+        <p data-aos="fade-up">{experienceContent.cta.description}</p>
         <button
           data-aos="fade-up"
           onClick={() => window.open(profile.links.linkedin, "_blank")}
         >
-          Open LinkedIn
+          {experienceContent.cta.button}
         </button>
       </section>
     </div>

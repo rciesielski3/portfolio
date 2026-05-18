@@ -8,24 +8,10 @@ import { db, analytics } from "../../firebase";
 
 import TypingEffect from "../../components/typing/TypingEffect";
 import { profile } from "../../config/profile";
+import { homeContent } from "../../content/portfolioContent";
 import SocialLinks from "../../shared/SocialLinks";
 
 import "./MainPage.css";
-
-const careerSnapshot = [
-  {
-    label: "10+ years",
-    value: "IT, QA and product quality",
-  },
-  {
-    label: "Automation focus",
-    value: "Web, mobile, API and contract testing",
-  },
-  {
-    label: "Product builder",
-    value: "E-commerce, logistics and IoT domains",
-  },
-];
 
 const MainPage = () => {
   const [visitCount, setVisitCount] = React.useState(0);
@@ -59,12 +45,9 @@ const MainPage = () => {
           <div className="hero-kicker">{profile.heroRole}</div>
           <h1 className="hero-name">{profile.name}</h1>
           <TypingEffect />
-          <p className="hero-copy">
-            I help teams ship safer products with practical quality strategy,
-            reliable automation and product-minded engineering.
-          </p>
+          <p className="hero-copy">{homeContent.heroCopy}</p>
           <dl className="career-snapshot" aria-label="Career snapshot">
-            {careerSnapshot.map((item) => (
+            {homeContent.careerSnapshot.map((item) => (
               <div key={item.label}>
                 <dt>{item.label}</dt>
                 <dd>{item.value}</dd>
@@ -89,7 +72,7 @@ const MainPage = () => {
               className="profile-image"
             />
             <div className="profile-panel">
-              <span>Current focus</span>
+              <span>{homeContent.currentFocusLabel}</span>
               <p>{profile.currentFocus}</p>
             </div>
           </div>
@@ -101,7 +84,7 @@ const MainPage = () => {
 
         <div className="visit-counter-container">
           <p className="visit-counter">
-            Visitors: <span>{visitCount}</span>
+            {homeContent.visitorsLabel}: <span>{visitCount}</span>
           </p>
         </div>
       </div>
