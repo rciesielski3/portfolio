@@ -10,8 +10,9 @@ import "./ExperiencePage.css";
 
 const ExperiencePage = () => {
   const { experiences, education } = React.useContext(DataContext);
-  const { content } = useLanguage();
+  const { content, language } = useLanguage();
   const experienceContent = content.experience;
+  const timelineTranslations = experienceContent.timeline;
   const expRef = React.useRef(null);
   const eduRef = React.useRef(null);
   const [expLineStyle, setExpLineStyle] = React.useState({});
@@ -43,6 +44,22 @@ const ExperiencePage = () => {
     return <div className="spinner">Loading...</div>;
   }
 
+  const displayedExperiences =
+    language === "pl" && timelineTranslations?.experiences
+      ? experiences.map((experience, index) => ({
+          ...experience,
+          ...timelineTranslations.experiences[index],
+        }))
+      : experiences;
+
+  const displayedEducation =
+    language === "pl" && timelineTranslations?.education
+      ? education.map((educationItem, index) => ({
+          ...educationItem,
+          ...timelineTranslations.education[index],
+        }))
+      : education;
+
   return (
     <div className="experience-page">
       <header className="section-hero">
@@ -65,7 +82,7 @@ const ExperiencePage = () => {
         <h2 className="timeline-section-title" data-aos="zoom-in">
           {experienceContent.sections.experience}
         </h2>
-        {experiences.map((exp, index) => (
+        {displayedExperiences.map((exp, index) => (
           <div
             key={index}
             className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}
@@ -87,7 +104,7 @@ const ExperiencePage = () => {
         <h2 className="timeline-section-title" data-aos="zoom-in">
           {experienceContent.sections.education}
         </h2>
-        {education.map((edu, index) => (
+        {displayedEducation.map((edu, index) => (
           <div
             key={index}
             className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}

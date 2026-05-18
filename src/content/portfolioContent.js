@@ -276,7 +276,7 @@ export const portfolioContent = {
     languageToggleLabel: "Zmień język",
     profile: {
       brand: "Inżynieria Jakości",
-      heroRole: "Specjalista Quality Engineering",
+      heroRole: "Specjalista ds. inżynierii jakości",
       currentFocus: "Inżynieria jakości, automatyzacja i dostarczanie produktu.",
     },
     navigation: {
@@ -291,10 +291,10 @@ export const portfolioContent = {
       typing: {
         staticText: "Jestem",
         words: [
-          "Test Automation Engineer",
-          "Specjalista Quality Engineering",
-          "Product-minded QA",
-          "Praktyk AI-assisted testing",
+          "inżynierem automatyzacji testów",
+          "specjalistą ds. inżynierii jakości",
+          "QA z podejściem produktowym",
+          "praktykiem testowania wspieranego AI",
         ],
       },
       heroCopy:
@@ -305,11 +305,11 @@ export const portfolioContent = {
           value: "IT, QA i jakość produktu",
         },
         {
-          label: "Automation focus",
-          value: "Web, mobile, API i contract testing",
+          label: "Obszar automatyzacji",
+          value: "Testy web, mobile, API i kontraktowe",
         },
         {
-          label: "Product builder",
+          label: "Twórca produktu",
           value: "E-commerce, logistyka i IoT",
         },
       ],
@@ -317,33 +317,33 @@ export const portfolioContent = {
         experience: "Zobacz doświadczenie",
         contact: "Kontakt",
       },
-      currentFocusLabel: "Aktualny focus",
+      currentFocusLabel: "Aktualny obszar",
       visitorsLabel: "Odwiedziny",
     },
     experience: {
       hero: {
-        kicker: "Resume",
+        kicker: "CV",
         title: "Doświadczenie",
         description:
-          "Oś czasu pracy w obszarze quality engineering, automatyzacji, dostarczania produktu i budowania produktu w domenach logistyki, bankowości, web, mobile oraz smart home.",
+          "Oś czasu pracy w obszarze inżynierii jakości, automatyzacji, dostarczania produktu i budowania rozwiązań w domenach logistyki, bankowości, web, mobile oraz smart home.",
       },
       summary: [
         {
           label: "Aktualny zakres",
-          title: "Quality engineering",
+          title: "Inżynieria jakości",
           description:
-            "Automatyzacja, kontrakty, API, mobile i sygnały gotowości release.",
+            "Automatyzacja, kontrakty, API, mobile i sygnały gotowości wydania.",
         },
         {
-          label: "Product ownership",
+          label: "Produkt własny",
           title: "ZabawkowyBox.pl",
           description: "Subskrypcje e-commerce, płatności, CMS i operacje.",
         },
         {
           label: "Ścieżka techniczna",
-          title: "Automation practice",
+          title: "Praktyka automatyzacji",
           description:
-            "Playwright, WebdriverIO, API, CI/CD i workflowy wspierane AI.",
+            "Playwright, WebdriverIO, API, CI/CD i przepływy pracy wspierane AI.",
         },
       ],
       sections: {
@@ -356,51 +356,111 @@ export const portfolioContent = {
           "Jeśli chcesz dowiedzieć się więcej, sprawdź mój profil LinkedIn.",
         button: "Otwórz LinkedIn",
       },
+      timeline: {
+        experiences: [
+          {
+            title: "Twórca i inżynier produktu",
+            time: "Projekt produktowy – obecnie",
+            description:
+              "Stworzyłem i utrzymuję subskrypcyjną platformę e-commerce do wypożyczania zabawek opartą o Remix, React, TypeScript, Tailwind CSS, Prisma i PostgreSQL. Odpowiadam za konta użytkowników, cykliczne płatności Stripe, panele klienta i administratora, blog/CMS, media w Cloudinary, maile Resend/Nodemailer, integrację z punktami InPost i automatyzacje operacyjne w Google Sheets.",
+          },
+          {
+            title: "Starszy inżynier QA",
+            description:
+              "Buduję i utrzymuję automatyczne pokrycie jakościowe dla warstw web, mobile, backend, kontraktów i wydajności. Pracuję z Playwrightem w TypeScript, WebdriverIO dla aplikacji natywnych, kotlinowymi frameworkami testów backendowych oraz testami wydajnościowymi Gatling. Dostarczam raporty jakości, dokumentację i czytelną analizę defektów wspierającą decyzje o wydaniu.",
+          },
+          {
+            title: "Ekspert ds. testów",
+            description:
+              "Odpowiadałem za pokrycie testami funkcjonalnymi, regresyjnymi, walidacyjnymi i WCAG dla aplikacji bankowych na mobile i desktop. Przekładałem user stories na scenariusze testowe, raportowałem defekty w Jira/Xray i wspierałem pewność wydań.",
+          },
+          {
+            title: "Tester oprogramowania",
+            description:
+              "Realizowałem testy integracyjne, funkcjonalne, regresyjne i walidację danych dla przepływów iOS oraz Android. Budowałem automatyczne sprawdzenia i dokumentację użytkownika, żeby ograniczać tarcie we wsparciu i poprawiać niezawodność produktu.",
+          },
+          {
+            title: "Full-stack developer — praktyka",
+            description:
+              "Budowałem i testowałem platformę e-learningową z użyciem React, Next.js, Node.js i NestJS. Ćwiczyłem code review, poprawę niezawodności i produktowe myślenie end-to-end z perspektywy developera oraz QA.",
+          },
+          {
+            title: "Koordynator QA",
+            description:
+              "Koordynowałem prace mobile QA, odpowiadałem za cykl życia przypadków testowych w TestRail i śledziłem delivery w Jira. Wspierałem estymacje, planowanie i usprawnienia procesu, żeby jakość była widoczna w trakcie wydań.",
+          },
+          {
+            title: "Inżynier QA",
+            description:
+              "Walidowałem aplikacje mobile i web przez testy eksploracyjne, regresyjne i automatyczne z użyciem Detox oraz Cypress. Utrzymywałem pokrycie w TestRail i pomagałem usprawniać powtarzalne sprawdzenia przed wydaniem.",
+          },
+          {
+            title: "Inżynier wsparcia technicznego",
+            description:
+              "Wspierałem użytkowników systemów inteligentnego domu i przekładałem powtarzalne problemy na czytelne zgłoszenia defektów. Utrzymywałem dokumentację w Confluence, obsługiwałem zgłoszenia w Desk.com i łączyłem informacje zwrotne od klientów z zespołami produktowymi.",
+          },
+          {
+            title: "Młodszy inżynier systemów IT",
+            description:
+              "Zapewniałem wsparcie IT dla wewnętrznych zespołów inżynieryjnych, w tym konfigurację sprzętu i oprogramowania oraz obsługę zgłoszeń w narzędziach ITSM. Zbudowałem fundament w obszarze infrastruktury, operacji wsparcia i jakości usług.",
+          },
+        ],
+        education: [
+          {
+            title: "Magister inżynier elektrotechniki",
+            studies: "Politechnika Poznańska",
+          },
+          {
+            title: "Inżynier elektrotechniki",
+            studies: "Politechnika Poznańska",
+          },
+        ],
+      },
     },
     skills: {
       hero: {
-        kicker: "Capability map",
-        title: "Kompetencje wokół stabilnego delivery",
+        kicker: "Mapa kompetencji",
+        title: "Kompetencje wokół stabilnych wydań",
         description:
-          "Praktyczny zestaw QA obejmujący automatyzację, analizę ryzyka i współpracę delivery. Mniej buzzwordów, więcej sygnałów pomagających dowozić z pewnością.",
+          "Praktyczny zestaw kompetencji QA obejmujący automatyzację, analizę ryzyka i współpracę z zespołami delivery. Mniej buzzwordów, więcej sygnałów pomagających dowozić z pewnością.",
       },
       summary: [
         {
           label: "Strategia",
-          title: "Risk-based QA",
-          description: "Decyzje o pokryciu testami oparte o ryzyko produktu i release.",
+          title: "QA oparte na ryzyku",
+          description: "Decyzje o pokryciu testami oparte o ryzyko produktu i wydania.",
         },
         {
           label: "Automatyzacja",
-          title: "Praktyczne pokrycie",
+          title: "Praktyczne pokrycie testami",
           description: "Testy UI, API i mobile projektowane z myślą o utrzymaniu.",
         },
         {
-          label: "Delivery",
+          label: "Dostarczanie",
           title: "Sygnały jakości",
-          description: "Czytelny feedback dla zespołów, stakeholderów i release.",
+          description: "Czytelna informacja zwrotna dla zespołów, interesariuszy i wydań.",
         },
       ],
       bridge: {
-        kicker: "Jak to dziala",
-        title: "Od ryzyka release do praktycznej realizacji",
+        kicker: "Jak to działa",
+        title: "Od ryzyka wydania do praktycznej realizacji",
         description:
           "Podsumowanie wyżej pokazuje sposób pracy. Sekcje niżej przekładają go na codzienną odpowiedzialność QA: planowanie, automatyzację, defekty, środowiska, raportowanie i współpracę.",
       },
       capabilities: [
         {
           label: "Główne odpowiedzialności",
-          title: "Właścicielstwo quality delivery",
+          title: "Odpowiedzialność za jakość dostarczania",
           description:
-            "Planowanie, wykonanie i raportowanie pomagające zespołom rozumieć gotowość release.",
+            "Planowanie, wykonanie i raportowanie pomagające zespołom rozumieć gotowość wydania.",
           points: [
             "Tworzenie i utrzymanie planów testów oraz przypadków testowych dla aplikacji mobile i desktop",
             "Wykonywanie testów manualnych i automatycznych weryfikujących wymagania",
-            "Analiza wyników testów, monitorowanie metryk jakości i raportowanie sygnałów release",
+            "Analiza wyników testów, monitorowanie metryk jakości i raportowanie sygnałów gotowości wydania",
           ],
         },
         {
-          label: "Quality operations",
+          label: "Operacje jakościowe",
           title: "Kontrola defektów, środowisk i danych",
           description:
             "Operacyjne praktyki QA, które utrzymują testy jako wiarygodne, powtarzalne i użyteczne.",
@@ -414,16 +474,16 @@ export const portfolioContent = {
           label: "Kompetencje",
           title: "Współpraca i jakość produktu",
           description:
-            "Praca cross-funkcyjna wspierająca delivery, feedback i ciągłe usprawnianie.",
+            "Praca cross-funkcyjna wspierająca dostarczanie produktu, informację zwrotną i ciągłe usprawnianie.",
           points: [
-            "Współpraca z developerami, stakeholderami i zespołami wsparcia",
+            "Współpraca z developerami, interesariuszami i zespołami wsparcia",
             "Code review z perspektywy jakości",
             "Wsparcie pracy agile, dokumentacji i rozwiązywania problemów",
           ],
         },
       ],
       stack: {
-        kicker: "Tech stack",
+        kicker: "Stack technologiczny",
         title: "Narzędzia, o których mogę rozmawiać z kontekstem",
         description:
           "Pogrupowane według tego, jak wspierają pracę nad jakością, a nie jako płaska lista technologii.",
