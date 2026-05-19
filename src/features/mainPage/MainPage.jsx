@@ -51,7 +51,7 @@ const MainPage = () => {
             words={home.typing.words}
           />
           <p className="hero-copy">{home.heroCopy}</p>
-          <dl className="career-snapshot" aria-label="Career snapshot">
+          <dl className="career-snapshot" aria-label={home.careerSnapshotLabel}>
             {home.careerSnapshot.map((item) => (
               <div key={item.label}>
                 <dt>{item.label}</dt>

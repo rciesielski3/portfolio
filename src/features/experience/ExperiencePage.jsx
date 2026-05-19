@@ -67,7 +67,10 @@ const ExperiencePage = () => {
         <h1>{experienceContent.hero.title}</h1>
         <p>{experienceContent.hero.description}</p>
       </header>
-      <section className="experience-summary" aria-label="Experience summary">
+      <section
+        className="experience-summary"
+        aria-label={experienceContent.summaryLabel}
+      >
         {experienceContent.summary.map((item) => (
           <article key={item.label}>
             <span>{item.label}</span>

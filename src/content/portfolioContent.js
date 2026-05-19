@@ -47,6 +47,7 @@ export const portfolioContent = {
           value: "E-commerce, logistics and IoT domains",
         },
       ],
+      careerSnapshotLabel: "Career snapshot",
       actions: {
         experience: "View Experience",
         contact: "Contact",
@@ -81,6 +82,7 @@ export const portfolioContent = {
             "Playwright, WebdriverIO, API, CI/CD and AI-assisted workflows.",
         },
       ],
+      summaryLabel: "Experience summary",
       sections: {
         experience: "Experience",
         education: "Education",
@@ -117,7 +119,9 @@ export const portfolioContent = {
           description: "Clear feedback for teams, stakeholders and releases.",
         },
       ],
+      summaryLabel: "Skills summary",
       bridge: {
+        ariaLabel: "Capability context",
         kicker: "How it shows up",
         title: "From release risk to practical execution",
         description:
@@ -158,6 +162,7 @@ export const portfolioContent = {
           ],
         },
       ],
+      capabilitiesLabel: "Core capabilities",
       stack: {
         kicker: "Tech stack",
         title: "Tools I can discuss with context",
@@ -391,6 +396,7 @@ export const portfolioContent = {
           value: "E-commerce, logistyka i IoT",
         },
       ],
+      careerSnapshotLabel: "Podsumowanie kariery",
       actions: {
         experience: "Zobacz doświadczenie",
         contact: "Kontakt",
@@ -424,6 +430,7 @@ export const portfolioContent = {
             "Playwright, WebdriverIO, API, CI/CD i przepływy pracy wspierane AI.",
         },
       ],
+      summaryLabel: "Podsumowanie doświadczenia",
       sections: {
         experience: "Doświadczenie",
         education: "Edukacja",
@@ -530,7 +537,9 @@ export const portfolioContent = {
             "Czytelna informacja zwrotna dla zespołów, interesariuszy i wydań.",
         },
       ],
+      summaryLabel: "Podsumowanie kompetencji",
       bridge: {
+        ariaLabel: "Kontekst kompetencji",
         kicker: "Jak to działa",
         title: "Od ryzyka wydania do praktycznej realizacji",
         description:
@@ -571,6 +580,7 @@ export const portfolioContent = {
           ],
         },
       ],
+      capabilitiesLabel: "Główne kompetencje",
       stack: {
         kicker: "Stack technologiczny",
         title: "Narzędzia, o których mogę rozmawiać z kontekstem",
