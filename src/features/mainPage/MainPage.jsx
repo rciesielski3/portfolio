@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { doc, getDoc, increment, setDoc } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
-import { db, analytics } from "../../firebase";
+import { db, analyticsPromise } from "../../firebase";
 
 import TypingEffect from "../../components/typing/TypingEffect";
 import { profile } from "../../config/profile";
@@ -19,6 +19,10 @@ const MainPage = () => {
   const { home, profile: profileContent } = content;
 
   React.useEffect(() => {
+    if (process.env.NODE_ENV === "test") {
+      return undefined;
+    }
+
     const incrementVisitCount = async () => {
       const visitRef = doc(db, "counters", "visits");
 
@@ -27,11 +31,14 @@ const MainPage = () => {
         const docSnap = await getDoc(visitRef);
         setVisitCount(docSnap.data()?.count || 0);
 
-        logEvent(analytics, "page_view", {
-          page_location: window.location.href,
-          page_title: document.title,
-          region: "auto",
-        });
+        const analytics = await analyticsPromise;
+        if (analytics) {
+          logEvent(analytics, "page_view", {
+            page_location: window.location.href,
+            page_title: document.title,
+            region: "auto",
+          });
+        }
       } catch (error) {
         console.error("Error updating visitor count:", error);
       }
