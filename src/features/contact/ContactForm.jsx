@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import { contactContent } from "../../content/portfolioContent";
+import { useLanguage } from "../../context/LanguageContext";
 import SocialLinks from "../../shared/SocialLinks";
 import "./ContactForm.css";
 
@@ -13,30 +13,6 @@ const initialFormData = {
 
 const emailPattern = /\S+@\S+\.\S+/;
 
-const formFields = [
-  {
-    id: "first_name",
-    label: "Name",
-    type: "text",
-  },
-  {
-    id: "title",
-    label: "Subject",
-    type: "text",
-  },
-  {
-    id: "senderEmail",
-    label: "Email",
-    type: "email",
-  },
-  {
-    id: "message",
-    label: "Message",
-    rows: 5,
-    type: "textarea",
-  },
-];
-
 const getEmailConfig = () => ({
   serviceID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
   templateID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
@@ -47,6 +23,9 @@ const getEmailConfig = () => ({
 
 const ContactForm = () => {
   const [formData, setFormData] = useState(initialFormData);
+  const { content } = useLanguage();
+  const contactContent = content.contact;
+  const { form } = contactContent;
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,14 +43,14 @@ const ContactForm = () => {
   const validate = () => {
     const errors = {};
     if (!formData.first_name.trim())
-      errors.first_name = "First name is required";
-    if (!formData.title.trim()) errors.title = "Title is required";
+      errors.first_name = form.errors.first_name;
+    if (!formData.title.trim()) errors.title = form.errors.title;
     if (!formData.senderEmail.trim()) {
-      errors.senderEmail = "Email is required";
+      errors.senderEmail = form.errors.senderEmailRequired;
     } else if (!emailPattern.test(formData.senderEmail)) {
-      errors.senderEmail = "Email address is invalid";
+      errors.senderEmail = form.errors.senderEmailInvalid;
     }
-    if (!formData.message.trim()) errors.message = "Message is required";
+    if (!formData.message.trim()) errors.message = form.errors.message;
 
     return errors;
   };
@@ -93,7 +72,7 @@ const ContactForm = () => {
     if (!serviceID || !templateID || !publicKey) {
       setIsSubmitting(false);
       setFeedbackType("error");
-      setFeedbackMessage("Email service is not configured.");
+      setFeedbackMessage(form.missingConfig);
       return;
     }
 
@@ -110,7 +89,7 @@ const ContactForm = () => {
     try {
       await emailjs.send(serviceID, templateID, templateParams, publicKey);
       setFeedbackType("success");
-      setFeedbackMessage("Your message has been sent successfully.");
+      setFeedbackMessage(form.success);
       setFormData(initialFormData);
     } catch (error) {
       console.error("EmailJS send failed:", error);
@@ -118,8 +97,8 @@ const ContactForm = () => {
       setFeedbackType("error");
       setFeedbackMessage(
         errorText.includes("Public Key")
-          ? "Email service has an invalid public key. Please update the EmailJS configuration."
-          : "The message could not be sent. Please check the form configuration or try again later."
+          ? form.invalidPublicKey
+          : form.genericError
       );
     } finally {
       setIsSubmitting(false);
@@ -136,7 +115,7 @@ const ContactForm = () => {
       </section>
 
       <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
-        {formFields.map(({ id, label, rows, type }) => {
+        {form.fields.map(({ id, label, rows, type }) => {
           const Field = type === "textarea" ? "textarea" : "input";
 
           return (
@@ -157,7 +136,7 @@ const ContactForm = () => {
         })}
 
         <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isSubmitting ? form.submitting : form.submit}
         </button>
         {feedbackMessage && (
           <p className={`form-feedback ${feedbackType}`}>{feedbackMessage}</p>

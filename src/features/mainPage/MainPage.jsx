@@ -8,13 +8,15 @@ import { db, analytics } from "../../firebase";
 
 import TypingEffect from "../../components/typing/TypingEffect";
 import { profile } from "../../config/profile";
-import { homeContent } from "../../content/portfolioContent";
+import { useLanguage } from "../../context/LanguageContext";
 import SocialLinks from "../../shared/SocialLinks";
 
 import "./MainPage.css";
 
 const MainPage = () => {
   const [visitCount, setVisitCount] = React.useState(0);
+  const { content } = useLanguage();
+  const { home, profile: profileContent } = content;
 
   React.useEffect(() => {
     const incrementVisitCount = async () => {
@@ -42,12 +44,15 @@ const MainPage = () => {
     <div className="main-page">
       <div className="content-wrapper">
         <div className="left-section">
-          <div className="hero-kicker">{profile.heroRole}</div>
+          <div className="hero-kicker">{profileContent.heroRole}</div>
           <h1 className="hero-name">{profile.name}</h1>
-          <TypingEffect />
-          <p className="hero-copy">{homeContent.heroCopy}</p>
-          <dl className="career-snapshot" aria-label="Career snapshot">
-            {homeContent.careerSnapshot.map((item) => (
+          <TypingEffect
+            staticText={home.typing.staticText}
+            words={home.typing.words}
+          />
+          <p className="hero-copy">{home.heroCopy}</p>
+          <dl className="career-snapshot" aria-label={home.careerSnapshotLabel}>
+            {home.careerSnapshot.map((item) => (
               <div key={item.label}>
                 <dt>{item.label}</dt>
                 <dd>{item.value}</dd>
@@ -56,10 +61,10 @@ const MainPage = () => {
           </dl>
           <div className="hero-actions">
             <Link to="/experience" className="primary-action">
-              View Experience <FaArrowRight aria-hidden="true" />
+              {home.actions.experience} <FaArrowRight aria-hidden="true" />
             </Link>
             <Link to="/contact" className="secondary-action">
-              <FaEnvelope aria-hidden="true" /> Contact
+              <FaEnvelope aria-hidden="true" /> {home.actions.contact}
             </Link>
           </div>
         </div>
@@ -72,8 +77,8 @@ const MainPage = () => {
               className="profile-image"
             />
             <div className="profile-panel">
-              <span>{homeContent.currentFocusLabel}</span>
-              <p>{profile.currentFocus}</p>
+              <span>{home.currentFocusLabel}</span>
+              <p>{profileContent.currentFocus}</p>
             </div>
           </div>
         </div>
@@ -84,7 +89,7 @@ const MainPage = () => {
 
         <div className="visit-counter-container">
           <p className="visit-counter">
-            {homeContent.visitorsLabel}: <span>{visitCount}</span>
+            {home.visitorsLabel}: <span>{visitCount}</span>
           </p>
         </div>
       </div>

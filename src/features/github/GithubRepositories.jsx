@@ -1,40 +1,15 @@
 import React, { useState, useEffect } from "react";
 
+import { useLanguage } from "../../context/LanguageContext";
 import GithubCard from "./GithubRepositoriesCard";
-
-const externalWork = [
-  {
-    title: "QA Journey",
-    description: "Writing and notes around quality assurance practice.",
-    url: "https://qa-journey.blogspot.com/",
-  },
-  {
-    title: "Quality Assurance Blog",
-    description: "Additional QA articles and experiments.",
-    url: "https://qa-blog.onrender.com/",
-  },
-  {
-    title: "JS & React Fundamentals",
-    description: "Learning lab for JavaScript, React and Next.js fundamentals.",
-    url: "https://learn-js-react-basics.vercel.app/",
-  },
-  {
-    title: "Mini Game Collection",
-    description: "Small frontend projects focused on interaction and polish.",
-    url: "https://mini-game-collection.vercel.app/",
-  },
-  {
-    title: "My Smart Home",
-    description: "Smart home related page and domain project.",
-    url: "https://mysmarthome.cba.pl/",
-  },
-];
 
 const GithubRepositories = () => {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [visibleRepos, setVisibleRepos] = useState([]);
+  const { content } = useLanguage();
+  const githubContent = content.github;
 
   useEffect(() => {
     const fetchRepoData = async () => {
@@ -73,20 +48,17 @@ const GithubRepositories = () => {
         <div className="spinner border-t-4 border-blue-500 rounded-full w-12 h-12 animate-spin"></div>
       </div>
     );
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>{githubContent.errorPrefix}: {error}</div>;
 
   return (
     <div className="content github-page">
       <header className="section-hero">
-        <p className="section-kicker">Build log</p>
-        <h1>GitHub repositories</h1>
-        <p>
-          Projects, experiments and learning repos that show how I approach
-          automation, frontend foundations and practical engineering.
-        </p>
+        <p className="section-kicker">{githubContent.hero.kicker}</p>
+        <h1>{githubContent.hero.title}</h1>
+        <p>{githubContent.hero.description}</p>
       </header>
       {repos.length === 0 ? (
-        <div>Coming soon. Under construction.</div>
+        <div>{githubContent.emptyState}</div>
       ) : (
         <div className="repo-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {repos.map((repo, index) => (
@@ -96,24 +68,21 @@ const GithubRepositories = () => {
                 visibleRepos.includes(index)
                   ? "transform translate-y-0 opacity-100"
                   : "transform translate-y-20 opacity-0"
-              }`}
+            }`}
             >
-              <GithubCard repo={repo} />
+              <GithubCard repo={repo} content={githubContent.card} />
             </div>
           ))}
         </div>
       )}
       <section className="external-work-section">
         <div className="stack-heading">
-          <p className="section-kicker">Supporting work</p>
-          <h2>Articles and side projects</h2>
-          <p>
-            These are useful as secondary proof points, so they live here rather
-            than competing with the primary portfolio navigation.
-          </p>
+          <p className="section-kicker">{githubContent.externalWork.kicker}</p>
+          <h2>{githubContent.externalWork.title}</h2>
+          <p>{githubContent.externalWork.description}</p>
         </div>
         <div className="external-work-grid">
-          {externalWork.map((item) => (
+          {githubContent.externalWork.items.map((item) => (
             <a
               href={item.url}
               target="_blank"

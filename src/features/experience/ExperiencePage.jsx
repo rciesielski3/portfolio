@@ -5,11 +5,14 @@ import "aos/dist/aos.css";
 
 import { DataContext } from "../../context/DataContext";
 import { profile } from "../../config/profile";
-import { experienceContent } from "../../content/portfolioContent";
+import { useLanguage } from "../../context/LanguageContext";
 import "./ExperiencePage.css";
 
 const ExperiencePage = () => {
   const { experiences, education } = React.useContext(DataContext);
+  const { content, language } = useLanguage();
+  const experienceContent = content.experience;
+  const timelineTranslations = experienceContent.timeline;
   const expRef = React.useRef(null);
   const eduRef = React.useRef(null);
   const [expLineStyle, setExpLineStyle] = React.useState({});
@@ -38,8 +41,24 @@ const ExperiencePage = () => {
   }, []);
 
   if (!experiences || experiences.length === 0) {
-    return <div className="spinner">Loading...</div>;
+    return <div className="spinner">{content.common.loading}</div>;
   }
+
+  const displayedExperiences =
+    language === "pl" && timelineTranslations?.experiences
+      ? experiences.map((experience, index) => ({
+          ...experience,
+          ...timelineTranslations.experiences[index],
+        }))
+      : experiences;
+
+  const displayedEducation =
+    language === "pl" && timelineTranslations?.education
+      ? education.map((educationItem, index) => ({
+          ...educationItem,
+          ...timelineTranslations.education[index],
+        }))
+      : education;
 
   return (
     <div className="experience-page">
@@ -48,7 +67,10 @@ const ExperiencePage = () => {
         <h1>{experienceContent.hero.title}</h1>
         <p>{experienceContent.hero.description}</p>
       </header>
-      <section className="experience-summary" aria-label="Experience summary">
+      <section
+        className="experience-summary"
+        aria-label={experienceContent.summaryLabel}
+      >
         {experienceContent.summary.map((item) => (
           <article key={item.label}>
             <span>{item.label}</span>
@@ -57,19 +79,13 @@ const ExperiencePage = () => {
           </article>
         ))}
       </section>
-      <div
-        className="timeline-line"
-        style={expLineStyle}
-      />
-      <div
-        className="timeline-line"
-        style={eduLineStyle}
-      />
+      <div className="timeline-line" style={expLineStyle} />
+      <div className="timeline-line" style={eduLineStyle} />
       <section ref={expRef} className="timeline-section">
         <h2 className="timeline-section-title" data-aos="zoom-in">
           {experienceContent.sections.experience}
         </h2>
-        {experiences.map((exp, index) => (
+        {displayedExperiences.map((exp, index) => (
           <div
             key={index}
             className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}
@@ -91,7 +107,7 @@ const ExperiencePage = () => {
         <h2 className="timeline-section-title" data-aos="zoom-in">
           {experienceContent.sections.education}
         </h2>
-        {education.map((edu, index) => (
+        {displayedEducation.map((edu, index) => (
           <div
             key={index}
             className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}
@@ -100,7 +116,6 @@ const ExperiencePage = () => {
             <div className="timeline-card">
               <h3>{edu.title}</h3>
               <span>{edu.studies}</span>
-              <p className="timeline-time">{edu.time}</p>
             </div>
             <div className="timeline-icon">
               <FaGraduationCap />

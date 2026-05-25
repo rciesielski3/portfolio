@@ -1,7 +1,10 @@
 import "./Skills.css";
-import { skillsContent } from "../../content/portfolioContent";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Skills = () => {
+  const { content } = useLanguage();
+  const skillsContent = content.skills;
+
   return (
     <div className="skills-page">
       <header className="section-hero">
@@ -9,7 +12,7 @@ const Skills = () => {
         <h1>{skillsContent.hero.title}</h1>
         <p>{skillsContent.hero.description}</p>
       </header>
-      <section className="skills-summary" aria-label="Skills summary">
+      <section className="skills-summary" aria-label={skillsContent.summaryLabel}>
         {skillsContent.summary.map((item) => (
           <article key={item.label}>
             <span>{item.label}</span>
@@ -18,12 +21,15 @@ const Skills = () => {
           </article>
         ))}
       </section>
-      <section className="skills-bridge" aria-label="Capability context">
+      <section className="skills-bridge" aria-label={skillsContent.bridge.ariaLabel}>
         <p className="section-kicker">{skillsContent.bridge.kicker}</p>
         <h2>{skillsContent.bridge.title}</h2>
         <p>{skillsContent.bridge.description}</p>
       </section>
-      <section className="capability-showcase" aria-label="Core capabilities">
+      <section
+        className="capability-showcase"
+        aria-label={skillsContent.capabilitiesLabel}
+      >
         {skillsContent.capabilities.map((capability, index) => (
           <article className="capability-card" key={capability.title}>
             <div className="capability-index">0{index + 1}</div>

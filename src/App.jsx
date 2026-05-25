@@ -11,6 +11,7 @@ import ExperiencePage from "./features/experience/ExperiencePage";
 import NotFound from "./features/notFound/NotFound";
 
 import DataProvider from "./context/DataContext";
+import { LanguageProvider } from "./context/LanguageContext";
 import NavBar from "./shared/navbar/Navbar";
 import Footer from "./shared/Footer";
 import "./App.css";
@@ -18,25 +19,27 @@ import "./App.css";
 const App = () => {
   return (
     <DataProvider>
-      <Router>
-        <div className="app-layout">
-          <NavBar />
-          <div className="app-main">
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/courses" element={<Certifications />} />
-              <Route path="/github" element={<GithubRepositories />} />
-              <Route path="/experience" element={<ExperiencePage />} />
-              <Route path="/contact" element={<ContactForm />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/portfolio" element={<MainPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+      <LanguageProvider>
+        <Router>
+          <div className="app-layout">
+            <NavBar />
+            <div className="app-main">
+              <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/courses" element={<Certifications />} />
+                <Route path="/github" element={<GithubRepositories />} />
+                <Route path="/experience" element={<ExperiencePage />} />
+                <Route path="/contact" element={<ContactForm />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/portfolio" element={<MainPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </Router>
+        </Router>
+      </LanguageProvider>
     </DataProvider>
   );
 };
