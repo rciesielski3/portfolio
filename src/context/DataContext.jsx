@@ -9,6 +9,10 @@ const DataProvider = ({ children }) => {
   const [education, setEducation] = React.useState([]);
 
   React.useEffect(() => {
+    if (process.env.NODE_ENV === "test") {
+      return undefined;
+    }
+
     const baseUrl = process.env.PUBLIC_URL;
 
     const fetchJson = async (fileName, fallback) => {
