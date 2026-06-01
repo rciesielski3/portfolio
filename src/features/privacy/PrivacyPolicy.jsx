@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./PrivacyPolicy.css";
 
 const PrivacyPolicy = () => {
@@ -112,10 +113,10 @@ const PrivacyPolicy = () => {
       <p>
         If you have any privacy questions or requests, contact us using the
         form.
-        <a href="/contact" className="privacy-contact-link">
-          Open contact form
-        </a>
       </p>
+      <Link to="/contact" className="privacy-contact-link">
+        Open contact form
+      </Link>
     </div>
   );
 };
