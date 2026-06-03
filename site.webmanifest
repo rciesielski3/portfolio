@@ -1,0 +1,15 @@
+{
+  "name": "Rafal Ciesielski | Quality Engineering",
+  "short_name": "RC Quality",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050b1a",
+  "theme_color": "#050b1a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
