@@ -278,6 +278,11 @@ export const portfolioContent = {
             url: "https://qa-blog.onrender.com/",
           },
           {
+            title: "EV Source",
+            description: "EV data platform and analytics for electric vehicle insights.",
+            url: "https://github.com/rciesielski3/ev-data-platform",
+          },
+          {
             title: "JS & React Fundamentals",
             description:
               "Learning lab for JavaScript, React and Next.js fundamentals.",
@@ -694,6 +699,11 @@ export const portfolioContent = {
             title: "Quality Assurance Blog",
             description: "Dodatkowe artykuły i eksperymenty QA.",
             url: "https://qa-blog.onrender.com/",
+          },
+          {
+            title: "EV Source",
+            description: "Platforma danych EV i analityka dla samochodów elektrycznych.",
+            url: "https://github.com/rciesielski3/ev-data-platform",
           },
           {
             title: "JS & React Fundamentals",
