@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://rciesielski.dev/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rciesielski.dev/og-image.png</image:loc>
+      <image:title>Rafal Ciesielski Profile</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://rciesielski.dev/?lang=pl" />
   </url>
   <url>
     <loc>https://rciesielski.dev/experience</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>quarterly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://rciesielski.dev/experience?lang=pl" />
   </url>
   <url>
     <loc>https://rciesielski.dev/skills</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>quarterly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://rciesielski.dev/skills?lang=pl" />
   </url>
   <url>
     <loc>https://rciesielski.dev/courses</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://rciesielski.dev/courses?lang=pl" />
   </url>
   <url>
     <loc>https://rciesielski.dev/github</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://rciesielski.dev/github?lang=pl" />
   </url>
   <url>
     <loc>https://rciesielski.dev/contact</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://rciesielski.dev/contact?lang=pl" />
+  </url>
+  <url>
+    <loc>https://rciesielski.dev/privacy-policy</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

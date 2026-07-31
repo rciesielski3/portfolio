@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { useLanguage } from "../../context/LanguageContext";
+import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
 import SocialLinks from "../../shared/SocialLinks";
 import "./ContactForm.css";
 
@@ -31,6 +32,18 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [feedbackType, setFeedbackType] = useState("");
+
+  // Add SEO meta tags for contact page
+  useSEO({
+    title: 'Contact Rafal Ciesielski - Quality Engineering Consultation',
+    description: 'Get in touch for quality engineering consultation, test automation strategy, or project collaboration. Quality focus, practical solutions.',
+    canonical: 'https://rciesielski.dev/contact',
+    keywords: 'contact quality engineer, QA consultation, test automation services, hire QA specialist',
+    schema: generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rciesielski.dev/' },
+      { name: 'Contact', url: 'https://rciesielski.dev/contact' }
+    ]),
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;

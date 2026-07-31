@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useLanguage } from "../../context/LanguageContext";
+import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
 import GithubCard from "./GithubRepositoriesCard";
 
 const GithubRepositories = () => {
@@ -10,6 +11,18 @@ const GithubRepositories = () => {
   const [visibleRepos, setVisibleRepos] = useState([]);
   const { content } = useLanguage();
   const githubContent = content.github;
+
+  // Add SEO meta tags for github page
+  useSEO({
+    title: 'GitHub Projects - QA Automation & Development | Rafal Ciesielski',
+    description: 'Open source projects and experiments in test automation, frontend development, and QA tooling. React, Next.js, TypeScript, and testing frameworks.',
+    canonical: 'https://rciesielski.dev/github',
+    keywords: 'GitHub projects, test automation projects, open source QA, React projects, automation testing code',
+    schema: generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rciesielski.dev/' },
+      { name: 'GitHub', url: 'https://rciesielski.dev/github' }
+    ]),
+  });
 
   useEffect(() => {
     const fetchRepoData = async () => {

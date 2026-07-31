@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
 import "./PrivacyPolicy.css";
 
 const PrivacyPolicy = () => {
+  // Add SEO meta tags for privacy policy page
+  useSEO({
+    title: 'Privacy Policy | Rafal Ciesielski',
+    description: 'Privacy policy for rciesielski.dev. Data handling, cookies, and your privacy rights.',
+    canonical: 'https://rciesielski.dev/privacy-policy',
+    schema: generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rciesielski.dev/' },
+      { name: 'Privacy Policy', url: 'https://rciesielski.dev/privacy-policy' }
+    ]),
+  });
+
   return (
     <div className="privacy-container">
       <h1>Privacy Policy</h1>

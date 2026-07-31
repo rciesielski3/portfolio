@@ -1,9 +1,22 @@
 import "./Skills.css";
 import { useLanguage } from "../../context/LanguageContext";
+import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
 
 const Skills = () => {
   const { content } = useLanguage();
   const skillsContent = content.skills;
+
+  // Add SEO meta tags for skills page
+  useSEO({
+    title: 'Quality Engineering Skills & Capabilities | Rafal Ciesielski',
+    description: 'Expertise in test automation (Playwright, WebdriverIO), API testing, mobile testing, CI/CD quality gates, and QA operations. Risk-based testing approach.',
+    canonical: 'https://rciesielski.dev/skills',
+    keywords: 'test automation skills, Playwright, WebdriverIO, API testing, QA expertise, automation tools, mobile testing skills',
+    schema: generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rciesielski.dev/' },
+      { name: 'Skills', url: 'https://rciesielski.dev/skills' }
+    ]),
+  });
 
   return (
     <div className="skills-page">
