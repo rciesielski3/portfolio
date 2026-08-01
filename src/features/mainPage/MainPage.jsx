@@ -10,6 +10,7 @@ import TypingEffect from "../../components/typing/TypingEffect";
 import { profile } from "../../config/profile";
 import { useLanguage } from "../../context/LanguageContext";
 import SocialLinks from "../../shared/SocialLinks";
+import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
 
 import "./MainPage.css";
 
@@ -17,6 +18,17 @@ const MainPage = () => {
   const [visitCount, setVisitCount] = React.useState(0);
   const { content } = useLanguage();
   const { home, profile: profileContent } = content;
+
+  // Add SEO meta tags for homepage
+  useSEO({
+    title: 'Rafal Ciesielski | Quality Engineering Specialist',
+    description: 'Quality Engineering Specialist with 10+ years experience. Test automation with Playwright, WebdriverIO, API testing, and mobile testing.',
+    canonical: 'https://rciesielski.dev/',
+    keywords: 'Quality Engineering, QA Automation, Test Automation, Playwright, WebdriverIO, API testing, mobile testing',
+    schema: generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rciesielski.dev/' }
+    ]),
+  });
 
   React.useEffect(() => {
     if (process.env.NODE_ENV === "test") {
@@ -80,7 +92,7 @@ const MainPage = () => {
           <div className="profile-card">
             <img
               src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
-              alt={profile.name}
+              alt="Rafal Ciesielski, Quality Engineering Specialist with 10+ years test automation experience"
               className="profile-image"
             />
             <div className="profile-panel">

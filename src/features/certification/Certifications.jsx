@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 
 import { DataContext } from "../../context/DataContext";
 import { useLanguage } from "../../context/LanguageContext";
+import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
 
 import CertificationCard from "./CertificationCard";
 
@@ -10,6 +11,18 @@ const Certifications = () => {
   const { certificationCourses } = useContext(DataContext);
   const { content } = useLanguage();
   const certificationsContent = content.certifications;
+
+  // Add SEO meta tags for certifications page
+  useSEO({
+    title: 'QA Certifications & Training | Rafal Ciesielski',
+    description: 'Professional certifications in test automation, AI in testing, accessibility (WCAG), performance testing, web development, and networking foundations.',
+    canonical: 'https://rciesielski.dev/courses',
+    keywords: 'QA certifications, ISTQB, test automation training, accessibility certifications, WCAG, performance testing certification',
+    schema: generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rciesielski.dev/' },
+      { name: 'Certifications', url: 'https://rciesielski.dev/courses' }
+    ]),
+  });
 
   useEffect(() => {
     certificationCourses.forEach((_, index) => {

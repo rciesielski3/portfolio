@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { DataContext } from "../../context/DataContext";
 import { profile } from "../../config/profile";
 import { useLanguage } from "../../context/LanguageContext";
+import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
 import "./ExperiencePage.css";
 
 const ExperiencePage = () => {
@@ -17,6 +18,18 @@ const ExperiencePage = () => {
   const eduRef = React.useRef(null);
   const [expLineStyle, setExpLineStyle] = React.useState({});
   const [eduLineStyle, setEduLineStyle] = React.useState({});
+
+  // Add SEO meta tags for experience page
+  useSEO({
+    title: 'Quality Engineering Experience | Rafal Ciesielski',
+    description: 'Resume and career timeline: 10+ years in quality engineering, test automation, mobile testing, and product delivery across fintech, e-commerce, and IoT domains.',
+    canonical: 'https://rciesielski.dev/experience',
+    keywords: 'Quality Engineering experience, Test Automation career, QA specialist resume, Playwright expert, WebdriverIO experience',
+    schema: generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rciesielski.dev/' },
+      { name: 'Experience', url: 'https://rciesielski.dev/experience' }
+    ]),
+  });
 
   React.useEffect(() => {
     AOS.init({ duration: 1000, offset: 100, easing: "ease-in-out" });
