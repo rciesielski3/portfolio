@@ -2,7 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#050b1a" />
     <title>Privacy Policy | Rafal Ciesielski</title>
     <meta
       name="description"
@@ -12,160 +20,353 @@
     <link rel="canonical" href="https://rciesielski.dev/privacy-policy/" />
     <style>
       :root {
-        color-scheme: light dark;
-        --text: #1f2933;
-        --muted: #52606d;
-        --bg: #ffffff;
-        --accent: #2563eb;
+        --font-display: "Russo One", Inter, ui-sans-serif, system-ui, sans-serif;
+        --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --accent: #36f1cd;
+        --accent-soft: #7cf7dc;
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --text: #e4e7eb;
-          --muted: #9aa5b1;
-          --bg: #111827;
-          --accent: #60a5fa;
-        }
+
+      * {
+        box-sizing: border-box;
       }
+
+      html,
       body {
         margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        line-height: 1.6;
+        padding: 0;
+        min-height: 100%;
       }
-      .privacy-container {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 2.5rem 1rem 4rem;
+
+      body {
+        font-family: var(--font-body);
+        color: #e5edf6;
+        background:
+          radial-gradient(circle at 12% 18%, rgba(54, 241, 205, 0.13), transparent 28rem),
+          radial-gradient(circle at 82% 8%, rgba(124, 92, 255, 0.18), transparent 30rem),
+          radial-gradient(circle at 70% 88%, rgba(11, 95, 114, 0.18), transparent 24rem),
+          linear-gradient(135deg, #06111c 0%, #0d1728 52%, #0b1324 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
       }
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
+
+      /* Subtle grid overlay, same as the React app */
+      body::before {
+        background-image:
+          radial-gradient(circle at 1px 1px, rgba(124, 247, 220, 0.14) 1px, transparent 0),
+          linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+        background-size: 22px 22px, 56px 56px, 56px 56px;
+        content: "";
+        inset: 0;
+        mask-image:
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.82), transparent 78%),
+          radial-gradient(circle at 18% 24%, rgba(0, 0, 0, 0.75), transparent 42rem);
+        mix-blend-mode: screen;
+        opacity: 0.46;
+        pointer-events: none;
+        position: fixed;
+        z-index: 0;
       }
-      h2 {
-        font-size: 1.2rem;
-        margin-top: 2rem;
-      }
+
       a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .navbar {
+        background:
+          linear-gradient(90deg, rgba(2, 6, 23, 0.94), rgba(8, 13, 28, 0.82)),
+          rgba(2, 6, 23, 0.78);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+        padding: 0.72rem clamp(1rem, 4vw, 3rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .navbar-title {
+        align-items: center;
+        color: #f8fafc;
+        display: inline-flex;
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 800;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .navbar-title span {
+        border-left: 1px solid rgba(148, 163, 184, 0.35);
+        color: var(--accent-soft);
+        font-family: var(--font-body);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        padding-left: 10px;
+        text-transform: uppercase;
+      }
+
+      .navbar-link {
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .navbar-link:hover {
         color: var(--accent);
       }
-      ul {
-        padding-left: 1.25rem;
+
+      main {
+        flex: 1;
+        position: relative;
+        z-index: 1;
       }
-      li {
-        margin-bottom: 0.4rem;
+
+      .privacy-container {
+        max-width: 850px;
+        margin: 60px auto;
+        padding: 30px;
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.72));
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+        border-radius: 8px;
+        text-align: left;
+      }
+
+      .privacy-container h1,
+      .privacy-container h2 {
+        color: #f8fafc;
+      }
+
+      .privacy-container h1 {
+        font-family: var(--font-display);
+        text-align: center;
+        font-size: 32px;
+        line-height: 1.05;
+        margin: 0 0 20px;
+      }
+
+      .privacy-container h2 {
+        font-family: var(--font-display);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.2;
+        margin: 30px 0 12px;
+        border-bottom: 1px solid rgba(54, 241, 205, 0.32);
+        padding-bottom: 5px;
+      }
+
+      .privacy-container p {
+        font-size: 18px;
+        margin: 0 0 15px;
+        color: #cbd5e1;
+        line-height: 1.7;
+      }
+
+      .privacy-container ul {
+        margin: 0 0 15px 20px;
+        padding-left: 15px;
+      }
+
+      .privacy-container li {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
+
+      .privacy-container strong {
+        color: #f8fafc;
+      }
+
+      .back-link {
+        color: var(--accent-soft);
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .privacy-contact-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        padding: 12px 20px;
+        background: var(--accent);
+        color: #031014;
+        font-size: 18px;
+        font-weight: 900;
+        border-radius: 8px;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .privacy-contact-link:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+
+      .footer {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 14px;
+        padding: 24px 16px;
+        border-top: 1px solid rgba(148, 163, 184, 0.14);
+      }
+
+      .footer p {
+        margin: 4px 0;
+      }
+
+      @media (max-width: 700px) {
+        .privacy-container {
+          margin: 30px 16px 64px;
+          padding: 22px;
+        }
+
+        .privacy-container h1 {
+          font-size: 28px;
+        }
+
+        .privacy-container h2 {
+          font-size: 21px;
+        }
+
+        .privacy-container p,
+        .privacy-container li {
+          font-size: 16px;
+        }
       }
     </style>
   </head>
   <body>
-    <main class="privacy-container">
-      <p><a href="/">&larr; Back to rciesielski.dev</a></p>
+    <nav class="navbar">
+      <a href="/" class="navbar-title">RC<span>Quality Engineering</span></a>
+      <a href="/contact" class="navbar-link">Contact</a>
+    </nav>
 
-      <h1>Privacy Policy</h1>
-      <p><strong>Last updated:</strong> 01.06.2026</p>
-      <p>
-        This Privacy Policy applies to apps and related services published by
-        <strong>Adateo Rafał Ciesielski</strong>, including products distributed
-        through Google Play or other app stores.
-      </p>
+    <main>
+      <article class="privacy-container">
+        <p><a class="back-link" href="/">&larr; Back to rciesielski.dev</a></p>
 
-      <h2>1. Developer and contact</h2>
-      <p>
-        For privacy questions, data deletion requests, or parent/guardian
-        requests, use the privacy point of contact below.
-      </p>
+        <h1>Privacy Policy</h1>
+        <p><strong>Last updated:</strong> 01.06.2026</p>
+        <p>
+          This Privacy Policy applies to apps and related services published by
+          <strong>Adateo Rafał Ciesielski</strong>, including products distributed
+          through Google Play or other app stores.
+        </p>
 
-      <h2>2. Information we collect</h2>
-      <p>
-        The apps are designed to collect only data needed to provide and improve
-        the educational experience:
-      </p>
-      <ul>
-        <li>
-          <strong>Support data:</strong> name, email address, and message content
-          only when you contact us voluntarily.
-        </li>
-        <li>
-          <strong>Diagnostics:</strong> device model, operating system version,
-          app version, crash logs, and basic usage events used to fix bugs and
-          improve app quality.
-        </li>
-        <li>
-          <strong>Learning data:</strong> progress, answers, scores, settings, or
-          preferences when an app needs them for its educational features. This
-          data is stored locally unless a specific app clearly explains that
-          cloud sync or account features are available.
-        </li>
-        <li>
-          <strong>Google Play data:</strong> purchase, subscription, install, or
-          review information may be processed by Google Play when you use Google
-          Play features.
-        </li>
-      </ul>
-      <p>
-        The apps do not request precise location, contacts, photos, microphone,
-        camera, or similar sensitive permissions unless a specific feature
-        clearly requires it and the permission prompt is shown by the device.
-      </p>
+        <h2>1. Developer and contact</h2>
+        <p>
+          For privacy questions, data deletion requests, or parent/guardian
+          requests, use the privacy point of contact below.
+        </p>
 
-      <h2>3. How we use information</h2>
-      <p>Collected data is used only for these purposes:</p>
-      <ul>
-        <li>to provide educational features and remember app settings,</li>
-        <li>to respond to support or privacy requests,</li>
-        <li>to diagnose crashes, fix bugs, and improve reliability,</li>
-        <li>to comply with Google Play and legal obligations.</li>
-      </ul>
+        <h2>2. Information we collect</h2>
+        <p>
+          The apps are designed to collect only data needed to provide and improve
+          the educational experience:
+        </p>
+        <ul>
+          <li>
+            <strong>Support data:</strong> name, email address, and message content
+            only when you contact us voluntarily.
+          </li>
+          <li>
+            <strong>Diagnostics:</strong> device model, operating system version,
+            app version, crash logs, and basic usage events used to fix bugs and
+            improve app quality.
+          </li>
+          <li>
+            <strong>Learning data:</strong> progress, answers, scores, settings, or
+            preferences when an app needs them for its educational features. This
+            data is stored locally unless a specific app clearly explains that
+            cloud sync or account features are available.
+          </li>
+          <li>
+            <strong>Google Play data:</strong> purchase, subscription, install, or
+            review information may be processed by Google Play when you use Google
+            Play features.
+          </li>
+        </ul>
+        <p>
+          The apps do not request precise location, contacts, photos, microphone,
+          camera, or similar sensitive permissions unless a specific feature
+          clearly requires it and the permission prompt is shown by the device.
+        </p>
 
-      <h2>4. Sharing and third parties</h2>
-      <p>
-        We do not sell user data and do not use educational app data for
-        behavioral advertising. Data may be processed by trusted service
-        providers that help operate the apps and this website, such as Google
-        Play services, app distribution and hosting providers, analytics or crash
-        reporting services, and EmailJS for contact form delivery. Data may also
-        be shared if required by law or to protect users, the apps, or the
-        developer.
-      </p>
+        <h2>3. How we use information</h2>
+        <p>Collected data is used only for these purposes:</p>
+        <ul>
+          <li>to provide educational features and remember app settings,</li>
+          <li>to respond to support or privacy requests,</li>
+          <li>to diagnose crashes, fix bugs, and improve reliability,</li>
+          <li>to comply with Google Play and legal obligations.</li>
+        </ul>
 
-      <h2>5. Security</h2>
-      <p>
-        We use reasonable technical and organizational safeguards for personal
-        and sensitive user data. Access is limited to what is needed to operate,
-        support, and improve the apps. No method of storage or transmission is
-        perfectly secure, but we avoid collecting unnecessary data.
-      </p>
+        <h2>4. Sharing and third parties</h2>
+        <p>
+          We do not sell user data and do not use educational app data for
+          behavioral advertising. Data may be processed by trusted service
+          providers that help operate the apps and this website, such as Google
+          Play services, app distribution and hosting providers, analytics or crash
+          reporting services, and EmailJS for contact form delivery. Data may also
+          be shared if required by law or to protect users, the apps, or the
+          developer.
+        </p>
 
-      <h2>6. Retention and deletion</h2>
-      <p>
-        Support messages are retained only as long as needed to answer the
-        request and maintain necessary records. Diagnostics and analytics are
-        retained according to the settings of the service provider. Locally
-        stored learning data can usually be removed by clearing app data or
-        uninstalling the app. You may request deletion of personal data by using
-        the contact link below.
-      </p>
+        <h2>5. Security</h2>
+        <p>
+          We use reasonable technical and organizational safeguards for personal
+          and sensitive user data. Access is limited to what is needed to operate,
+          support, and improve the apps. No method of storage or transmission is
+          perfectly secure, but we avoid collecting unnecessary data.
+        </p>
 
-      <h2>7. Children and students</h2>
-      <p>
-        The apps may be used for education by children or students. We do not
-        knowingly collect more personal data from children than is needed for an
-        educational feature, support, safety, or legal compliance. We do not sell
-        children&apos;s data or serve behavioral advertising based on
-        children&apos;s activity. Parents or guardians can contact us to ask about
-        data access, correction, or deletion.
-      </p>
+        <h2>6. Retention and deletion</h2>
+        <p>
+          Support messages are retained only as long as needed to answer the
+          request and maintain necessary records. Diagnostics and analytics are
+          retained according to the settings of the service provider. Locally
+          stored learning data can usually be removed by clearing app data or
+          uninstalling the app. You may request deletion of personal data by using
+          the contact link below.
+        </p>
 
-      <h2>8. Changes</h2>
-      <p>
-        We may update this Privacy Policy when app features, providers, or legal
-        requirements change. The latest version will remain available at this
-        public URL.
-      </p>
+        <h2>7. Children and students</h2>
+        <p>
+          The apps may be used for education by children or students. We do not
+          knowingly collect more personal data from children than is needed for an
+          educational feature, support, safety, or legal compliance. We do not sell
+          children&apos;s data or serve behavioral advertising based on
+          children&apos;s activity. Parents or guardians can contact us to ask about
+          data access, correction, or deletion.
+        </p>
 
-      <h2>9. Contact</h2>
-      <p>If you have any privacy questions or requests, contact us using the form.</p>
-      <p><a href="/contact">Open contact form</a></p>
+        <h2>8. Changes</h2>
+        <p>
+          We may update this Privacy Policy when app features, providers, or legal
+          requirements change. The latest version will remain available at this
+          public URL.
+        </p>
+
+        <h2>9. Contact</h2>
+        <p>If you have any privacy questions or requests, contact us using the form.</p>
+        <a href="/contact" class="privacy-contact-link">Open contact form</a>
+      </article>
     </main>
+
+    <footer class="footer">
+      <p>© <span id="year">2026</span> Adateo Rafał Ciesielski</p>
+      <p>All rights reserved.</p>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
