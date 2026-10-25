@@ -20,7 +20,12 @@ const App = () => {
   return (
     <DataProvider>
       <LanguageProvider>
-        <Router>
+        <Router
+          future={{
+            v7_relativeSplatPath: true,
+            v7_startTransition: true,
+          }}
+        >
           <div className="app-layout">
             <NavBar />
             <div className="app-main">
