@@ -49,7 +49,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://rciesielski.dev/contact?lang=pl" />
   </url>
   <url>
-    <loc>https://rciesielski.dev/privacy-policy</loc>
+    <loc>https://rciesielski.dev/privacy-policy/</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
