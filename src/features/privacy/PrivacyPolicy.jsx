@@ -19,7 +19,7 @@ const PrivacyPolicy = () => {
     <div className="privacy-container">
       <h1>Privacy Policy</h1>
       <p>
-        <strong>Last updated:</strong> 01.06.2026
+        <strong>Last updated:</strong> 2026-10-25
       </p>
       <p>
         This Privacy Policy applies to apps and related services published by{" "}
@@ -30,7 +30,9 @@ const PrivacyPolicy = () => {
       <h2>1. Developer and contact</h2>
       <p>
         For privacy questions, data deletion requests, or parent/guardian
-        requests, use the privacy point of contact below.
+        requests, use the contact form in section 9. You may also ask us to
+        access or correct your personal data, and you may lodge a complaint with
+        a data protection authority in your country.
       </p>
 
       <h2>2. Information we collect</h2>
@@ -59,6 +61,12 @@ const PrivacyPolicy = () => {
           review information may be processed by Google Play when you use Google
           Play features.
         </li>
+        <li>
+          <strong>Website analytics:</strong> on rciesielski.dev, Google Firebase
+          Analytics records page views and may set analytics identifiers in your
+          browser. The website also stores your chosen language in your browser's
+          local storage.
+        </li>
       </ul>
       <p>
         The apps do not request precise location, contacts, photos, microphone,
@@ -72,6 +80,7 @@ const PrivacyPolicy = () => {
         <li>to provide educational features and remember app settings,</li>
         <li>to respond to support or privacy requests,</li>
         <li>to diagnose crashes, fix bugs, and improve reliability,</li>
+        <li>to understand how the website is used (analytics),</li>
         <li>to comply with Google Play and legal obligations.</li>
       </ul>
 
@@ -80,10 +89,14 @@ const PrivacyPolicy = () => {
         We do not sell user data and do not use educational app data for
         behavioral advertising. Data may be processed by trusted service
         providers that help operate the apps and this website, such as Google
-        Play services, app distribution and hosting providers, analytics or
-        crash reporting services, and EmailJS for contact form delivery. Data
-        may also be shared if required by law or to protect users, the apps, or
-        the developer.
+        Play services, app distribution and hosting providers, Google Firebase
+        (Cloud Firestore and Firebase Analytics) for website analytics and visit
+        counting, and EmailJS for contact form delivery. Data may also be shared
+        if required by law or to protect users, the apps, or the developer.
+      </p>
+      <p>
+        The apps and website do not currently show advertising. If advertising is
+        added, this policy will be updated before it is introduced.
       </p>
 
       <h2>5. Security</h2>
@@ -97,11 +110,13 @@ const PrivacyPolicy = () => {
       <h2>6. Retention and deletion</h2>
       <p>
         Support messages are retained only as long as needed to answer the
-        request and maintain necessary records. Diagnostics and analytics are
-        retained according to the settings of the service provider. Locally
-        stored learning data can usually be removed by clearing app data or
-        uninstalling the app. You may request deletion of personal data by using
-        the contact link below.
+        request and maintain necessary records. Messages sent through the contact
+        form are stored in the developer's email account until they are deleted.
+        Diagnostics and analytics are retained according to the settings of the
+        service provider (Google Firebase). Locally stored learning data and the
+        language preference saved in your browser can be removed by clearing app
+        or browser data, or by uninstalling the app. You may request deletion of
+        personal data by using the contact form in section 9.
       </p>
 
       <h2>7. Children and students</h2>

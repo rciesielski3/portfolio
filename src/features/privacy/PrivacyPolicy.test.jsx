@@ -16,7 +16,7 @@ test("includes Google Play privacy policy essentials for apps and services", () 
     screen.getByRole("heading", { name: /privacy policy/i })
   ).toBeInTheDocument();
   expect(screen.getAllByText(/Adateo Rafał Ciesielski/i)).toHaveLength(1);
-  expect(screen.getByText(/privacy point of contact/i)).toBeInTheDocument();
+  expect(screen.getByText(/use the contact form in section 9/i)).toBeInTheDocument();
   expect(screen.getByText(/apps and related services/i)).toBeInTheDocument();
   expect(screen.queryByText(/Expo|React Native/i)).not.toBeInTheDocument();
   expect(screen.getByText(/We do not sell user data/i)).toBeInTheDocument();
