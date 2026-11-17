@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext } from 'react';
 
 export const DataContext = createContext();
 
@@ -9,7 +9,7 @@ const DataProvider = ({ children }) => {
   const [education, setEducation] = React.useState([]);
 
   React.useEffect(() => {
-    if (process.env.NODE_ENV === "test") {
+    if (process.env.NODE_ENV === 'test') {
       return undefined;
     }
 
@@ -31,14 +31,10 @@ const DataProvider = ({ children }) => {
     };
 
     const loadData = async () => {
-      const [
-        iAmData,
-        experienceData,
-        certificationData,
-      ] = await Promise.all([
-        fetchJson("iAm.json", []),
-        fetchJson("experiences.json", { experiences: [], education: [] }),
-        fetchJson("certifications.json", []),
+      const [iAmData, experienceData, certificationData] = await Promise.all([
+        fetchJson('iAm.json', []),
+        fetchJson('experiences.json', { experiences: [], education: [] }),
+        fetchJson('certifications.json', []),
       ]);
 
       setIAm(iAmData || []);

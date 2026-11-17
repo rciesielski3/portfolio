@@ -1,5 +1,5 @@
-import React from "react";
-import { FaCodeBranch, FaExternalLinkAlt, FaStar } from "react-icons/fa";
+import React from 'react';
+import { FaCodeBranch, FaExternalLinkAlt, FaStar } from 'react-icons/fa';
 
 const GithubCard = ({ content, repo }) => {
   return (
@@ -16,9 +16,7 @@ const GithubCard = ({ content, repo }) => {
           <FaExternalLinkAlt />
         </a>
       </div>
-      <p className="repo-description">
-        {repo.description || content.fallbackDescription}
-      </p>
+      <p className="repo-description">{repo.description || content.fallbackDescription}</p>
       <div className="repo-meta">
         {repo.language && <span>{repo.language}</span>}
         <span>

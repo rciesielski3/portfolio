@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { useLanguage } from "../../context/LanguageContext";
-import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
-import GithubCard from "./GithubRepositoriesCard";
+import { useLanguage } from '../../context/LanguageContext';
+import { useSEO, generateBreadcrumbSchema } from '../../hooks/useSEO';
+import GithubCard from './GithubRepositoriesCard';
 
 const GithubRepositories = () => {
   const [repos, setRepos] = useState([]);
@@ -15,21 +15,20 @@ const GithubRepositories = () => {
   // Add SEO meta tags for github page
   useSEO({
     title: 'GitHub Projects - QA Automation & Development | Rafal Ciesielski',
-    description: 'Open source projects and experiments in test automation, frontend development, and QA tooling. React, Next.js, TypeScript, and testing frameworks.',
+    description:
+      'Open source projects and experiments in test automation, frontend development, and QA tooling. React, Next.js, TypeScript, and testing frameworks.',
     canonical: 'https://rciesielski.dev/github',
     keywords: 'GitHub projects, test automation projects, open source QA, React projects, automation testing code',
     schema: generateBreadcrumbSchema([
       { name: 'Home', url: 'https://rciesielski.dev/' },
-      { name: 'GitHub', url: 'https://rciesielski.dev/github' }
+      { name: 'GitHub', url: 'https://rciesielski.dev/github' },
     ]),
   });
 
   useEffect(() => {
     const fetchRepoData = async () => {
       try {
-        const response = await fetch(
-          "https://api.github.com/users/rciesielski3/repos"
-        );
+        const response = await fetch('https://api.github.com/users/rciesielski3/repos');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -61,7 +60,12 @@ const GithubRepositories = () => {
         <div className="spinner border-t-4 border-blue-500 rounded-full w-12 h-12 animate-spin"></div>
       </div>
     );
-  if (error) return <div>{githubContent.errorPrefix}: {error}</div>;
+  if (error)
+    return (
+      <div>
+        {githubContent.errorPrefix}: {error}
+      </div>
+    );
 
   return (
     <div className="content github-page">
@@ -79,9 +83,9 @@ const GithubRepositories = () => {
               key={index}
               className={`transition-transform duration-1000 ${
                 visibleRepos.includes(index)
-                  ? "transform translate-y-0 opacity-100"
-                  : "transform translate-y-20 opacity-0"
-            }`}
+                  ? 'transform translate-y-0 opacity-100'
+                  : 'transform translate-y-20 opacity-0'
+              }`}
             >
               <GithubCard repo={repo} content={githubContent.card} />
             </div>
