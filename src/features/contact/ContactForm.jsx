@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
-import { useLanguage } from "../../context/LanguageContext";
-import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
-import SocialLinks from "../../shared/SocialLinks";
-import "./ContactForm.css";
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+import { useLanguage } from '../../context/LanguageContext';
+import { useSEO, generateBreadcrumbSchema } from '../../hooks/useSEO';
+import SocialLinks from '../../shared/SocialLinks';
+import './ContactForm.css';
 
 const initialFormData = {
-  first_name: "",
-  title: "",
-  senderEmail: "",
-  message: "",
+  first_name: '',
+  title: '',
+  senderEmail: '',
+  message: '',
 };
 
 const emailPattern = /\S+@\S+\.\S+/;
@@ -17,9 +17,7 @@ const emailPattern = /\S+@\S+\.\S+/;
 const getEmailConfig = () => ({
   serviceID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
   templateID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-  publicKey:
-    process.env.REACT_APP_EMAILJS_PUBLIC_KEY ||
-    process.env.REACT_APP_EMAILJS_USER_ID,
+  publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || process.env.REACT_APP_EMAILJS_USER_ID,
 });
 
 const ContactForm = () => {
@@ -30,33 +28,33 @@ const ContactForm = () => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [feedbackMessage, setFeedbackMessage] = useState("");
-  const [feedbackType, setFeedbackType] = useState("");
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+  const [feedbackType, setFeedbackType] = useState('');
 
   // Add SEO meta tags for contact page
   useSEO({
     title: 'Contact Rafal Ciesielski - Quality Engineering Consultation',
-    description: 'Get in touch for quality engineering consultation, test automation strategy, or project collaboration. Quality focus, practical solutions.',
+    description:
+      'Get in touch for quality engineering consultation, test automation strategy, or project collaboration. Quality focus, practical solutions.',
     canonical: 'https://rciesielski.dev/contact',
     keywords: 'contact quality engineer, QA consultation, test automation services, hire QA specialist',
     schema: generateBreadcrumbSchema([
       { name: 'Home', url: 'https://rciesielski.dev/' },
-      { name: 'Contact', url: 'https://rciesielski.dev/contact' }
+      { name: 'Contact', url: 'https://rciesielski.dev/contact' },
     ]),
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((currentFormData) => ({ ...currentFormData, [name]: value }));
-    setErrors((currentErrors) => ({ ...currentErrors, [name]: "" }));
-    setFeedbackMessage("");
-    setFeedbackType("");
+    setErrors((currentErrors) => ({ ...currentErrors, [name]: '' }));
+    setFeedbackMessage('');
+    setFeedbackType('');
   };
 
   const validate = () => {
     const errors = {};
-    if (!formData.first_name.trim())
-      errors.first_name = form.errors.first_name;
+    if (!formData.first_name.trim()) errors.first_name = form.errors.first_name;
     if (!formData.title.trim()) errors.title = form.errors.title;
     if (!formData.senderEmail.trim()) {
       errors.senderEmail = form.errors.senderEmailRequired;
@@ -72,8 +70,8 @@ const ContactForm = () => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
-    setFeedbackMessage("");
-    setFeedbackType("");
+    setFeedbackMessage('');
+    setFeedbackType('');
 
     if (Object.keys(validationErrors).length > 0) {
       return;
@@ -84,7 +82,7 @@ const ContactForm = () => {
 
     if (!serviceID || !templateID || !publicKey) {
       setIsSubmitting(false);
-      setFeedbackType("error");
+      setFeedbackType('error');
       setFeedbackMessage(form.missingConfig);
       return;
     }
@@ -101,18 +99,14 @@ const ContactForm = () => {
 
     try {
       await emailjs.send(serviceID, templateID, templateParams, publicKey);
-      setFeedbackType("success");
+      setFeedbackType('success');
       setFeedbackMessage(form.success);
       setFormData(initialFormData);
     } catch (error) {
-      console.error("EmailJS send failed:", error);
-      const errorText = String(error?.text || error?.message || "");
-      setFeedbackType("error");
-      setFeedbackMessage(
-        errorText.includes("Public Key")
-          ? form.invalidPublicKey
-          : form.genericError
-      );
+      console.error('EmailJS send failed:', error);
+      const errorText = String(error?.text || error?.message || '');
+      setFeedbackType('error');
+      setFeedbackMessage(errorText.includes('Public Key') ? form.invalidPublicKey : form.genericError);
     } finally {
       setIsSubmitting(false);
     }
@@ -129,19 +123,19 @@ const ContactForm = () => {
 
       <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
         {form.fields.map(({ id, label, rows, type }) => {
-          const Field = type === "textarea" ? "textarea" : "input";
+          const Field = type === 'textarea' ? 'textarea' : 'input';
 
           return (
             <div className="form-group" key={id}>
               <label htmlFor={id}>{label}</label>
               <Field
-                type={type === "textarea" ? undefined : type}
+                type={type === 'textarea' ? undefined : type}
                 id={id}
                 name={id}
                 rows={rows}
                 value={formData[id]}
                 onChange={handleChange}
-                className={errors[id] ? "input-error" : ""}
+                className={errors[id] ? 'input-error' : ''}
               />
               {errors[id] && <span className="form-error">{errors[id]}</span>}
             </div>
@@ -151,9 +145,7 @@ const ContactForm = () => {
         <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? form.submitting : form.submit}
         </button>
-        {feedbackMessage && (
-          <p className={`form-feedback ${feedbackType}`}>{feedbackMessage}</p>
-        )}
+        {feedbackMessage && <p className={`form-feedback ${feedbackType}`}>{feedbackMessage}</p>}
       </form>
     </div>
   );

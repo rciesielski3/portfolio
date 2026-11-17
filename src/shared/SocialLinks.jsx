@@ -1,26 +1,26 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-import { profile } from "../config/profile";
-import { useLanguage } from "../context/LanguageContext";
+import { profile } from '../config/profile';
+import { useLanguage } from '../context/LanguageContext';
 
 const socialLinks = [
   {
-    ariaKey: "linkedinAria",
-    className: "linkedin",
+    ariaKey: 'linkedinAria',
+    className: 'linkedin',
     href: profile.links.linkedin,
     Icon: FaLinkedin,
-    titleKey: "linkedinTitle",
+    titleKey: 'linkedinTitle',
   },
   {
-    ariaKey: "githubAria",
-    className: "github",
+    ariaKey: 'githubAria',
+    className: 'github',
     href: profile.links.github,
     Icon: FaGithub,
-    titleKey: "githubTitle",
+    titleKey: 'githubTitle',
   },
 ];
 
-const SocialLinks = ({ className = "social-icons" }) => {
+const SocialLinks = ({ className = 'social-icons' }) => {
   const { content } = useLanguage();
 
   return (

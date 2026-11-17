@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const Modal = ({ show, onClose, children, title }) => {
   if (!show) return null;
@@ -15,7 +15,7 @@ const Modal = ({ show, onClose, children, title }) => {
         <div className="modal-content">{children}</div>
       </div>
     </>,
-    document.getElementById("modal-root")
+    document.getElementById('modal-root'),
   );
 };
 

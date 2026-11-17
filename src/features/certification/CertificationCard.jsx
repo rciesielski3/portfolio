@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import Modal from "../../components/Modal";
+import Modal from '../../components/Modal';
 
 const CertificationCard = ({ course }) => {
   const [showModal, setShowModal] = React.useState(false);
@@ -10,20 +10,11 @@ const CertificationCard = ({ course }) => {
   return (
     <div className="certification-course-card">
       <div className="course-image-container">
-        <img
-          src={imageUrl}
-          alt={course.title}
-          onClick={() => setShowModal(true)}
-          style={{ cursor: "pointer" }}
-        />
+        <img src={imageUrl} alt={course.title} onClick={() => setShowModal(true)} style={{ cursor: 'pointer' }} />
       </div>
       <h3 className="course-title">{course.title}</h3>
       {showModal && (
-        <Modal
-          show={showModal}
-          onClose={() => setShowModal(false)}
-          title={course.title}
-        >
+        <Modal show={showModal} onClose={() => setShowModal(false)} title={course.title}>
           <img src={imageUrl} alt={course.title} />
         </Modal>
       )}

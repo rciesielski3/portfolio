@@ -9,9 +9,7 @@
 }
 
 .not-found-panel {
-  background:
-    linear-gradient(135deg, rgba(54, 241, 205, 0.14), transparent 42%),
-    rgba(15, 23, 42, 0.72);
+  background: linear-gradient(135deg, rgba(54, 241, 205, 0.14), transparent 42%), rgba(15, 23, 42, 0.72);
   border: 1px solid rgba(54, 241, 205, 0.32);
   border-left: 4px solid rgba(54, 241, 205, 0.7);
   border-radius: 8px;
