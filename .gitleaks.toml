@@ -7,5 +7,4 @@ useDefault = true
 # (REACT_APP_FIREBASE_API_KEY). Firebase web keys are public by design.
 [[allowlists]]
 description = "Firebase web API key in historical build bundles"
-targetRules = ["gcp-api-key"]
 paths = ['''static/js/main\.[a-z0-9]+\.js''']
