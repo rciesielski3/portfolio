@@ -172,7 +172,7 @@
 .secondary-action::before {
   background: var(--action-bg);
   clip-path: inherit;
-  content: "";
+  content: '';
   inset: 1px;
   position: absolute;
   z-index: -1;
@@ -218,11 +218,7 @@
 
 .profile-card {
   background:
-    radial-gradient(
-      circle at 78% 10%,
-      rgba(54, 241, 205, 0.1),
-      transparent 34%
-    ),
+    radial-gradient(circle at 78% 10%, rgba(54, 241, 205, 0.1), transparent 34%),
     linear-gradient(180deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.38));
   border: 2px solid rgba(54, 241, 205, 0.28);
   border-radius: 8px;
@@ -253,7 +249,7 @@
 
 .profile-card::before {
   background: linear-gradient(90deg, #36f1cd, #60a5fa, #a78bfa);
-  content: "";
+  content: '';
   height: 3px;
   left: 14px;
   position: absolute;
@@ -269,7 +265,9 @@
   height: auto;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.28s ease, filter 0.28s ease;
+  transition:
+    transform 0.28s ease,
+    filter 0.28s ease;
   width: 100%;
 }
 
@@ -362,7 +360,7 @@
   background: #7cf7dc;
   border-radius: 50%;
   box-shadow: 0 0 0 0 rgba(124, 247, 220, 0.36);
-  content: "";
+  content: '';
   height: 7px;
   width: 7px;
 }

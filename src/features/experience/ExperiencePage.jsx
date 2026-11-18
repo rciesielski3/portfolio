@@ -1,13 +1,13 @@
-import React from "react";
-import AOS from "aos";
-import { FaSuitcase, FaGraduationCap } from "react-icons/fa";
-import "aos/dist/aos.css";
+import React from 'react';
+import AOS from 'aos';
+import { FaSuitcase, FaGraduationCap } from 'react-icons/fa';
+import 'aos/dist/aos.css';
 
-import { DataContext } from "../../context/DataContext";
-import { profile } from "../../config/profile";
-import { useLanguage } from "../../context/LanguageContext";
-import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
-import "./ExperiencePage.css";
+import { DataContext } from '../../context/DataContext';
+import { profile } from '../../config/profile';
+import { useLanguage } from '../../context/LanguageContext';
+import { useSEO, generateBreadcrumbSchema } from '../../hooks/useSEO';
+import './ExperiencePage.css';
 
 const ExperiencePage = () => {
   const { experiences, education } = React.useContext(DataContext);
@@ -22,17 +22,19 @@ const ExperiencePage = () => {
   // Add SEO meta tags for experience page
   useSEO({
     title: 'Quality Engineering Experience | Rafal Ciesielski',
-    description: 'Resume and career timeline: 10+ years in quality engineering, test automation, mobile testing, and product delivery across fintech, e-commerce, and IoT domains.',
+    description:
+      'Resume and career timeline: 10+ years in quality engineering, test automation, mobile testing, and product delivery across fintech, e-commerce, and IoT domains.',
     canonical: 'https://rciesielski.dev/experience',
-    keywords: 'Quality Engineering experience, Test Automation career, QA specialist resume, Playwright expert, WebdriverIO experience',
+    keywords:
+      'Quality Engineering experience, Test Automation career, QA specialist resume, Playwright expert, WebdriverIO experience',
     schema: generateBreadcrumbSchema([
       { name: 'Home', url: 'https://rciesielski.dev/' },
-      { name: 'Experience', url: 'https://rciesielski.dev/experience' }
+      { name: 'Experience', url: 'https://rciesielski.dev/experience' },
     ]),
   });
 
   React.useEffect(() => {
-    AOS.init({ duration: 1000, offset: 100, easing: "ease-in-out" });
+    AOS.init({ duration: 1000, offset: 100, easing: 'ease-in-out' });
 
     const updateLinePositions = () => {
       if (expRef.current && eduRef.current) {
@@ -49,8 +51,8 @@ const ExperiencePage = () => {
     };
 
     updateLinePositions();
-    window.addEventListener("resize", updateLinePositions);
-    return () => window.removeEventListener("resize", updateLinePositions);
+    window.addEventListener('resize', updateLinePositions);
+    return () => window.removeEventListener('resize', updateLinePositions);
   }, []);
 
   if (!experiences || experiences.length === 0) {
@@ -58,7 +60,7 @@ const ExperiencePage = () => {
   }
 
   const displayedExperiences =
-    language === "pl" && timelineTranslations?.experiences
+    language === 'pl' && timelineTranslations?.experiences
       ? experiences.map((experience, index) => ({
           ...experience,
           ...timelineTranslations.experiences[index],
@@ -66,7 +68,7 @@ const ExperiencePage = () => {
       : experiences;
 
   const displayedEducation =
-    language === "pl" && timelineTranslations?.education
+    language === 'pl' && timelineTranslations?.education
       ? education.map((educationItem, index) => ({
           ...educationItem,
           ...timelineTranslations.education[index],
@@ -80,10 +82,7 @@ const ExperiencePage = () => {
         <h1>{experienceContent.hero.title}</h1>
         <p>{experienceContent.hero.description}</p>
       </header>
-      <section
-        className="experience-summary"
-        aria-label={experienceContent.summaryLabel}
-      >
+      <section className="experience-summary" aria-label={experienceContent.summaryLabel}>
         {experienceContent.summary.map((item) => (
           <article key={item.label}>
             <span>{item.label}</span>
@@ -101,8 +100,8 @@ const ExperiencePage = () => {
         {displayedExperiences.map((exp, index) => (
           <div
             key={index}
-            className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}
-            data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+            className={`timeline-item ${index % 2 === 0 ? 'is-right' : 'is-left'}`}
+            data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
           >
             <div className="timeline-card">
               <h3>{exp.title}</h3>
@@ -123,8 +122,8 @@ const ExperiencePage = () => {
         {displayedEducation.map((edu, index) => (
           <div
             key={index}
-            className={`timeline-item ${index % 2 === 0 ? "is-right" : "is-left"}`}
-            data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+            className={`timeline-item ${index % 2 === 0 ? 'is-right' : 'is-left'}`}
+            data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
           >
             <div className="timeline-card">
               <h3>{edu.title}</h3>
@@ -139,10 +138,7 @@ const ExperiencePage = () => {
       <section className="experience-cta">
         <h2 data-aos="fade-down">{experienceContent.cta.title}</h2>
         <p data-aos="fade-up">{experienceContent.cta.description}</p>
-        <button
-          data-aos="fade-up"
-          onClick={() => window.open(profile.links.linkedin, "_blank")}
-        >
+        <button data-aos="fade-up" onClick={() => window.open(profile.links.linkedin, '_blank')}>
           {experienceContent.cta.button}
         </button>
       </section>

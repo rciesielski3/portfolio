@@ -1,26 +1,31 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Skills from "./features/skills/Skills";
-import Certifications from "./features/certification/Certifications";
-import ContactForm from "./features/contact/ContactForm";
-import GithubRepositories from "./features/github/GithubRepositories";
-import MainPage from "./features/mainPage/MainPage";
-import PrivacyPolicy from "./features/privacy/PrivacyPolicy";
-import ExperiencePage from "./features/experience/ExperiencePage";
-import NotFound from "./features/notFound/NotFound";
+import Skills from './features/skills/Skills';
+import Certifications from './features/certification/Certifications';
+import ContactForm from './features/contact/ContactForm';
+import GithubRepositories from './features/github/GithubRepositories';
+import MainPage from './features/mainPage/MainPage';
+import PrivacyPolicy from './features/privacy/PrivacyPolicy';
+import ExperiencePage from './features/experience/ExperiencePage';
+import NotFound from './features/notFound/NotFound';
 
-import DataProvider from "./context/DataContext";
-import { LanguageProvider } from "./context/LanguageContext";
-import NavBar from "./shared/navbar/Navbar";
-import Footer from "./shared/Footer";
-import "./App.css";
+import DataProvider from './context/DataContext';
+import { LanguageProvider } from './context/LanguageContext';
+import NavBar from './shared/navbar/Navbar';
+import Footer from './shared/Footer';
+import './App.css';
 
 const App = () => {
   return (
     <DataProvider>
       <LanguageProvider>
-        <Router>
+        <Router
+          future={{
+            v7_relativeSplatPath: true,
+            v7_startTransition: true,
+          }}
+        >
           <div className="app-layout">
             <NavBar />
             <div className="app-main">

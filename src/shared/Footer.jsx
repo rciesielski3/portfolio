@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -29,9 +29,7 @@ export const useSEO = (config) => {
   const truncatedTitle = title.length > 60 ? title.substring(0, 60) + '...' : title;
 
   // Ensure description is reasonable length (155-160 chars recommended)
-  const truncatedDescription = description.length > 160
-    ? description.substring(0, 157) + '...'
-    : description;
+  const truncatedDescription = description.length > 160 ? description.substring(0, 157) + '...' : description;
 
   return (
     <Helmet>
@@ -60,11 +58,7 @@ export const useSEO = (config) => {
       {twitterHandle && <meta name="twitter:creator" content={twitterHandle} />}
 
       {/* Schema.org JSON-LD */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      )}
+      {schema && <script type="application/ld+json">{JSON.stringify(schema)}</script>}
     </Helmet>
   );
 };
@@ -98,9 +92,6 @@ export const generateOrganizationSchema = () => {
     name: 'Rafal Ciesielski',
     url: 'https://rciesielski.dev',
     logo: 'https://rciesielski.dev/favicon.svg',
-    sameAs: [
-      'https://github.com/rciesielski3',
-      'https://www.linkedin.com/in/rafał-ciesielski-820309100/',
-    ],
+    sameAs: ['https://github.com/rciesielski3', 'https://www.linkedin.com/in/rafał-ciesielski-820309100/'],
   };
 };

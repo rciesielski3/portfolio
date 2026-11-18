@@ -1,12 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-import { navigationItems } from "../../config/profile";
-import { useLanguage } from "../../context/LanguageContext";
-import "./NavBar.css";
+import { navigationItems } from '../../config/profile';
+import { useLanguage } from '../../context/LanguageContext';
+import './NavBar.css';
 
-const BrandLink = ({ brand, className = "", onClick }) => (
+const BrandLink = ({ brand, className = '', onClick }) => (
   <NavLink to="/" className={`navbar-title ${className}`} onClick={onClick}>
     RC<span>{brand}</span>
   </NavLink>
@@ -26,22 +26,14 @@ const NavBar = () => {
         <button
           onClick={toggleMenu}
           className="navbar-menu-btn"
-          aria-label={
-            menuOpen
-              ? content.navigation.closeMenu
-              : content.navigation.openMenu
-          }
+          aria-label={menuOpen ? content.navigation.closeMenu : content.navigation.openMenu}
           aria-expanded={menuOpen}
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
-      <BrandLink
-        brand={content.profile.brand}
-        className="navbar-title-desktop"
-        onClick={closeMenu}
-      />
-      <ul className={`navbar-menu ${menuOpen ? "active" : ""}`}>
+      <BrandLink brand={content.profile.brand} className="navbar-title-desktop" onClick={closeMenu} />
+      <ul className={`navbar-menu ${menuOpen ? 'active' : ''}`}>
         {navigationItems.map((item) => (
           <li className="navbar-menu-item" key={item.path}>
             <NavLink to={item.path} onClick={closeMenu}>
@@ -54,7 +46,7 @@ const NavBar = () => {
             {supportedLanguages.map((languageCode) => (
               <button
                 aria-pressed={languageCode === language}
-                className={languageCode === language ? "active" : ""}
+                className={languageCode === language ? 'active' : ''}
                 key={languageCode}
                 onClick={() => setLanguage(languageCode)}
                 type="button"

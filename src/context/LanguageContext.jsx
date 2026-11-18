@@ -1,17 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import {
-  defaultLanguage,
-  portfolioContent,
-  supportedLanguages,
-} from "../content/portfolioContent";
+import { defaultLanguage, portfolioContent, supportedLanguages } from '../content/portfolioContent';
 
-const STORAGE_KEY = "portfolio-language";
+const STORAGE_KEY = 'portfolio-language';
 
 const LanguageContext = React.createContext(null);
 
 const getBrowserLanguage = () => {
-  if (typeof navigator === "undefined") {
+  if (typeof navigator === 'undefined') {
     return defaultLanguage;
   }
 
@@ -19,7 +15,7 @@ const getBrowserLanguage = () => {
 };
 
 const getInitialLanguage = () => {
-  if (typeof window === "undefined") {
+  if (typeof window === 'undefined') {
     return defaultLanguage;
   }
 
@@ -29,9 +25,7 @@ const getInitialLanguage = () => {
   }
 
   const browserLanguage = getBrowserLanguage();
-  return supportedLanguages.includes(browserLanguage)
-    ? browserLanguage
-    : defaultLanguage;
+  return supportedLanguages.includes(browserLanguage) ? browserLanguage : defaultLanguage;
 };
 
 export const LanguageProvider = ({ children }) => {
@@ -64,21 +58,17 @@ export const LanguageProvider = ({ children }) => {
       supportedLanguages,
       toggleLanguage,
     }),
-    [language, setLanguage, toggleLanguage]
+    [language, setLanguage, toggleLanguage],
   );
 
-  return (
-    <LanguageContext.Provider value={value}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };
 
 export const useLanguage = () => {
   const context = React.useContext(LanguageContext);
 
   if (!context) {
-    throw new Error("useLanguage must be used within LanguageProvider");
+    throw new Error('useLanguage must be used within LanguageProvider');
   }
 
   return context;

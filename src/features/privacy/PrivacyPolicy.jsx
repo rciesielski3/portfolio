@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSEO, generateBreadcrumbSchema } from "../../hooks/useSEO";
-import "./PrivacyPolicy.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSEO, generateBreadcrumbSchema } from '../../hooks/useSEO';
+import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
   // Add SEO meta tags for privacy policy page
@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
     canonical: 'https://rciesielski.dev/privacy-policy/',
     schema: generateBreadcrumbSchema([
       { name: 'Home', url: 'https://rciesielski.dev/' },
-      { name: 'Privacy Policy', url: 'https://rciesielski.dev/privacy-policy' }
+      { name: 'Privacy Policy', url: 'https://rciesielski.dev/privacy-policy' },
     ]),
   });
 
@@ -22,56 +22,45 @@ const PrivacyPolicy = () => {
         <strong>Last updated:</strong> 2026-10-25
       </p>
       <p>
-        This Privacy Policy applies to apps and related services published by{" "}
-        <strong>Adateo Rafał Ciesielski</strong>, including products distributed
-        through Google Play or other app stores.
+        This Privacy Policy applies to apps and related services published by <strong>Adateo Rafał Ciesielski</strong>,
+        including products distributed through Google Play or other app stores.
       </p>
 
       <h2>1. Developer and contact</h2>
       <p>
-        For privacy questions, data deletion requests, or parent/guardian
-        requests, use the contact form in section 9. You may also ask us to
-        access or correct your personal data, and you may lodge a complaint with
-        a data protection authority in your country.
+        For privacy questions, data deletion requests, or parent/guardian requests, use the contact form in section 9.
+        You may also ask us to access or correct your personal data, and you may lodge a complaint with a data
+        protection authority in your country.
       </p>
 
       <h2>2. Information we collect</h2>
-      <p>
-        The apps are designed to collect only data needed to provide and improve
-        the educational experience:
-      </p>
+      <p>The apps are designed to collect only data needed to provide and improve the educational experience:</p>
       <ul>
         <li>
-          <strong>Support data:</strong> name, email address, and message
-          content only when you contact us voluntarily.
+          <strong>Support data:</strong> name, email address, and message content only when you contact us voluntarily.
         </li>
         <li>
-          <strong>Diagnostics:</strong> device model, operating system version,
-          app version, crash logs, and basic usage events used to fix bugs and
-          improve app quality.
+          <strong>Diagnostics:</strong> device model, operating system version, app version, crash logs, and basic usage
+          events used to fix bugs and improve app quality.
         </li>
         <li>
-          <strong>Learning data:</strong> progress, answers, scores, settings,
-          or preferences when an app needs them for its educational features.
-          This data is stored locally unless a specific app clearly explains
-          that cloud sync or account features are available.
+          <strong>Learning data:</strong> progress, answers, scores, settings, or preferences when an app needs them for
+          its educational features. This data is stored locally unless a specific app clearly explains that cloud sync
+          or account features are available.
         </li>
         <li>
-          <strong>Google Play data:</strong> purchase, subscription, install, or
-          review information may be processed by Google Play when you use Google
-          Play features.
+          <strong>Google Play data:</strong> purchase, subscription, install, or review information may be processed by
+          Google Play when you use Google Play features.
         </li>
         <li>
-          <strong>Website analytics:</strong> on rciesielski.dev, Google Firebase
-          Analytics records page views and may set analytics identifiers in your
-          browser. The website also stores your chosen language in your browser's
+          <strong>Website analytics:</strong> on rciesielski.dev, Google Firebase Analytics records page views and may
+          set analytics identifiers in your browser. The website also stores your chosen language in your browser's
           local storage.
         </li>
       </ul>
       <p>
-        The apps do not request precise location, contacts, photos, microphone,
-        camera, or similar sensitive permissions unless a specific feature
-        clearly requires it and the permission prompt is shown by the device.
+        The apps do not request precise location, contacts, photos, microphone, camera, or similar sensitive permissions
+        unless a specific feature clearly requires it and the permission prompt is shown by the device.
       </p>
 
       <h2>3. How we use information</h2>
@@ -86,61 +75,50 @@ const PrivacyPolicy = () => {
 
       <h2>4. Sharing and third parties</h2>
       <p>
-        We do not sell user data and do not use educational app data for
-        behavioral advertising. Data may be processed by trusted service
-        providers that help operate the apps and this website, such as Google
-        Play services, app distribution and hosting providers, Google Firebase
-        (Cloud Firestore and Firebase Analytics) for website analytics and visit
-        counting, and EmailJS for contact form delivery. Data may also be shared
-        if required by law or to protect users, the apps, or the developer.
+        We do not sell user data and do not use educational app data for behavioral advertising. Data may be processed
+        by trusted service providers that help operate the apps and this website, such as Google Play services, app
+        distribution and hosting providers, Google Firebase (Cloud Firestore and Firebase Analytics) for website
+        analytics and visit counting, and EmailJS for contact form delivery. Data may also be shared if required by law
+        or to protect users, the apps, or the developer.
       </p>
       <p>
-        The apps and website do not currently show advertising. If advertising is
-        added, this policy will be updated before it is introduced.
+        The apps and website do not currently show advertising. If advertising is added, this policy will be updated
+        before it is introduced.
       </p>
 
       <h2>5. Security</h2>
       <p>
-        We use reasonable technical and organizational safeguards for personal
-        and sensitive user data. Access is limited to what is needed to operate,
-        support, and improve the apps. No method of storage or transmission is
+        We use reasonable technical and organizational safeguards for personal and sensitive user data. Access is
+        limited to what is needed to operate, support, and improve the apps. No method of storage or transmission is
         perfectly secure, but we avoid collecting unnecessary data.
       </p>
 
       <h2>6. Retention and deletion</h2>
       <p>
-        Support messages are retained only as long as needed to answer the
-        request and maintain necessary records. Messages sent through the contact
-        form are stored in the developer's email account until they are deleted.
-        Diagnostics and analytics are retained according to the settings of the
-        service provider (Google Firebase). Locally stored learning data and the
-        language preference saved in your browser can be removed by clearing app
-        or browser data, or by uninstalling the app. You may request deletion of
-        personal data by using the contact form in section 9.
+        Support messages are retained only as long as needed to answer the request and maintain necessary records.
+        Messages sent through the contact form are stored in the developer's email account until they are deleted.
+        Diagnostics and analytics are retained according to the settings of the service provider (Google Firebase).
+        Locally stored learning data and the language preference saved in your browser can be removed by clearing app or
+        browser data, or by uninstalling the app. You may request deletion of personal data by using the contact form in
+        section 9.
       </p>
 
       <h2>7. Children and students</h2>
       <p>
-        The apps may be used for education by children or students. We do not
-        knowingly collect more personal data from children than is needed for an
-        educational feature, support, safety, or legal compliance. We do not
-        sell children&apos;s data or serve behavioral advertising based on
-        children&apos;s activity. Parents or guardians can contact us to ask
-        about data access, correction, or deletion.
+        The apps may be used for education by children or students. We do not knowingly collect more personal data from
+        children than is needed for an educational feature, support, safety, or legal compliance. We do not sell
+        children&apos;s data or serve behavioral advertising based on children&apos;s activity. Parents or guardians can
+        contact us to ask about data access, correction, or deletion.
       </p>
 
       <h2>8. Changes</h2>
       <p>
-        We may update this Privacy Policy when app features, providers, or legal
-        requirements change. The latest version will remain available at this
-        public URL.
+        We may update this Privacy Policy when app features, providers, or legal requirements change. The latest version
+        will remain available at this public URL.
       </p>
 
       <h2>9. Contact</h2>
-      <p>
-        If you have any privacy questions or requests, contact us using the
-        form.
-      </p>
+      <p>If you have any privacy questions or requests, contact us using the form.</p>
       <Link to="/contact" className="privacy-contact-link">
         Open contact form
       </Link>
