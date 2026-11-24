@@ -36,7 +36,8 @@ const GithubRepositories = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        setApiRepos(await response.json());
+        const data = await response.json();
+        setApiRepos(Array.isArray(data) ? data : null);
       } catch {
         // Cards are rendered from the curated config; only the live stats are missing.
         setApiRepos(null);
@@ -55,6 +56,11 @@ const GithubRepositories = () => {
   const repoCount = useMemo(() => groups.reduce((total, group) => total + group.repos.length, 0), [groups]);
 
   useEffect(() => {
+    if (loading) {
+      return undefined;
+    }
+
+    setVisibleRepos([]);
     const timers = Array.from({ length: repoCount }, (_, index) =>
       setTimeout(() => {
         setVisibleRepos((prev) => [...prev, index]);
@@ -62,7 +68,7 @@ const GithubRepositories = () => {
     );
 
     return () => timers.forEach(clearTimeout);
-  }, [repoCount]);
+  }, [loading, repoCount]);
 
   if (loading)
     return (

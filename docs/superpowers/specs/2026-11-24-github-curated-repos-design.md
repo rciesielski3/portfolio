@@ -70,8 +70,8 @@ spinner stays. Keep the existing staggered reveal animation.
 `GithubCard`, `.repo-grid` and `.repo-box` styles. Card gets a `stats` guard so missing language/stars/forks
 render nothing instead of `undefined`.
 
-**External work section** — remove the "EV Source" item (EN `portfolioContent.js:274`, PL `:682`); it
-duplicates the `ev-data-platform` card. Other items stay.
+**External work section** — remove the "EV Source", "JS & React Fundamentals" and "Mini Game Collection"
+items (owner's decision); they duplicate cards. QA Journey, Quality Assurance Blog and My Smart Home stay.
 
 **SEO** — bump `lastmod` for `/github` in `public/sitemap.xml`; page title/description unchanged.
 

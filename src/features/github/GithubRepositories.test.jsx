@@ -95,6 +95,14 @@ test('renders cards from config when the API responds with a non-OK status', asy
   expect(screen.queryByText(/403|error/i)).not.toBeInTheDocument();
 });
 
+test('renders cards from config when the API responds with something other than a list', async () => {
+  mockFetch(() => Promise.resolve({ ok: true, json: async () => ({ message: 'API rate limit exceeded' }) }));
+  renderPage();
+
+  expect(await screen.findByText('wristplan')).toBeInTheDocument();
+  expect(screen.queryByText(/rate limit/i)).not.toBeInTheDocument();
+});
+
 test('omits a group heading when none of its repos exist in the API response', async () => {
   mockRows([row('wristplan')]);
   renderPage();
