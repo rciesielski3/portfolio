@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from '../../config/publicUrl';
 import React from 'react';
 
 import Modal from '../../components/Modal';
@@ -5,7 +6,7 @@ import Modal from '../../components/Modal';
 const CertificationCard = ({ course }) => {
   const [showModal, setShowModal] = React.useState(false);
 
-  const imageUrl = `${process.env.PUBLIC_URL}/${course.image}`;
+  const imageUrl = `${PUBLIC_URL}/${course.image}`;
 
   return (
     <div className="certification-course-card">

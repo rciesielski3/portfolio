@@ -15,9 +15,9 @@ const initialFormData = {
 const emailPattern = /\S+@\S+\.\S+/;
 
 const getEmailConfig = () => ({
-  serviceID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
-  templateID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-  publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || process.env.REACT_APP_EMAILJS_USER_ID,
+  serviceID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || import.meta.env.VITE_EMAILJS_USER_ID,
 });
 
 const ContactForm = () => {
