@@ -28,15 +28,15 @@ export const githubRepoGroups = [
       {
         name: 'k6_framework',
         description: {
-          en: 'Config-driven k6 performance-testing framework: reusable scenarios, thresholds and request objects, run from JSON configs against any API.',
-          pl: 'Konfiguracyjny framework do testów wydajnościowych w k6: reużywalne scenariusze, progi (thresholds) i obiekty żądań, uruchamiane z plików JSON.',
+          en: 'Personal k6 performance-testing sandbox built after a training: config-driven scripts, scenarios and thresholds, with a small smoke test against the QuickPizza demo.',
+          pl: 'Osobisty poligon do testów wydajnościowych w k6, zbudowany po szkoleniu: skrypty, scenariusze i progi (thresholds) sterowane konfiguracją, z krótkim smoke testem na demo QuickPizza.',
         },
       },
       {
         name: 'saucelabs-mobile-test',
         description: {
-          en: 'Cross-platform mobile test automation with WebdriverIO, Appium and TypeScript: Page Objects, shared iOS/Android selectors and multilingual runs on the Sauce Labs demo app.',
-          pl: 'Automatyzacja testów mobilnych w WebdriverIO, Appium i TypeScript: Page Objects, wspólne selektory iOS/Android i testy wielojęzyczne na aplikacji demo Sauce Labs.',
+          en: 'Mobile UI tests with WebdriverIO, Appium and TypeScript for the Sauce Labs Swag Labs sample app: Page Objects, shared iOS/Android selectors and multilingual runs, executed locally with Appium (not in the Sauce cloud).',
+          pl: 'Testy UI aplikacji mobilnej w WebdriverIO, Appium i TypeScript dla przykładowej aplikacji Sauce Labs Swag Labs: Page Objects, wspólne selektory iOS/Android i testy wielojęzyczne, uruchamiane lokalnie przez Appium (nie w chmurze Sauce).',
         },
       },
     ],
