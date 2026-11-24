@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from '../../config/publicUrl';
 import React from 'react';
 import { FaArrowRight, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -31,7 +32,7 @@ const MainPage = () => {
   });
 
   React.useEffect(() => {
-    if (process.env.NODE_ENV === 'test') {
+    if (import.meta.env.MODE === 'test') {
       return undefined;
     }
 
@@ -88,7 +89,7 @@ const MainPage = () => {
         <div className="right-section">
           <div className="profile-card">
             <img
-              src={`${process.env.PUBLIC_URL}/images/myImage.webp`}
+              src={`${PUBLIC_URL}/images/myImage.webp`}
               alt="Rafal Ciesielski, Quality Engineering Specialist with 10+ years test automation experience"
               className="profile-image"
             />

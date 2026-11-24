@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "homepage": "https://rciesielski.dev",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^14.3.1",
-    "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "emailjs-com": "^3.2.0",
     "firebase": "^11.0.1",
@@ -13,21 +10,22 @@
     "react-dom": "^18.3.1",
     "react-helmet-async": "^3.0.0",
     "react-icons": "^5.3.0",
-    "react-router-dom": "^6.26.2",
-    "web-vitals": "^2.1.4"
+    "react-router-dom": "^6.26.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "lint": "eslint src --max-warnings=0",
     "lint:fix": "eslint src --fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "verify": "npm run format:check && npm run lint && CI=true npm test -- --watchAll=false",
+    "verify": "npm run format:check && npm run lint && npm test",
     "prepare": "husky"
   },
   "engines": {
@@ -41,38 +39,32 @@
       "eslint --fix"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "prettier"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
+    "@eslint/js": "^9.39.5",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@vitejs/plugin-react": "^6.3.0",
+    "autoprefixer": "^10.7.0",
+    "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "gh-pages": "^6.2.0",
+    "globals": "^17.14.0",
     "husky": "^9.1.7",
+    "jsdom": "^31.0.1",
     "lint-staged": "^17.6.1",
+    "postcss": "^8.5.33",
     "prettier": "^3.10.1",
-    "react-scripts": "5.0.1",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
   },
   "overrides": {
     "@grpc/grpc-js": "^1.14.0"
-  }
+  },
+  "type": "module"
 }

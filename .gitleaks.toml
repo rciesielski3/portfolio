@@ -4,7 +4,7 @@ title = "portfolio gitleaks config"
 useDefault = true
 
 # Old build bundles committed in git history embed the public Firebase web API key
-# (REACT_APP_FIREBASE_API_KEY). Firebase web keys are public by design.
+# (REACT_APP_FIREBASE_API_KEY, now VITE_FIREBASE_API_KEY). Firebase web keys are public by design.
 [[allowlists]]
 description = "Firebase web API key in historical build bundles"
 paths = ['''static/js/main\.[a-z0-9]+\.js''']

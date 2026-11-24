@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from '../config/publicUrl';
 import React, { createContext } from 'react';
 
 export const DataContext = createContext();
@@ -9,11 +10,11 @@ const DataProvider = ({ children }) => {
   const [education, setEducation] = React.useState([]);
 
   React.useEffect(() => {
-    if (process.env.NODE_ENV === 'test') {
+    if (import.meta.env.MODE === 'test') {
       return undefined;
     }
 
-    const baseUrl = process.env.PUBLIC_URL;
+    const baseUrl = PUBLIC_URL;
 
     const fetchJson = async (fileName, fallback) => {
       try {

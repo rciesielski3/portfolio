@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -18,7 +19,7 @@ const row = (name, extra = {}) => ({
 });
 
 const mockFetch = (impl) => {
-  global.fetch = jest.fn(impl);
+  global.fetch = vi.fn(impl);
 };
 
 const mockRows = (rows) => mockFetch(() => Promise.resolve({ ok: true, json: async () => rows }));
