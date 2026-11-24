@@ -36,8 +36,6 @@ test.each(['en', 'pl'])('every group id has %s copy', (language) => {
   });
 });
 
-test.each(['en', 'pl'])('external work no longer duplicates repo cards in %s', (language) => {
-  const urls = portfolioContent[language].github.externalWork.items.map((item) => item.url).join(' ');
-
-  expect(urls).not.toMatch(/ev-data-platform|learn-js-react-basics|mini-game-collection/);
+test.each(['en', 'pl'])('has no external work block in %s', (language) => {
+  expect(portfolioContent[language].github.externalWork).toBeUndefined();
 });

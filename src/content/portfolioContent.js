@@ -277,28 +277,6 @@ export const portfolioContent = {
           description: 'Apps and experiments I maintain occasionally, many of them vibe-coded for fun and learning.',
         },
       },
-      externalWork: {
-        kicker: 'Supporting work',
-        title: 'Articles and side projects',
-        description: 'Additional materials showcasing practical experience.',
-        items: [
-          {
-            title: 'QA Journey',
-            description: 'Writing and notes around quality assurance practice.',
-            url: 'https://qa-journey.blogspot.com/',
-          },
-          {
-            title: 'Quality Assurance Blog',
-            description: 'Additional QA articles and experiments.',
-            url: 'https://qa-blog.onrender.com/',
-          },
-          {
-            title: 'My Smart Home',
-            description: 'Smart home related page and domain project.',
-            url: 'https://mysmarthome.cba.pl/',
-          },
-        ],
-      },
     },
     contact: {
       kicker: 'Contact',
@@ -695,28 +673,6 @@ export const portfolioContent = {
           description:
             'Aplikacje i eksperymenty, które utrzymuję okazjonalnie, wiele z nich powstało w duchu vibe-codingu.',
         },
-      },
-      externalWork: {
-        kicker: 'Dodatkowe materiały',
-        title: 'Artykuły i projekty poboczne',
-        description: 'Dodatkowe materiały pokazujące praktyczne doświadczenie.',
-        items: [
-          {
-            title: 'QA Journey',
-            description: 'Notatki i teksty o praktyce zapewniania jakości.',
-            url: 'https://qa-journey.blogspot.com/',
-          },
-          {
-            title: 'Quality Assurance Blog',
-            description: 'Dodatkowe artykuły i eksperymenty QA.',
-            url: 'https://qa-blog.onrender.com/',
-          },
-          {
-            title: 'My Smart Home',
-            description: 'Strona i projekt domenowy związany ze smart home.',
-            url: 'https://mysmarthome.cba.pl/',
-          },
-        ],
       },
     },
     contact: {

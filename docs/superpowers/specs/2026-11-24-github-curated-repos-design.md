@@ -70,8 +70,9 @@ spinner stays. Keep the existing staggered reveal animation.
 `GithubCard`, `.repo-grid` and `.repo-box` styles. Card gets a `stats` guard so missing language/stars/forks
 render nothing instead of `undefined`.
 
-**External work section** — remove the "EV Source", "JS & React Fundamentals" and "Mini Game Collection"
-items (owner's decision); they duplicate cards. QA Journey, Quality Assurance Blog and My Smart Home stay.
+**External work section** — removed entirely (owner's decision): it held three items that were either
+unmaintained (My Smart Home), a blog without attachment (QA Journey), or a test project (Quality Assurance Blog),
+and its "side projects" title clashed with the new side-projects group.
 
 **SEO** — bump `lastmod` for `/github` in `public/sitemap.xml`; page title/description unchanged.
 

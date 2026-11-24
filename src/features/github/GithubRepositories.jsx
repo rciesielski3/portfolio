@@ -120,27 +120,6 @@ const GithubRepositories = () => {
           );
         })
       )}
-      <section className="external-work-section">
-        <div className="stack-heading">
-          <p className="section-kicker">{githubContent.externalWork.kicker}</p>
-          <h2>{githubContent.externalWork.title}</h2>
-          <p>{githubContent.externalWork.description}</p>
-        </div>
-        <div className="external-work-grid">
-          {githubContent.externalWork.items.map((item) => (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external-work-card"
-              key={item.title}
-            >
-              <span>{item.title}</span>
-              <p>{item.description}</p>
-            </a>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
