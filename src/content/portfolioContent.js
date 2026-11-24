@@ -255,10 +255,9 @@ export const portfolioContent = {
       },
       groups: {
         testAutomation: {
-          kicker: 'Test automation',
-          title: 'Automation I can show end to end',
-          description:
-            'Playwright, Cypress, k6 and mobile suites built around Page Objects, fixtures, CI and readable reports.',
+          kicker: 'Quality engineering',
+          title: 'Test automation',
+          description: 'Playwright, Cypress, k6 and mobile suites built around Page Objects, fixtures and CI.',
         },
         ownProducts: {
           kicker: 'Own products',
@@ -272,9 +271,9 @@ export const portfolioContent = {
           description: 'Smaller React projects that show project hygiene: CI, dependency upkeep and schema validation.',
         },
         sideProjects: {
-          kicker: 'Side projects',
-          title: 'Built on the side',
-          description: 'Apps and experiments I maintain occasionally, many of them vibe-coded for fun and learning.',
+          kicker: 'More projects',
+          title: 'Mobile and web apps',
+          description: 'Android apps (React Native/Expo), games and a React learning lab, built alongside my day job.',
         },
       },
     },
@@ -650,10 +649,9 @@ export const portfolioContent = {
       },
       groups: {
         testAutomation: {
-          kicker: 'Automatyzacja testów',
-          title: 'Automatyzacja, którą mogę pokazać od początku do końca',
-          description:
-            'Zestawy w Playwright, Cypress, k6 i testy mobilne oparte na Page Objects, fixture’ach, CI i czytelnych raportach.',
+          kicker: 'Jakość',
+          title: 'Automatyzacja testów',
+          description: 'Zestawy w Playwright, Cypress, k6 i testy mobilne oparte na Page Objects, fixture’ach i CI.',
         },
         ownProducts: {
           kicker: 'Własne produkty',
@@ -668,10 +666,10 @@ export const portfolioContent = {
             'Mniejsze projekty React pokazujące higienę projektu: CI, dbanie o zależności i walidację schematów.',
         },
         sideProjects: {
-          kicker: 'Projekty poboczne',
-          title: 'Rozwijane z doskoku',
+          kicker: 'Więcej projektów',
+          title: 'Aplikacje mobilne i webowe',
           description:
-            'Aplikacje i eksperymenty, które utrzymuję okazjonalnie, wiele z nich powstało w duchu vibe-codingu.',
+            'Aplikacje na Androida (React Native/Expo), gry i laboratorium nauki Reacta, tworzone obok pracy zawodowej.',
         },
       },
     },
