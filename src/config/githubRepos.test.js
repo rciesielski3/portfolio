@@ -39,3 +39,9 @@ test.each(['en', 'pl'])('every group id has %s copy', (language) => {
 test.each(['en', 'pl'])('has no external work block in %s', (language) => {
   expect(portfolioContent[language].github.externalWork).toBeUndefined();
 });
+
+test('page copy does not describe projects as vibe-coded or maintained on the side', () => {
+  const copy = JSON.stringify([githubRepoGroups, portfolioContent.en.github.groups, portfolioContent.pl.github.groups]);
+
+  expect(copy).not.toMatch(/vibe|doskoku|on the side|built on the side/i);
+});
