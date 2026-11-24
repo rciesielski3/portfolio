@@ -276,7 +276,7 @@ export const portfolioContent = {
           {
             title: 'JS & React Fundamentals',
             description: 'Learning lab for JavaScript, React and Next.js fundamentals.',
-            url: 'https://learn-js-react-basics.vercel.app/',
+            url: 'https://fundamentals-lab.vercel.app/',
           },
           {
             title: 'Mini Game Collection',
@@ -684,7 +684,7 @@ export const portfolioContent = {
           {
             title: 'JS & React Fundamentals',
             description: 'Laboratorium nauki podstaw JavaScript, React i Next.js.',
-            url: 'https://learn-js-react-basics.vercel.app/',
+            url: 'https://fundamentals-lab.vercel.app/',
           },
           {
             title: 'Mini Game Collection',
