@@ -19,8 +19,8 @@ approach, for both recruiters and clients, with **test automation and own produc
 
 ## Non-goals
 
-- Cleaning up the repos themselves (README, CI, topics, removing AI clutter) — tracked separately in
-  `docs/superpowers/followups/2026-11-24-repo-followups.md`. Done after this change ships.
+- Cleaning up the repos themselves (README, CI, topics, removing AI clutter) — tracked and done
+  separately from this change (not part of this PR).
 - No GitHub token, no backend, no build-time data generation.
 - No change to the hero text or the page's overall visual style.
 
