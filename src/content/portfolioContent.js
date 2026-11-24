@@ -253,6 +253,30 @@ export const portfolioContent = {
         fallbackDescription: 'No description provided yet.',
         viewRepository: 'View repository',
       },
+      groups: {
+        testAutomation: {
+          kicker: 'Test automation',
+          title: 'Automation I can show end to end',
+          description:
+            'Playwright, Cypress, k6 and mobile suites built around Page Objects, fixtures, CI and readable reports.',
+        },
+        ownProducts: {
+          kicker: 'Own products',
+          title: 'Products I build and ship',
+          description:
+            'Applications and tools built from idea to deployment, with tests and CI gates as part of the product.',
+        },
+        maintenance: {
+          kicker: 'Engineering practice',
+          title: 'Maintenance and frontend practice',
+          description: 'Smaller React projects that show project hygiene: CI, dependency upkeep and schema validation.',
+        },
+        sideProjects: {
+          kicker: 'Side projects',
+          title: 'Built on the side',
+          description: 'Apps and experiments I maintain occasionally, many of them vibe-coded for fun and learning.',
+        },
+      },
       externalWork: {
         kicker: 'Supporting work',
         title: 'Articles and side projects',
@@ -267,21 +291,6 @@ export const portfolioContent = {
             title: 'Quality Assurance Blog',
             description: 'Additional QA articles and experiments.',
             url: 'https://qa-blog.onrender.com/',
-          },
-          {
-            title: 'EV Source',
-            description: 'EV data platform and analytics for electric vehicle insights.',
-            url: 'https://github.com/rciesielski3/ev-data-platform',
-          },
-          {
-            title: 'JS & React Fundamentals',
-            description: 'Learning lab for JavaScript, React and Next.js fundamentals.',
-            url: 'https://learn-js-react-basics.vercel.app/',
-          },
-          {
-            title: 'Mini Game Collection',
-            description: 'Small frontend projects focused on interaction and polish.',
-            url: 'https://mini-game-collection.vercel.app/',
           },
           {
             title: 'My Smart Home',
@@ -661,6 +670,32 @@ export const portfolioContent = {
         fallbackDescription: 'Brak opisu repozytorium.',
         viewRepository: 'Zobacz repozytorium',
       },
+      groups: {
+        testAutomation: {
+          kicker: 'Automatyzacja testów',
+          title: 'Automatyzacja, którą mogę pokazać od początku do końca',
+          description:
+            'Zestawy w Playwright, Cypress, k6 i testy mobilne oparte na Page Objects, fixture’ach, CI i czytelnych raportach.',
+        },
+        ownProducts: {
+          kicker: 'Własne produkty',
+          title: 'Produkty, które buduję i wdrażam',
+          description:
+            'Aplikacje i narzędzia budowane od pomysłu do wdrożenia, z testami i bramkami CI jako częścią produktu.',
+        },
+        maintenance: {
+          kicker: 'Praktyka inżynierska',
+          title: 'Utrzymanie i praktyka frontendowa',
+          description:
+            'Mniejsze projekty React pokazujące higienę projektu: CI, dbanie o zależności i walidację schematów.',
+        },
+        sideProjects: {
+          kicker: 'Projekty poboczne',
+          title: 'Rozwijane z doskoku',
+          description:
+            'Aplikacje i eksperymenty, które utrzymuję okazjonalnie, wiele z nich powstało w duchu vibe-codingu.',
+        },
+      },
       externalWork: {
         kicker: 'Dodatkowe materiały',
         title: 'Artykuły i projekty poboczne',
@@ -675,21 +710,6 @@ export const portfolioContent = {
             title: 'Quality Assurance Blog',
             description: 'Dodatkowe artykuły i eksperymenty QA.',
             url: 'https://qa-blog.onrender.com/',
-          },
-          {
-            title: 'EV Source',
-            description: 'Platforma danych EV i analityka dla samochodów elektrycznych.',
-            url: 'https://github.com/rciesielski3/ev-data-platform',
-          },
-          {
-            title: 'JS & React Fundamentals',
-            description: 'Laboratorium nauki podstaw JavaScript, React i Next.js.',
-            url: 'https://learn-js-react-basics.vercel.app/',
-          },
-          {
-            title: 'Mini Game Collection',
-            description: 'Małe projekty frontendowe skupione na interakcji i dopracowaniu UI.',
-            url: 'https://mini-game-collection.vercel.app/',
           },
           {
             title: 'My Smart Home',
