@@ -113,22 +113,22 @@ export const githubRepoGroups = [
       {
         name: 'WorldExplorer',
         description: {
-          en: 'Android app for learning countries, capitals and flags, with quizzes, a map and theming (React Native/Expo). Maintained on the side.',
-          pl: 'Aplikacja na Androida do nauki krajów, stolic i flag z quizami, mapą i motywami (React Native/Expo). Rozwijana z doskoku.',
+          en: 'Android app for learning countries, capitals and flags, with quizzes, a map and theming (React Native/Expo).',
+          pl: 'Aplikacja na Androida do nauki krajów, stolic i flag z quizami, mapą i motywami (React Native/Expo).',
         },
       },
       {
         name: 'CarExplorer',
         description: {
-          en: 'Expo app to explore car models, decode VINs and read automotive news, with quizzes and favorites in 4 languages. Maintained on the side.',
-          pl: 'Aplikacja Expo do przeglądania modeli aut, dekodowania VIN i czytania newsów motoryzacyjnych, z quizami i ulubionymi, w 4 językach. Rozwijana z doskoku.',
+          en: 'Expo app to explore car models, decode VINs and read automotive news, with quizzes and favorites in 4 languages.',
+          pl: 'Aplikacja Expo do przeglądania modeli aut, dekodowania VIN i czytania newsów motoryzacyjnych, z quizami i ulubionymi, w 4 językach.',
         },
       },
       {
         name: 'mini-game-collection',
         description: {
-          en: 'Collection of React + TypeScript mini-games with scoring and a Firebase leaderboard, built as a vibe-coding side project.',
-          pl: 'Kolekcja minigier w React + TypeScript z punktacją i rankingiem Firebase, zbudowana jako poboczny projekt w duchu vibe-codingu.',
+          en: 'Collection of React + TypeScript mini-games with scoring and a Firebase leaderboard.',
+          pl: 'Kolekcja minigier w React + TypeScript z punktacją i rankingiem Firebase.',
         },
       },
       {
