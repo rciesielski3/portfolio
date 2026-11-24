@@ -19,12 +19,16 @@ const GithubCard = ({ content, repo }) => {
       <p className="repo-description">{repo.description || content.fallbackDescription}</p>
       <div className="repo-meta">
         {repo.language && <span>{repo.language}</span>}
-        <span>
-          <FaStar aria-hidden="true" /> {repo.stargazers_count}
-        </span>
-        <span>
-          <FaCodeBranch aria-hidden="true" /> {repo.forks_count}
-        </span>
+        {Number.isFinite(repo.stargazers_count) && (
+          <span>
+            <FaStar aria-hidden="true" /> {repo.stargazers_count}
+          </span>
+        )}
+        {Number.isFinite(repo.forks_count) && (
+          <span>
+            <FaCodeBranch aria-hidden="true" /> {repo.forks_count}
+          </span>
+        )}
       </div>
       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
         {content.viewRepository}
