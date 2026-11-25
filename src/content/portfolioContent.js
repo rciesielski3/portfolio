@@ -430,7 +430,7 @@ export const portfolioContent = {
           },
           {
             title: 'Ekspert ds. testów',
-            time: 'maj 2025 – wrz 2025',
+            time: 'maj 2025 – sie 2025',
             description:
               'Odpowiadałem za pokrycie testami funkcjonalnymi, regresyjnymi, walidacyjnymi i WCAG dla aplikacji bankowych na mobile i desktop. Przekładałem user stories na scenariusze testowe, raportowałem defekty w Jira/Xray i wspierałem pewność wydań.',
           },
